@@ -1,16 +1,28 @@
 ## 💭  Todo List
 
- - [ ] 메인 화면 만들기
- - [ ] 리스트 화면 만들기
- - [ ] 입력 화면 만들기
- - [ ] 통계 화면 만들기
- - [ ] 내 위치 확인
- - [ ] 날씨 연동 (Volley & Gson)
- - [ ] 사진 연동 (사진 찍기, 앨범에서 선택)
- - [ ] 데이터베이스 연동하기
- - [ ] 마무리 (앱 아이콘, 스플래시 화면) 
+- [ ] 메인 화면 만들기
+- [ ] 리스트 화면 만들기
+- [ ] 입력 화면 만들기
+- [ ] 통계 화면 만들기
+- [ ] 내 위치 확인
+- [ ] 날씨 연동 (Volley & Gson)
+- [ ] 사진 연동 (사진 찍기, 앨범에서 선택)
+- [ ] 데이터베이스 연동하기
+- [ ] 마무리 (앱 아이콘, 스플래시 화면)
 
 <br>
+
+## Contributor
+
+<table align="center">
+  <tr align="center">
+    <td><a href="https://github.com/sey2">세영</a></td>
+  </tr>
+  <tr align="center">
+    <td><img src="https://github.com/sey2.png" width="150"></td>
+  </tr>
+</table>
+
 
 ##  ✨ 구상도
 
@@ -81,7 +93,6 @@
 <summary> 📌 완성된 오픈소스 안드로이드 앱</summary>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://blog.aritraroy.in/20-awesome-open-source-android-apps-to-boost-your-development-skills-b62832cf0fa4"> 📍 오픈소스 안드로이드 앱 모음</a>
 </details>
-
 
 
 
