@@ -74,8 +74,6 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://appsnipp.com/tag/android-ui-design-elements/"> 📍  UI 템플릿  </a>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://github.com/wasabeef/awesome-android-ui"> 📍 UI 테마 </a>
-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://coding-factory.tistory.com/209"> 📍오픈소스 UI (움짤로 되어 있고 원하는 기능을 쉽게 찾음</a>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://github.com/wasabeef/awesome-android-ui"> 📍깃 허브 오픈소스 UI 모은집 </a>
