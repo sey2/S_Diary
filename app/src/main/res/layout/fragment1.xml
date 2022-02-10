@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+현        android:layout_height="wrap_content">
 
         <lib.kingja.switchbutton.SwitchMultiButton
             android:id="@+id/switchButton"
@@ -20,9 +20,9 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:padding="8dp"
-            android:strokeRadius="5dp"
-            android:strokeWidt="1dp"
-            android:selectedColor="#eb7b00"
+            app:strokeRadius="5dp"
+            app:strokeWidth="1dp"
+            app:selectedColor="#eb7b00"
             app:switchTabs="@array/switch_tabs"
             app:textSize="14sp"/>
 
@@ -36,15 +36,14 @@
             android:text="오늘 작성"
             android:textColor="@android:color/white"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginBottom="8dp" />
-
     </RelativeLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="8dp" />
 
 </LinearLayout>
