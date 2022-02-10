@@ -10,7 +10,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-현        android:layout_height="wrap_content">
+        android:layout_height="wrap_content">
 
         <lib.kingja.switchbutton.SwitchMultiButton
             android:id="@+id/switchButton"
