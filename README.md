@@ -1,5 +1,6 @@
 ## 💭  Todo List
 
+- []  NoteAdapter setImage 코드 간략화
 - [x] 메인 화면 만들기
 - [x] 리스트 화면 만들기
 - [ ] 입력 화면 만들기
