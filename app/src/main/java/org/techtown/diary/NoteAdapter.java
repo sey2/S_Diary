@@ -1,5 +1,6 @@
 package org.techtown.diary;
 
+import android.content.res.Resources;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -167,6 +168,24 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         }
 
         public void setMoodImage(int moodIndex) {
+
+            /*
+            for(int i=0; i<=4; i++){
+                if(i == moodIndex){
+                    int resID = getResources().getIdentifier(resName, "drawable", packName);
+                    String path = "R.drawable.smile" + Integer.toString(moodIndex+1) + "_48";
+                    moodImageView.setImageResource(getURL);
+                    moodImageView2.setImageResource(Integer.parseInt(path));
+                    return;
+                }
+            }
+
+            moodImageView.setImageResource(R.drawable.smile3_48);
+            moodImageView2.setImageResource(R.drawable.smile3_48);
+
+             */
+
+
             switch(moodIndex) {
                 case 0:
                     moodImageView.setImageResource(R.drawable.smile1_48);
@@ -196,6 +215,18 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         }
 
         public void setWeatherImage(int weatherIndex) {
+
+            /*
+
+            for(int i=0; i<=6; i++){
+                String path ="R.drawable.weather_icon_" + Integer.toString(weatherIndex+1);
+                weatherImageView.setImageResource(Integer.parseInt(path));
+                weatherImageView2.setImageResource(Integer.parseInt(path));
+                return;
+            }
+            */
+
+
             switch(weatherIndex) {
                 case 0:
                     weatherImageView.setImageResource(R.drawable.weather_icon_1);
@@ -230,6 +261,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
                     weatherImageView2.setImageResource(R.drawable.weather_icon_1);
                     break;
             }
+
         }
 
         public void setLayoutType(int layoutType) {
@@ -243,5 +275,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         }
 
     }
+
 
 }
