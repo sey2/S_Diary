@@ -11,6 +11,7 @@
     app:cardElevation="5dp">
 
     <LinearLayout
+        android:id="@+id/layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -37,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="내용"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -52,7 +53,7 @@
                     app:srcCompat="@drawable/weather_icon_1" />
 
                 <ImageView
-                    android:id="@+id/pictureExistImage"
+                    android:id="@+id/pictureExistsImageView"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_marginLeft="10dp"
@@ -76,24 +77,26 @@
                     android:layout_centerVertical="true"
                     android:text="02월09일"
                     android:textColor="#FF0000FF"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:visibility="gone">
 
         <ImageView
+            android:id="@+id/pictureImageView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_margin="10dp"
             android:layout_gravity="center_vertical"
+            android:layout_margin="10dp"
             android:padding="5dp"
-            android:src="@drawable/picture1"/>
+            android:src="@drawable/picture1" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -109,7 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="내용"
-                android:textSize="24sp"/>
+                android:textSize="24sp" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -120,17 +123,25 @@
                     android:id="@+id/moodImageView2"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentLeft="true"
                     android:padding="5dp"
-                    android:srcCompat="@drawable/smile5_48"/>
+                    app:srcCompat="@drawable/smile5_48" />
 
                 <ImageView
                     android:id="@+id/weatherImageView2"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    android:layout_toRightOf="@+id/moodImageView2"
                     android:layout_marginLeft="10dp"
-                    android:srcCompat="@drawable/weather_icon_1"/>
+                    android:layout_toRightOf="@+id/moodImageView2"
+                    app:srcCompat="@drawable/weather_icon_1" />
+
+                <TextView
+                    android:id="@+id/locationTextView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/dateTextView2"
@@ -140,7 +151,7 @@
                     android:layout_centerVertical="true"
                     android:text="02월10일"
                     android:textColor="#FF0000FF"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
             </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
