@@ -1,6 +1,7 @@
 package org.techtown.diary;
 
 import android.content.res.Resources;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -168,14 +169,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         }
 
         public void setMoodImage(int moodIndex) {
+            String packName = moodImageView.getContext().getPackageName();
 
-            /*
             for(int i=0; i<=4; i++){
                 if(i == moodIndex){
-                    int resID = getResources().getIdentifier(resName, "drawable", packName);
-                    String path = "R.drawable.smile" + Integer.toString(moodIndex+1) + "_48";
-                    moodImageView.setImageResource(getURL);
-                    moodImageView2.setImageResource(Integer.parseInt(path));
+                    String str = "@drawable/smile" + Integer.toString(moodIndex+1) + "_48";
+                    int path = moodImageView.getResources().getIdentifier(str,"drawable",packName);
+                    moodImageView.setImageResource(path);
+                    moodImageView2.setImageResource(path);
                     return;
                 }
             }
@@ -183,9 +184,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             moodImageView.setImageResource(R.drawable.smile3_48);
             moodImageView2.setImageResource(R.drawable.smile3_48);
 
-             */
-
-
+/*
             switch(moodIndex) {
                 case 0:
                     moodImageView.setImageResource(R.drawable.smile1_48);
@@ -212,21 +211,29 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
                     moodImageView2.setImageResource(R.drawable.smile3_48);
                     break;
             }
+*/
         }
 
         public void setWeatherImage(int weatherIndex) {
 
-            /*
+
+            String packName = weatherImageView.getContext().getPackageName();
 
             for(int i=0; i<=6; i++){
-                String path ="R.drawable.weather_icon_" + Integer.toString(weatherIndex+1);
-                weatherImageView.setImageResource(Integer.parseInt(path));
-                weatherImageView2.setImageResource(Integer.parseInt(path));
+                if(i == weatherIndex){
+                    String str ="@drawable/weather_icon_" + Integer.toString(weatherIndex+1);
+                    int path = weatherImageView.getResources().getIdentifier(str,"drawable",packName);
+                    weatherImageView.setImageResource(path);
+                    weatherImageView2.setImageResource(path);
                 return;
+                }
             }
-            */
+
+            weatherImageView.setImageResource(R.drawable.weather_icon_1);
+            weatherImageView2.setImageResource(R.drawable.weather_icon_1);
 
 
+/*
             switch(weatherIndex) {
                 case 0:
                     weatherImageView.setImageResource(R.drawable.weather_icon_1);
@@ -261,6 +268,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
                     weatherImageView2.setImageResource(R.drawable.weather_icon_1);
                     break;
             }
+
+ */
+
+
 
         }
 
