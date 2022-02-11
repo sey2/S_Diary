@@ -188,3 +188,18 @@ replay_pid*
 .idea/sqlDataSources.xml
 .idea/dynamic.xml
 .idea/uiDesigner.xml
+
+# Android Studio
+/*/build/
+/*/local.properties
+/*/out
+/*/*/build
+/*/*/production
+*.ipr
+*~
+*.swp
+
+# IntelliJ IDEA
+*.iws
+/out/
+
