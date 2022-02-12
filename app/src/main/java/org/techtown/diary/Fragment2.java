@@ -230,7 +230,7 @@ public class Fragment2 extends Fragment {
                             isPhotoCanceled = true;
                             isPhotoCaptured = false;
 
-                            pictureImageView.setImageResource(R.drawable.picture1);
+                            pictureImageView.setImageResource(R.drawable.noimagefound);
                         }
                     }
                 });
