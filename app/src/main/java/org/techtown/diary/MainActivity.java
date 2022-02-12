@@ -23,9 +23,9 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
 
-import org.techtown.diary.UI.Fragment1;
-import org.techtown.diary.UI.Fragment2;
-import org.techtown.diary.UI.Fragment3;
+import org.techtown.diary.ui.Fragment1;
+import org.techtown.diary.ui.Fragment2;
+import org.techtown.diary.ui.Fragment3;
 import org.techtown.diary.data.AppConstants;
 import org.techtown.diary.data.GridUtil;
 import org.techtown.diary.data.WeatherItem;

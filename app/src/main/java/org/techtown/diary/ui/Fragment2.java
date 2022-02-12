@@ -1,4 +1,4 @@
-package org.techtown.diary.UI;
+package org.techtown.diary.ui;
 
 import android.app.AlertDialog;
 import android.content.ContentResolver;

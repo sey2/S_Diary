@@ -1,4 +1,4 @@
-package org.techtown.diary.UI;
+package org.techtown.diary.ui;
 
 import org.techtown.diary.adapter.NoteAdapter;
 import android.content.Context;
