@@ -1,4 +1,4 @@
-package org.techtown.diary;
+package org.techtown.diary.data;
 
 import android.util.Log;
 

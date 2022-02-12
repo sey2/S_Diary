@@ -1,7 +1,5 @@
-package org.techtown.diary;
+package org.techtown.diary.adapter;
 
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +11,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.techtown.diary.R;
+import org.techtown.diary.listener.OnNoteItemClickListener;
 
 import java.util.ArrayList;
 
@@ -72,7 +73,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         layoutType = position;
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+   public static class ViewHolder extends RecyclerView.ViewHolder {
         LinearLayout layout1;
         LinearLayout layout2;
 

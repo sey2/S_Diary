@@ -1,4 +1,4 @@
-package org.techtown.diary;
+package org.techtown.diary.adapter;
 
 public class Note {
     int _id;

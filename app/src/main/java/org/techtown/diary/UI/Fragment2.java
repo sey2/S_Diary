@@ -1,4 +1,4 @@
-package org.techtown.diary;
+package org.techtown.diary.UI;
 
 import android.app.AlertDialog;
 import android.content.ContentResolver;
@@ -25,6 +25,12 @@ import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
 import com.github.channguyen.rsv.RangeSliderView;
+
+import org.techtown.diary.data.AppConstants;
+import org.techtown.diary.BuildConfig;
+import org.techtown.diary.listener.OnRequestListener;
+import org.techtown.diary.listener.OnTabSelectedListener;
+import org.techtown.diary.R;
 
 import java.io.File;
 import java.io.InputStream;
@@ -298,7 +304,7 @@ public class Fragment2 extends Fragment {
             switch (requestCode){
                 case AppConstants.REQ_PHOTO_CAPTURE:        // 사진을 찍는 경우
 
-                    //setPicture(file.getAbsolutePath(), 8);
+                    setPicture(file.getAbsolutePath(), 8);
                     resultPhotoBitmap = decodeSampledBitmapFromResource(file,
                             pictureImageView.getWidth(), pictureImageView.getHeight());
 

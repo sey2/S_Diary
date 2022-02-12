@@ -1,5 +1,6 @@
-package org.techtown.diary;
+package org.techtown.diary.UI;
 
+import org.techtown.diary.adapter.NoteAdapter;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,6 +12,11 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.techtown.diary.adapter.Note;
+import org.techtown.diary.listener.OnNoteItemClickListener;
+import org.techtown.diary.listener.OnTabSelectedListener;
+import org.techtown.diary.R;
 
 import lib.kingja.switchbutton.SwitchMultiButton;
 

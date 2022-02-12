@@ -1,4 +1,4 @@
-package org.techtown.diary;
+package org.techtown.diary.data;
 
 import java.util.HashMap;
 import java.util.Map;

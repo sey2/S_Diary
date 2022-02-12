@@ -1,4 +1,4 @@
-package org.techtown.diary;
+package org.techtown.diary.UI;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -27,6 +27,8 @@ import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
+
+import org.techtown.diary.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

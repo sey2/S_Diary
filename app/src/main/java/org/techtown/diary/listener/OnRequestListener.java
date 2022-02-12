@@ -1,4 +1,4 @@
-package org.techtown.diary;
+package org.techtown.diary.listener;
 
 public interface OnRequestListener {
     public void onRequest(String command);
