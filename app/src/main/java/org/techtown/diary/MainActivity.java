@@ -14,9 +14,18 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.android.volley.Request;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.stanfy.gsonxml.GsonXml;
+import com.stanfy.gsonxml.GsonXmlBuilder;
+import com.stanfy.gsonxml.XmlParserCreator;
+import com.yanzhenjie.permission.Action;
+import com.yanzhenjie.permission.AndPermission;
+import com.yanzhenjie.permission.runtime.Permission;
 
+import org.techtown.diary.data.WeatherItem;
+import org.techtown.diary.data.WeatherResult;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
@@ -28,7 +37,8 @@ import java.util.Map;
 
 
 /* OnTabSelectedListener -> 하나의 프래그먼트에서 다른 프래그먼트로 전환하는 용도 */
-public class MainActivity extends AppCompatActivity implements OnTabSelectedListener {
+public class MainActivity extends AppCompatActivity
+        implements OnTabSelectedListener, OnRequestListener,MyApplication.OnResponseListener {
     Fragment1 fragment1;
     Fragment2 fragment2;
     Fragment3 fragment3;
@@ -61,17 +71,14 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectedList
                     public boolean onNavigationItemSelected(@NonNull MenuItem item){
                         switch (item.getItemId()){
                             case R.id.tab1:
-                                Toast.makeText(getApplicationContext(), "첫 번째 탭 선택됨", Toast.LENGTH_LONG).show();
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
 
                                 return true;
                             case R.id.tab2:
-                                Toast.makeText(getApplicationContext(), "두 번째 탭 선택됨", Toast.LENGTH_LONG).show();
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment2).commit();
 
                                 return true;
                             case R.id.tab3:
-                                Toast.makeText(getApplicationContext(), "세 번째 탭 선택됨", Toast.LENGTH_LONG).show();
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment3).commit();
 
                                 return true;
@@ -79,9 +86,31 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectedList
                         return false;
                     }
                 });
+
+        AndPermission.with(this)
+                .runtime()
+                .permission(
+                        Permission.ACCESS_FINE_LOCATION,
+                        Permission.READ_EXTERNAL_STORAGE,
+                        Permission.WRITE_EXTERNAL_STORAGE)
+                .onGranted(new Action<List<String>>() {
+                    @Override
+                    public void onAction(List<String> permissions) {
+                        showToast("허용된 권한 갯수 : " + permissions.size());
+                    }
+                })
+                .onDenied(new Action<List<String>>() {
+                    @Override
+                    public void onAction(List<String> permissions) {
+                        showToast("거부된 권한 갯수 : " + permissions.size());
+                    }
+                })
+                .start();
+
     }
 
     /* 이 메서드가 호출되면 하단 탭의 setSelected 메서드를 이용해 다른 탭 버튼이 선택 되도록 함 */
+    @Override
     public void onTabSelected(int position){
         if (position == 0)
             bottomNavigation.setSelectedItemId(R.id.tab1);
@@ -91,9 +120,10 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectedList
             bottomNavigation.setSelectedItemId(R.id.tab3);
     }
 
+    @Override
     public void onRequest(String command){
         if(command != null){
-            if(command.equals("getCurrentLocatoin")){
+            if(command.equals("getCurrentLocation")){
                 getCurrentLocation();
             }
         }
@@ -154,6 +184,7 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectedList
 
     }
     public void getCurrentAddress() {
+        // 현재 위치를 주소로 반환
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
         List<Address> addresses = null;
 
@@ -285,11 +316,25 @@ public class MainActivity extends AppCompatActivity implements OnTabSelectedList
         }
 
     }
+    public void stopLocationService() {
+        LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-    private void println(String data) {
-        Log.d(TAG, data);
+        try {
+            manager.removeUpdates(gpsListener);
+
+            println("Current location requested.");
+
+        } catch(SecurityException e) {
+            e.printStackTrace();
+        }
     }
 
+    private void println(String data) {
+        Log.d("MainActivity", data);
+    }
 
+    public void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
 
 }
