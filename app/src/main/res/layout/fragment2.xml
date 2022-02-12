@@ -14,7 +14,7 @@
         android:padding="4dp">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/weatherIcon"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_alignParentLeft="true"
@@ -72,6 +72,7 @@
                     android:hint="내용 입력"/>
 
                 <ImageView
+                    android:id="@+id/pictureImageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
