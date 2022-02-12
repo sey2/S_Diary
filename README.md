@@ -59,6 +59,7 @@
 |--|--|
 | SQLiteDatabase | Database  |
 | DatabaseHelper| Database|
+|API| http://www.kma.go.kr/wid/queryDFS.jsp|
 
 <br>
 
