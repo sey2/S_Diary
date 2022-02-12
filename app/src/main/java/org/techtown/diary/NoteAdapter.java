@@ -184,35 +184,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             moodImageView.setImageResource(R.drawable.smile3_48);
             moodImageView2.setImageResource(R.drawable.smile3_48);
 
-/*
-            switch(moodIndex) {
-                case 0:
-                    moodImageView.setImageResource(R.drawable.smile1_48);
-                    moodImageView2.setImageResource(R.drawable.smile1_48);
-                    break;
-                case 1:
-                    moodImageView.setImageResource(R.drawable.smile2_48);
-                    moodImageView2.setImageResource(R.drawable.smile2_48);
-                    break;
-                case 2:
-                    moodImageView.setImageResource(R.drawable.smile3_48);
-                    moodImageView2.setImageResource(R.drawable.smile3_48);
-                    break;
-                case 3:
-                    moodImageView.setImageResource(R.drawable.smile4_48);
-                    moodImageView2.setImageResource(R.drawable.smile4_48);
-                    break;
-                case 4:
-                    moodImageView.setImageResource(R.drawable.smile5_48);
-                    moodImageView2.setImageResource(R.drawable.smile5_48);
-                    break;
-                default:
-                    moodImageView.setImageResource(R.drawable.smile3_48);
-                    moodImageView2.setImageResource(R.drawable.smile3_48);
-                    break;
-            }
-*/
-        }
+       }
 
         public void setWeatherImage(int weatherIndex) {
 
@@ -231,47 +203,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
 
             weatherImageView.setImageResource(R.drawable.weather_icon_1);
             weatherImageView2.setImageResource(R.drawable.weather_icon_1);
-
-
-/*
-            switch(weatherIndex) {
-                case 0:
-                    weatherImageView.setImageResource(R.drawable.weather_icon_1);
-                    weatherImageView2.setImageResource(R.drawable.weather_icon_1);
-                    break;
-                case 1:
-                    weatherImageView.setImageResource(R.drawable.weather_icon_2);
-                    weatherImageView2.setImageResource(R.drawable.weather_icon_2);
-                    break;
-                case 2:
-                    weatherImageView.setImageResource(R.drawable.weather_icon_3);
-                    weatherImageView2.setImageResource(R.drawable.weather_icon_3);
-                    break;
-                case 3:
-                    weatherImageView.setImageResource(R.drawable.weather_icon_4);
-                    weatherImageView2.setImageResource(R.drawable.weather_icon_4);
-                    break;
-                case 4:
-                    weatherImageView.setImageResource(R.drawable.weather_icon_5);
-                    weatherImageView2.setImageResource(R.drawable.weather_icon_5);
-                    break;
-                case 5:
-                    weatherImageView.setImageResource(R.drawable.weather_icon_6);
-                    weatherImageView2.setImageResource(R.drawable.weather_icon_6);
-                    break;
-                case 6:
-                    weatherImageView.setImageResource(R.drawable.weather_icon_7);
-                    weatherImageView2.setImageResource(R.drawable.weather_icon_7);
-                    break;
-                default:
-                    weatherImageView.setImageResource(R.drawable.weather_icon_1);
-                    weatherImageView2.setImageResource(R.drawable.weather_icon_1);
-                    break;
-            }
-
- */
-
-
 
         }
 
