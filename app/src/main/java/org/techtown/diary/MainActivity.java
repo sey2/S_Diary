@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.tabs.TabLayout;
 import com.stanfy.gsonxml.GsonXml;
 import com.stanfy.gsonxml.GsonXmlBuilder;
 import com.stanfy.gsonxml.XmlParserCreator;
@@ -24,8 +23,15 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
 
+import org.techtown.diary.UI.Fragment1;
+import org.techtown.diary.UI.Fragment2;
+import org.techtown.diary.UI.Fragment3;
+import org.techtown.diary.data.AppConstants;
+import org.techtown.diary.data.GridUtil;
 import org.techtown.diary.data.WeatherItem;
 import org.techtown.diary.data.WeatherResult;
+import org.techtown.diary.listener.OnRequestListener;
+import org.techtown.diary.listener.OnTabSelectedListener;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
