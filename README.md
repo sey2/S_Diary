@@ -57,18 +57,18 @@
 ```bash
 * 📦diary
       └─📂app
-       ├─📂java
-       │  ├─📂adapter
-       │  ├─📂data
-       │  ├─📂ui
-       │  └─📂main
-       ├─📂res
-       │  ├─📂drawable
-       │  ├─📂layout
-       │  ├─📂menu
-       │  ├─📂xml
-       │  └─📂values
-             └─📂themes       
+         ├─📂java
+         │  ├─📂adapter
+         │  ├─📂data
+         │  ├─📂ui
+         │  └─📂main
+         ├─📂res
+         │  ├─📂drawable
+         │  ├─📂layout
+         │  ├─📂menu
+         │  ├─📂xml
+         │  └─📂values
+         └────└─📂themes       
 ```
 
 <br>
@@ -98,7 +98,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://coding-factory.tistory.com/209"> 📍오픈소스 UI (움짤로 되어 있고 원하는 기능을 쉽게 찾음</a>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://github.com/wasabeef/awesome-android-ui"> 📍깃 허브 오픈소스 UI 모은집 </a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://github.com/wasabeef/awesome-android-ui"> 📍깃 허브 오픈소스 UI 모음집 </a>
 
 </details>
 
