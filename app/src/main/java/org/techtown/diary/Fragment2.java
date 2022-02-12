@@ -271,6 +271,8 @@ public class Fragment2 extends Fragment {
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
 
+        startActivityForResult(intent, AppConstants.REQ_PHOTO_CAPTURE);
+
     }
 
     private File createFile(){
@@ -288,6 +290,7 @@ public class Fragment2 extends Fragment {
         startActivityForResult(intent, AppConstants.REQ_PHOTO_SELECTION);
     }
 
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
         super.onActivityResult(requestCode, resultCode, intent);
 
