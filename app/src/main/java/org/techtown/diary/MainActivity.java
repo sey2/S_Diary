@@ -29,7 +29,6 @@ import java.util.Map;
 
 /* OnTabSelectedListener -> 하나의 프래그먼트에서 다른 프래그먼트로 전환하는 용도 */
 public class MainActivity extends AppCompatActivity implements OnTabSelectedListener {
-
     Fragment1 fragment1;
     Fragment2 fragment2;
     Fragment3 fragment3;
