@@ -23,6 +23,7 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
 
+import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.ui.Fragment1;
 import org.techtown.diary.ui.Fragment2;
 import org.techtown.diary.ui.Fragment3;
@@ -59,6 +60,9 @@ public class MainActivity extends AppCompatActivity
     String currentAddress;
     String currentDataString;
     Date currentDate;
+
+    /* 데이터베이스 인스턴스 */
+    public static NoteDatabase mDatabase = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +116,8 @@ public class MainActivity extends AppCompatActivity
                     }
                 })
                 .start();
+
+        openDatabase();
 
     }
 
@@ -341,6 +347,33 @@ public class MainActivity extends AppCompatActivity
 
     public void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (mDatabase != null) {
+            mDatabase.close();
+            mDatabase = null;
+        }
+    }
+
+    /*  데이터베이스 열기 (데이터베이스가 없을 때는 만들기) */
+    public void openDatabase() {
+        // open database
+        if (mDatabase != null) {
+            mDatabase.close();
+            mDatabase = null;
+        }
+
+        mDatabase = NoteDatabase.getInstance(this);
+        boolean isOpen = mDatabase.open();
+        if (isOpen) {
+            Log.d("MainActivity", "Note database is open.");
+        } else {
+            Log.d("MainActivity>", "Note database is not open.");
+        }
     }
 
 }
