@@ -24,15 +24,18 @@ import android.widget.Toast;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
+import com.github.channguyen.rsv.BuildConfig;
 import com.github.channguyen.rsv.RangeSliderView;
 
+import org.techtown.diary.db.NoteDatabase;
+import org.techtown.diary.adapter.Note;
 import org.techtown.diary.data.AppConstants;
-import org.techtown.diary.BuildConfig;
 import org.techtown.diary.listener.OnRequestListener;
 import org.techtown.diary.listener.OnTabSelectedListener;
 import org.techtown.diary.R;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.Date;
 
@@ -41,6 +44,15 @@ public class Fragment2 extends Fragment {
     Context context;
     OnTabSelectedListener listener;
     OnRequestListener requestListener;
+
+    int mMode = AppConstants.MODE_INSERT;
+    int _id = -1;
+    int weatherIndex = 0;
+
+    RangeSliderView moodSlider;
+    int moodIndex = 2;
+
+    Note item;
 
     ImageView weatherIcon;
     TextView dateTextView;
@@ -122,6 +134,12 @@ public class Fragment2 extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if(mMode == AppConstants.MODE_INSERT)
+                    saveNote();
+                else if(mMode == AppConstants.MODE_MODIFY)
+                    modifyNote();
+
                 if(listener != null)
                     listener.onTabSelected(0);
             }
@@ -131,6 +149,8 @@ public class Fragment2 extends Fragment {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                deleteNote();
+
                 if(listener != null)
                     listener.onTabSelected(0);
             }
@@ -145,15 +165,17 @@ public class Fragment2 extends Fragment {
             }
         });
 
-        RangeSliderView sliderView = rootView.findViewById(R.id.sliderView);
-        sliderView.setOnSlideListener(new RangeSliderView.OnSlideListener() {
+        moodSlider = rootView.findViewById(R.id.sliderView);
+        final RangeSliderView.OnSlideListener listener = new RangeSliderView.OnSlideListener() {
             @Override
             public void onSlide(int index) {
                 Toast.makeText(context, "moodIndex changed to " + index, Toast.LENGTH_LONG).show();
+                moodIndex = index;
             }
-        });
+        };
 
-        sliderView.setInitialIndex(2);  // 슬라이더 인덱스 설정
+        moodSlider.setOnSlideListener(listener);
+        moodSlider.setInitialIndex(2);  // 슬라이더 인덱스 설정
     }
 
     public void setWeather(String data){
@@ -376,4 +398,93 @@ public class Fragment2 extends Fragment {
 
         return curDateStr;
     }
+
+    private void saveNote(){
+        String address = locationTextView.getText().toString();
+        String contents = contentsInput.getText().toString();
+        String picturePath = savePicture();
+
+        String sql = "insert into " + NoteDatabase.TABLE_NOTE +
+                "(WEATHER, ADDRESS, LOCATION_X, LOCATION_Y, CONTENTS, MOOD, PICTURE) values(" +
+                "'"+ weatherIndex + "', " +
+                "'"+ address + "', " +
+                "'"+ "" + "', " +
+                "'"+ "" + "', " +
+                "'"+ contents + "', " +
+                "'"+ moodIndex + "', " +
+                "'"+ picturePath + "')";
+
+        Log.d("Fragment2", "sql : " + sql);
+        NoteDatabase database = NoteDatabase.getInstance(context);
+        database.execSQL(sql);
+    }
+
+    private void modifyNote(){
+        if(item != null){
+            String address = locationTextView.getText().toString();
+            String contents = contentsInput.getText().toString();
+
+            String picturePath = savePicture();
+
+            // update note
+            String sql = "update " + NoteDatabase.TABLE_NOTE +
+                    " set " +
+                    "   WEATHER = '" + weatherIndex + "'" +
+                    "   ,ADDRESS = '" + address + "'" +
+                    "   ,LOCATION_X = '" + "" + "'" +
+                    "   ,LOCATION_Y = '" + "" + "'" +
+                    "   ,CONTENTS = '" + contents + "'" +
+                    "   ,MOOD = '" + moodIndex + "'" +
+                    "   ,PICTURE = '" + picturePath + "'" +
+                    " where " +
+                    "   _id = " + item.get_id();
+
+
+            Log.d("Fragment2","sql" + sql);
+            NoteDatabase database = NoteDatabase.getInstance(context);
+            database.execSQL(sql);
+        }
+    }
+
+    private void deleteNote(){
+        AppConstants.println("deleteNote called");
+
+        if(item != null){
+            String sql = "delete from " + NoteDatabase.TABLE_NOTE +
+                    " where " +
+                    "   _id = " + item.get_id();
+
+            Log.d("Fragment2", "sql : " + sql);
+            NoteDatabase database = NoteDatabase.getInstance(context);
+            database.execSQL(sql);
+        }
+    }
+
+    private String savePicture() {
+        if(resultPhotoBitmap == null){
+            AppConstants.println("No picture to be saved.");
+            return "";
+        }
+
+        File photoFolder = new File(AppConstants.FOLDER_PHOTO);
+
+        if(!photoFolder.isDirectory()){
+            Log.d("Fragment2", "creating photo folder : " + photoFolder );
+            photoFolder.mkdir();
+        }
+
+        String photoFilename = createFilename();
+        String picturePath = photoFolder + File.separator + photoFilename;
+
+        try {
+            FileOutputStream outstream = new FileOutputStream(picturePath);
+            resultPhotoBitmap.compress(Bitmap.CompressFormat.PNG, 100, outstream);
+            outstream.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return picturePath;
+    }
+
 }
