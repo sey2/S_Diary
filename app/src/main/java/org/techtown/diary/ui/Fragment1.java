@@ -2,6 +2,7 @@ package org.techtown.diary.ui;
 
 import org.techtown.diary.adapter.NoteAdapter;
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +15,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.techtown.diary.adapter.Note;
+import org.techtown.diary.data.AppConstants;
+import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.listener.OnNoteItemClickListener;
 import org.techtown.diary.listener.OnTabSelectedListener;
 import org.techtown.diary.R;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 import lib.kingja.switchbutton.SwitchMultiButton;
 
@@ -53,6 +59,8 @@ public class Fragment1 extends Fragment {
         ViewGroup rootView  = (ViewGroup) inflater.inflate(R.layout.fragment1, container, false);
 
         initUI(rootView);
+
+        loadNoteListData();
 
         return rootView;
     }
@@ -104,6 +112,63 @@ public class Fragment1 extends Fragment {
             }
         });
 
+    }
+
+    public int loadNoteListData(){
+        AppConstants.println("loadNoteListData called.");
+        String sql = "select _id, WEATHER, ADDRESS, LOCATION_X, LOCATION_Y, CONTENTS, MOOD, PICTURE, " +
+                "CREATE_DATE, MODIFY_DATE from " + NoteDatabase.TABLE_NOTE + " order by CREATE_DATE desc";
+
+        int recordCount = 0;
+
+        NoteDatabase database = NoteDatabase.getInstance(context);
+
+        if(database != null){
+            Cursor outCursor = database.rawQuery(sql);
+            recordCount = outCursor.getCount();
+            AppConstants.println("record count : " + recordCount + "\n");
+
+            ArrayList<Note> items = new ArrayList<>();
+
+            for(int i=0; i < recordCount; i++){
+                outCursor.moveToNext();
+
+                int _id = outCursor.getInt(0);
+                String weather = outCursor.getString(1);
+                String address = outCursor.getString(2);
+                String locationX = outCursor.getString(3);
+                String locationY = outCursor.getString(4);
+                String contents = outCursor.getString(5);
+                String mood = outCursor.getString(6);
+                String picture = outCursor.getString(7);
+                String dateStr = outCursor.getString(8);
+                String createDateStr = null;
+
+                if(dateStr != null && dateStr.length() > 10){
+                    try{
+                        Date inDate = AppConstants.dateFormat4.parse(dateStr);
+                        createDateStr = AppConstants.dateFormat3.format(inDate);
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }else{
+                    createDateStr = "";
+                }
+
+                AppConstants.println("#" + i + " -> " + _id + ", " + weather + ", " +
+                        address + ", " + locationX + ", " + locationY + ", " + contents + ", " +
+                        mood +", " + picture + ", " + createDateStr);
+
+                items.add(new Note(_id, weather, address, locationX, locationY, contents, mood, picture, createDateStr));
+            }
+
+            outCursor.close();
+
+            adapter.setItems(items);
+            adapter.notifyDataSetChanged();
+        }
+
+        return recordCount;
     }
 }
 
