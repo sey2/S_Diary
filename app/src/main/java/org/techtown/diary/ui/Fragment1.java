@@ -1,6 +1,9 @@
 package org.techtown.diary.ui;
 
+import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.NoteAdapter;
+
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -16,7 +19,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.techtown.diary.adapter.Note;
 import org.techtown.diary.data.AppConstants;
-import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.listener.OnNoteItemClickListener;
 import org.techtown.diary.listener.OnTabSelectedListener;
 import org.techtown.diary.R;
@@ -114,17 +116,22 @@ public class Fragment1 extends Fragment {
 
     }
 
+    /* 리스트 데이터 로딩 */
+    @SuppressLint("Range")
     public int loadNoteListData(){
         AppConstants.println("loadNoteListData called.");
-        String sql = "select _id, WEATHER, ADDRESS, LOCATION_X, LOCATION_Y, CONTENTS, MOOD, PICTURE, " +
-                "CREATE_DATE, MODIFY_DATE from " + NoteDatabase.TABLE_NOTE + " order by CREATE_DATE desc";
 
-        int recordCount = 0;
+        //String sql = "select _id, WEATHER, ADDRESS, LOCATION_X, LOCATION_Y, CONTENTS, MOOD, PICTURE, " +
+          //      "CREATE_DATE, MODIFY_DATE from " + NoteDatabase.TABLE_NOTE + " order by CREATE_DATE desc";
+
+        String sql = "select _id, WEATHER, ADDRESS, LOCATION_X, LOCATION_Y, CONTENTS, MOOD, PICTURE, CREATE_DATE, MODIFY_DATE from " + NoteDatabase.TABLE_NOTE + " order by CREATE_DATE desc";
+        int recordCount = -1;
 
         NoteDatabase database = NoteDatabase.getInstance(context);
 
         if(database != null){
             Cursor outCursor = database.rawQuery(sql);
+
             recordCount = outCursor.getCount();
             AppConstants.println("record count : " + recordCount + "\n");
 
