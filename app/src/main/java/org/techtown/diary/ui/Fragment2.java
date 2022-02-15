@@ -1,6 +1,7 @@
 package org.techtown.diary.ui;
 
 import android.app.AlertDialog;
+import android.app.Application;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -21,12 +22,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 
-import com.github.channguyen.rsv.BuildConfig;
 import com.github.channguyen.rsv.RangeSliderView;
 
+import org.techtown.diary.BuildConfig;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.Note;
 import org.techtown.diary.data.AppConstants;
@@ -86,7 +88,7 @@ public class Fragment2 extends Fragment {
     }
 
     @Override
-    public void onAttach(Context context){
+    public void onAttach(@NonNull  Context context){
         super.onAttach(context);
 
         this.context = context;
@@ -179,13 +181,13 @@ public class Fragment2 extends Fragment {
     }
 
     public void setWeather(String data){
-        String array[] = {"맑음", "구름 조금", "구름 많음", "흐림", "비", "눈/비", "눈"};
+        String [] array = {"맑음", "구름 조금", "구름 많음", "흐림", "비", "눈/비", "눈"};
         String packName = weatherIcon.getContext().getPackageName();
 
         if(data != null){
             for(int i=0; i<array.length; i++){
                 if(array[i].equals(data)) {
-                    String str = "@drawable/weather+" + Integer.toString(i+1);
+                    String str = "@drawable/weather+" + i+1;
                     int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
                     weatherIcon.setImageResource(path);
                     return;
@@ -326,7 +328,7 @@ public class Fragment2 extends Fragment {
             switch (requestCode){
                 case AppConstants.REQ_PHOTO_CAPTURE:        // 사진을 찍는 경우
 
-                    setPicture(file.getAbsolutePath(), 8);
+                  //  setPicture(file.getAbsolutePath(), 8);
                     resultPhotoBitmap = decodeSampledBitmapFromResource(file,
                             pictureImageView.getWidth(), pictureImageView.getHeight());
 
