@@ -85,7 +85,7 @@ public class Fragment3 extends Fragment {
                 "  , count(mood) " +
                 "from " + NoteDatabase.TABLE_NOTE + " " +
                 "where create_date > '" + getMonthBefore(1) + "' " +
-                "  and create_date < '" + getTomorrow() + "' " +
+                "  and create_date < '" + getToday() + "' " +
                 "group by mood";
 
         Cursor cursor = database.rawQuery(sql);
@@ -110,7 +110,7 @@ public class Fragment3 extends Fragment {
                 "  , avg(mood) " +
                 "from " + NoteDatabase.TABLE_NOTE + " " +
                 "where create_date > '" + getMonthBefore(1) + "' " +
-                "  and create_date < '" + getTomorrow() + "' " +
+                "  and create_date < '" + getToday() + "' " +
                 "group by strftime('%w', create_date)";
 
         cursor = database.rawQuery(sql);
@@ -135,8 +135,8 @@ public class Fragment3 extends Fragment {
         sql = "select strftime('%Y-%m-%d', create_date) " +
                 "  , avg(cast(mood as real)) " +
                 "from " + NoteDatabase.TABLE_NOTE + " " +
-                "where create_date > '" + getDayBefore(7) + "' " +
-                "  and create_date < '" + getTomorrow() + "' " +
+                "where create_date > '" + getDayBefore(4) + "' " +
+                "  and create_date < '" + getToday() + "' " +
                 "group by strftime('%Y-%m-%d', create_date)";
 
         cursor = database.rawQuery(sql);
@@ -188,7 +188,7 @@ public class Fragment3 extends Fragment {
         chart.setUsePercentValues(true);
         chart.getDescription().setEnabled(false);
 
-        chart.setCenterText("기분별 비율");
+        chart.setCenterText(getResources().getString(R.string.graph1_title));
 
         chart.setTransparentCircleColor(Color.WHITE);
         chart.setTransparentCircleAlpha(110);
