@@ -84,6 +84,8 @@ public class Fragment2 extends Fragment {
         if(requestListener != null)
             requestListener.onRequest("getCurrentLocation");
 
+        applyItem();
+
         return rootView;
     }
 
@@ -202,7 +204,7 @@ public class Fragment2 extends Fragment {
         locationTextView.setText(data);
     }
 
-    public void setDataString(String dataString){
+    public void setDateString(@NonNull  String dataString){
         dateTextView.setText(dataString);
     }
 
@@ -280,6 +282,85 @@ public class Fragment2 extends Fragment {
         dialog.show();
     }
 
+    public void setContents(String data) {
+        contentsInput.setText(data);
+    }
+
+    public void setMood(String mood) {
+        try {
+            moodIndex = Integer.parseInt(mood);
+            moodSlider.setInitialIndex(moodIndex);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void applyItem() {
+        AppConstants.println("applyItem called.");
+
+        if (item != null) {
+            mMode = AppConstants.MODE_MODIFY;
+
+            setWeatherIndex(Integer.parseInt(item.getWeather()));
+            setAddress(item.getAddress());
+            setDateString(item.getCreateDateStr());
+            setContents(item.getContents());
+
+            String picturePath = item.getPicture();
+            AppConstants.println("picturePath : " + picturePath);
+
+            if (picturePath == null || picturePath.equals("")) {
+                pictureImageView.setImageResource(R.drawable.noimagefound);
+            } else {
+                setPicture(item.getPicture(), 1);
+            }
+
+            setMood(item.getMood());
+        } else {
+            mMode = AppConstants.MODE_INSERT;
+
+            setWeatherIndex(0);
+            setAddress("");
+
+            Date currentDate = new Date();
+            String currentDateString = AppConstants.dateFormat3.format(currentDate);
+            setDateString(currentDateString);
+
+            contentsInput.setText("");
+            pictureImageView.setImageResource(R.drawable.noimagefound);
+            setMood("2");
+        }
+
+    }
+
+    public void setWeatherIndex(int index) {
+        if (index == 0) {
+            weatherIcon.setImageResource(R.drawable.weather_1);
+            weatherIndex = 0;
+        } else if (index == 1) {
+            weatherIcon.setImageResource(R.drawable.weather_2);
+            weatherIndex = 1;
+        } else if (index == 2) {
+            weatherIcon.setImageResource(R.drawable.weather_3);
+            weatherIndex = 2;
+        } else if (index == 3) {
+            weatherIcon.setImageResource(R.drawable.weather_4);
+            weatherIndex = 3;
+        } else if (index == 4) {
+            weatherIcon.setImageResource(R.drawable.weather_5);
+            weatherIndex = 4;
+        } else if (index == 5) {
+            weatherIcon.setImageResource(R.drawable.weather_6);
+            weatherIndex = 5;
+        } else if (index == 6) {
+            weatherIcon.setImageResource(R.drawable.weather_7);
+            weatherIndex = 6;
+        } else {
+            Log.d("Fragment2", "Unknown weather index : " + index);
+        }
+
+    }
+
     public void showPhotoCaptureActivity(){
         try{
             file = createFile();
@@ -321,39 +402,37 @@ public class Fragment2 extends Fragment {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent intent){
+    public void onActivityResult(int requestCode, int resultCode, @NonNull  Intent intent){
         super.onActivityResult(requestCode, resultCode, intent);
 
-        if(intent != null){
-            switch (requestCode){
-                case AppConstants.REQ_PHOTO_CAPTURE:        // 사진을 찍는 경우
+        switch (requestCode){
+            case AppConstants.REQ_PHOTO_CAPTURE:        // 사진을 찍는 경우
 
-                  //  setPicture(file.getAbsolutePath(), 8);
-                    resultPhotoBitmap = decodeSampledBitmapFromResource(file,
-                            pictureImageView.getWidth(), pictureImageView.getHeight());
+                setPicture(file.getAbsolutePath(), 8);
+                resultPhotoBitmap = decodeSampledBitmapFromResource(file,
+                        pictureImageView.getWidth(), pictureImageView.getHeight());
 
+                pictureImageView.setImageBitmap(resultPhotoBitmap);
+                break;
+
+            case AppConstants.REQ_PHOTO_SELECTION:  // 사진을 앨범에서 선택하는 경우
+                Uri fileUri = intent.getData();
+
+                ContentResolver resolver = context.getContentResolver();
+
+                try{
+                    InputStream instream = resolver.openInputStream(fileUri);
+                    resultPhotoBitmap = BitmapFactory.decodeStream(instream);
                     pictureImageView.setImageBitmap(resultPhotoBitmap);
-                    break;
 
-                case AppConstants.REQ_PHOTO_SELECTION:  // 사진을 앨범에서 선택하는 경우
-                    Uri fileUri = intent.getData();
+                    instream.close();
 
-                    ContentResolver resolver = context.getContentResolver();
+                    isPhotoCaptured = true;
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
 
-                    try{
-                        InputStream instream = resolver.openInputStream(fileUri);
-                        resultPhotoBitmap = BitmapFactory.decodeStream(instream);
-                        pictureImageView.setImageBitmap(resultPhotoBitmap);
-
-                        instream.close();
-
-                        isPhotoCaptured = true;
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-
-                    break;
-            }
+                break;
         }
     }
 
