@@ -36,7 +36,7 @@
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/select_button"
-            android:text="오늘 작성"
+            android:text="@string/write_today"
             android:textColor="@android:color/white" />
 
     </RelativeLayout>
