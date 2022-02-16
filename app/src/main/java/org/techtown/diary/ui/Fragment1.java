@@ -84,8 +84,6 @@ public class Fragment1 extends Fragment {
         switchButton.setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
             @Override
             public void onSwitch(int position, String tabText) {
-                Toast.makeText(getContext(), tabText, Toast.LENGTH_SHORT).show();
-
                 adapter.switchLayout(position);
                 adapter.notifyDataSetChanged();
             }
