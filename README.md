@@ -1,3 +1,7 @@
+## :memo: S Diary
+
+<img src="https://user-images.githubusercontent.com/54762273/154274780-f78003a2-d912-4725-b52b-14cc3ae53dec.png" width="300px" height="300px" />
+
 ## 💭  Todo List
 
 - [x] 메인 화면 만들기
@@ -26,12 +30,6 @@
     <td><img src="https://github.com/sey2.png" width="150"></td>
   </tr>
 </table>
-
-## S Diary
-
-![appicon](https://user-images.githubusercontent.com/54762273/154274780-f78003a2-d912-4725-b52b-14cc3ae53dec.png)
-
-
 
 ##  ✨ 구상도
 
