@@ -1,5 +1,5 @@
 ## :memo: S Diary
-<table>
+<table align="center">
   <tr>
     <td><img src="https://user-images.githubusercontent.com/54762273/154274780-f78003a2-d912-4725-b52b-14cc3ae53dec.png" width="300px" height="300px" /></td>
     <td><img src="https://user-images.githubusercontent.com/54762273/154296621-ecdf539b-8635-4447-bf69-d0d45ece072c.png" width="300px" height="300px" /> </tr>
