@@ -333,6 +333,10 @@ public class Fragment2 extends Fragment {
 
     }
 
+    public void setItem(Note item) {
+        this.item = item;
+    }
+
     public void setWeatherIndex(int index) {
         if (index == 0) {
             weatherIcon.setImageResource(R.drawable.weather_1);
