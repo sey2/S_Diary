@@ -27,6 +27,11 @@
   </tr>
 </table>
 
+## S Diary
+
+![appicon](https://user-images.githubusercontent.com/54762273/154274780-f78003a2-d912-4725-b52b-14cc3ae53dec.png)
+
+
 
 ##  ✨ 구상도
 
@@ -37,9 +42,9 @@
 
 ![Untitled Diagram drawio (2)](https://user-images.githubusercontent.com/54762273/152700266-fbb13f71-0534-4f0e-92d0-9213893abbb7.png)
 
-
-
 </details>
+
+
 
 <details markdown="1">
 
