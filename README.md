@@ -1,6 +1,10 @@
 ## :memo: S Diary
+<table>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/54762273/154274780-f78003a2-d912-4725-b52b-14cc3ae53dec.png" width="300px" height="300px" /></td>
+    <td><img src="https://user-images.githubusercontent.com/54762273/154296621-ecdf539b-8635-4447-bf69-d0d45ece072c.png" width="300px" height="300px" /> </tr>
+</table>
 
-<img src="https://user-images.githubusercontent.com/54762273/154274780-f78003a2-d912-4725-b52b-14cc3ae53dec.png" width="300px" height="300px" />
 
 ## 💭  Todo List
 
@@ -16,7 +20,7 @@
 - [ ] 일기 삭제 기능 추가
 - [ ] 일기 클릭하면 한눈에 보이는 뷰 추가 
 - [ ] UI 리팩토링
-- [ ] 앱 스플래쉬 화면, 아이콘 제작 
+- [x] 앱 스플래쉬 화면, 아이콘 제작 
 
 <br>
 
