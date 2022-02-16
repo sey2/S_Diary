@@ -23,6 +23,7 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
 
+import org.techtown.diary.adapter.Note;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.ui.Fragment1;
 import org.techtown.diary.ui.Fragment2;
@@ -36,6 +37,8 @@ import org.techtown.diary.listener.OnTabSelectedListener;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -58,8 +61,10 @@ public class MainActivity extends AppCompatActivity
     int locationCount = 0;  // 위치 정보를 확인한 횟수
     String currentWeather;
     String currentAddress;
-    String currentDataString;
+    String currentDateString;
     Date currentDate;
+    SimpleDateFormat todayDateFormat;
+
 
     /* 데이터베이스 인스턴스 */
     public static NoteDatabase mDatabase = null;
@@ -97,6 +102,8 @@ public class MainActivity extends AppCompatActivity
                     }
                 });
 
+        setPicturePath();
+
         AndPermission.with(this)
                 .runtime()
                 .permission(
@@ -121,13 +128,26 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    public void setPicturePath() {
+        String folderPath = getFilesDir().getAbsolutePath();
+        AppConstants.FOLDER_PHOTO = folderPath + File.separator + "photo";
+
+        File photoFolder = new File(AppConstants.FOLDER_PHOTO);
+        if (!photoFolder.exists()) {
+            photoFolder.mkdirs();
+        }
+    }
+
     /* 이 메서드가 호출되면 하단 탭의 setSelected 메서드를 이용해 다른 탭 버튼이 선택 되도록 함 */
     @Override
     public void onTabSelected(int position){
         if (position == 0)
             bottomNavigation.setSelectedItemId(R.id.tab1);
-        else if (position == 1)
+        else if (position == 1) {
             bottomNavigation.setSelectedItemId(R.id.tab2);
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment2).commit();
+        }
         else if (position == 2)
             bottomNavigation.setSelectedItemId(R.id.tab3);
     }
@@ -142,9 +162,19 @@ public class MainActivity extends AppCompatActivity
     }
 
     public void getCurrentLocation(){
-        // 현재 시간 설정
+        // set current time
         currentDate = new Date();
-        currentDataString = AppConstants.dateFormat3.format(currentDate);
+
+        //currentDateString = AppConstants.dateFormat3.format(currentDate);
+        if (todayDateFormat == null) {
+            todayDateFormat = new SimpleDateFormat(getResources().getString(R.string.today_date_format));
+        }
+        currentDateString = todayDateFormat.format(currentDate);
+        AppConstants.println("currentDateString : " + currentDateString);
+
+        if (fragment2 != null) {
+            fragment2.setDateString(currentDateString);
+        }
 
         LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
