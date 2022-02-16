@@ -73,6 +73,8 @@ public class Fragment2 extends Fragment {
     File file;
     Bitmap resultPhotoBitmap;
 
+    String packName;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -85,6 +87,8 @@ public class Fragment2 extends Fragment {
             requestListener.onRequest("getCurrentLocation");
 
         applyItem();
+
+        packName = weatherIcon.getContext().getPackageName();
 
         return rootView;
     }
@@ -184,12 +188,11 @@ public class Fragment2 extends Fragment {
 
     public void setWeather(String data){
         String [] array = {"맑음", "구름 조금", "구름 많음", "흐림", "비", "눈/비", "눈"};
-        String packName = weatherIcon.getContext().getPackageName();
 
         if(data != null){
             for(int i=0; i<array.length; i++){
                 if(array[i].equals(data)) {
-                    String str = "@drawable/weather+" + i+1;
+                    String str = "@drawable/weather_+" + i+1;
                     int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
                     weatherIcon.setImageResource(path);
                     return;
@@ -338,29 +341,14 @@ public class Fragment2 extends Fragment {
     }
 
     public void setWeatherIndex(int index) {
-        if (index == 0) {
-            weatherIcon.setImageResource(R.drawable.weather_1);
-            weatherIndex = 0;
-        } else if (index == 1) {
-            weatherIcon.setImageResource(R.drawable.weather_2);
-            weatherIndex = 1;
-        } else if (index == 2) {
-            weatherIcon.setImageResource(R.drawable.weather_3);
-            weatherIndex = 2;
-        } else if (index == 3) {
-            weatherIcon.setImageResource(R.drawable.weather_4);
-            weatherIndex = 3;
-        } else if (index == 4) {
-            weatherIcon.setImageResource(R.drawable.weather_5);
-            weatherIndex = 4;
-        } else if (index == 5) {
-            weatherIcon.setImageResource(R.drawable.weather_6);
-            weatherIndex = 5;
-        } else if (index == 6) {
-            weatherIcon.setImageResource(R.drawable.weather_7);
-            weatherIndex = 6;
-        } else {
-            Log.d("Fragment2", "Unknown weather index : " + index);
+
+        for(int i=0; i<7; i++){
+            if(index == i) {
+                String str = "@drawable/weather_+" + i+1;
+                int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
+                weatherIcon.setImageResource(path);
+                return;
+            }
         }
 
     }
