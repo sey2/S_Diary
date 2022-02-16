@@ -99,10 +99,6 @@ public class Fragment1 extends Fragment {
 
         adapter = new NoteAdapter();
 
-        adapter.addItem(new Note(0, "0", "서구 농성동", "", "","오늘 너무 행복하구려!", "4", "capture1.jpg", "2월 10일"));
-        adapter.addItem(new Note(1, "1", "나주시 빛가람동", "", "","안드로이드 플젝 ~", "2", null, "2월 11일"));
-        adapter.addItem(new Note(2, "0", "나주시 빛가람동", "", "","집에 왔는데 너무 피곤해 ㅠㅠ", "3", null, "2월 13일"));
-
         recyclerView.setAdapter(adapter);
 
         adapter.setOnItemClickListener(new OnNoteItemClickListener() {
