@@ -17,6 +17,8 @@
 - [x] 사진 연동 (사진 찍기, 앨범에서 선택)
 - [x] 데이터베이스 연동하기
 - [x] 마무리 (앱 아이콘, 스플래시 화면)
+- [x] SwipeLayout 추가
+- [ ] SwipeLayout 기능 추가(삭제, 수정, hide 기능)
 - [ ] 일기 삭제 기능 추가
 - [ ] 일기 클릭하면 한눈에 보이는 뷰 추가 
 - [ ] UI 리팩토링
@@ -91,6 +93,7 @@
 | SQLiteDatabase | Database  |
 | DatabaseHelper| Database|
 |API| http://www.kma.go.kr/wid/queryDFS.jsp|
+|Layout| https://github.com/chthai64/SwipeRevealLayout|
 
 <br>
 
@@ -124,6 +127,13 @@
 <summary> 📌 완성된 오픈소스 안드로이드 앱</summary>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://blog.aritraroy.in/20-awesome-open-source-android-apps-to-boost-your-development-skills-b62832cf0fa4"> 📍 오픈소스 안드로이드 앱 모음</a>
 </details>
+
+<details markdown="1">
+
+<summary>📌 앱을 만들면서 참고한 사이트  </summary>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://droidbyme.medium.com/android-recyclerview-with-swipe-layout-ec62caedf694"> 📍 SwipeLayout </a>
+</details>
+
 
 
 
