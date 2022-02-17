@@ -93,6 +93,7 @@
 | SQLiteDatabase | Database  |
 | DatabaseHelper| Database|
 |API| http://www.kma.go.kr/wid/queryDFS.jsp|
+|Layout| https://github.com/chthai64/SwipeRevealLayout|
 
 <br>
 
@@ -126,6 +127,13 @@
 <summary> 📌 완성된 오픈소스 안드로이드 앱</summary>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://blog.aritraroy.in/20-awesome-open-source-android-apps-to-boost-your-development-skills-b62832cf0fa4"> 📍 오픈소스 안드로이드 앱 모음</a>
 </details>
+
+<details markdown="1">
+
+<summary>📌 앱을 만들면서 참고한 사이트  </summary>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://droidbyme.medium.com/android-recyclerview-with-swipe-layout-ec62caedf694"> 📍 SwipeLayout </a>
+</details>
+
 
 
 
