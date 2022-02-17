@@ -1,6 +1,8 @@
 package org.techtown.diary.adapter;
 
+import android.app.Application;
 import android.net.Uri;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,9 +10,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.chauthai.swipereveallayout.SwipeRevealLayout;
+import com.chauthai.swipereveallayout.ViewBinderHelper;
 
 import org.techtown.diary.R;
 import org.techtown.diary.listener.OnNoteItemClickListener;
@@ -19,7 +25,9 @@ import java.util.ArrayList;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         implements OnNoteItemClickListener {
+
     ArrayList<Note> items = new ArrayList<Note>();
+    private final ViewBinderHelper binderHelper = new ViewBinderHelper();
 
     OnNoteItemClickListener listener;
 
@@ -36,9 +44,19 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        Note item = items.get(position);
-        viewHolder.setItem(item);
-        viewHolder.setLayoutType(layoutType);
+        // Note item = items.get(position);
+
+        if(items != null && position <=0 && position < items.size()){
+            Note item = items.get(position);
+
+            binderHelper.setOpenOnlyOne(true);
+            binderHelper.bind(viewHolder.swipelayout,Integer.toString(item.get_id()));
+            viewHolder.setItem(item);
+            viewHolder.setLayoutType(layoutType);
+
+        }
+        // viewHolder.setItem(item);
+       // viewHolder.setLayoutType(layoutType);
     }
 
     @Override
@@ -69,11 +87,17 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         }
     }
 
+
     public void switchLayout(int position) {
         layoutType = position;
     }
 
    public static class ViewHolder extends RecyclerView.ViewHolder {
+        SwipeRevealLayout swipelayout;
+        private View txtEdit;
+        private View txtDelete;
+
+
         LinearLayout layout1;
         LinearLayout layout2;
 
@@ -97,6 +121,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
 
         public ViewHolder(View itemView, final OnNoteItemClickListener listener, int layoutType) {
             super(itemView);
+
+            swipelayout = (SwipeRevealLayout) itemView.findViewById(R.id.swipe_layout);
+            txtEdit = itemView.findViewById(R.id.txtEdit);
+            txtDelete = itemView.findViewById(R.id.txtDelete);
 
             layout1 = itemView.findViewById(R.id.layout1);
             layout2 = itemView.findViewById(R.id.layout2);
@@ -130,8 +158,18 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
                 }
             });
 
+            txtEdit.setOnClickListener((v)->{
+
+            });
+
+            txtDelete.setOnClickListener((v) ->{
+
+            });
+
             setLayoutType(layoutType);
         }
+
+
 
         public void setItem(Note item) {
             // set mood
