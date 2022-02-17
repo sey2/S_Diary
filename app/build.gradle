@@ -28,6 +28,11 @@ android {
 }
 
 dependencies {
+
+    // SwipeLayout
+    implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'
+
+
     implementation 'com.android.volley:volley:1.2.0'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.stanfy:gson-xml-java:0.1.7'
