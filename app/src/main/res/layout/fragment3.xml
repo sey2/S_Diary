@@ -31,10 +31,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/main_font"
                     android:text="기분별 비율"
-                    />
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <com.github.mikephil.charting.charts.PieChart
                     android:id="@+id/chart1"
@@ -68,10 +68,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/main_font"
                     android:text="요일별 기분"
-                    />
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
                 <com.github.mikephil.charting.charts.BarChart
                     android:id="@+id/chart2"

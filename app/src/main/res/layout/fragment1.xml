@@ -36,8 +36,10 @@
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/select_button"
+            android:fontFamily="@font/main_font"
             android:text="@string/write_today"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 

@@ -17,18 +17,22 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:background="#d2691e"
+            android:fontFamily="@font/main_font"
             android:gravity="center"
             android:text="EDIT"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtDelete"
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:background="#d269"
+            android:fontFamily="@font/main_font"
             android:gravity="center"
             android:text="DELETE"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
 
 
     </LinearLayout>
@@ -79,8 +83,10 @@
                         android:id="@+id/contentsTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/main_font"
                         android:text="내용"
-                        android:textSize="24sp" />
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -106,10 +112,11 @@
                             android:id="@+id/locationTextView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/main_font"
                             android:text="서구 농성동"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/dateTextView"
@@ -117,9 +124,11 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
+                            android:fontFamily="@font/main_font"
                             android:text="02월09일"
                             android:textColor="#FF0000FF"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -153,8 +162,10 @@
                         android:id="@+id/contentsTextView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/main_font"
                         android:text="내용"
-                        android:textSize="24sp" />
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -181,9 +192,10 @@
                             android:id="@+id/locationTextView2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerHorizontal="true"
-                            android:layout_centerVertical="true"
-                            android:textSize="16sp" />
+                            android:layout_centerInParent="true"
+                            android:fontFamily="@font/main_font"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/dateTextView2"
@@ -191,9 +203,11 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
+                            android:fontFamily="@font/main_font"
                             android:text="02월10일"
                             android:textColor="#FF0000FF"
-                            android:textSize="16sp" />
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>

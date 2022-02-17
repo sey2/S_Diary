@@ -26,8 +26,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:fontFamily="@font/main_font"
+            android:text="OO월 OO일"
             android:textSize="26sp"
-            android:text="OO월 OO일"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/locationTextView"
@@ -35,8 +37,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:fontFamily="@font/main_font"
+            android:text="강남구 삼성동"
             android:textSize="13sp"
-            android:text="강남구 삼성동"/>
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
@@ -68,9 +72,11 @@
                     android:id="@+id/contentsInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/main_font"
                     android:hint="@string/input_contents_hint"
                     android:maxLines="1"
-                    android:textSize="32sp" />
+                    android:textSize="32sp"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/pictureImageView"
@@ -173,8 +179,10 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="20dp"
             android:background="@drawable/select_button"
+            android:fontFamily="@font/main_font"
             android:text="@string/save_button"
             android:textColor="@android:color/white"
+            android:textStyle="bold"
             app:backgroundTint="#00000000"
             app:backgroundTintMode="add" />
 
@@ -184,8 +192,10 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:background="@drawable/select_button"
+            android:fontFamily="@font/main_font"
             android:text="@string/delete_button"
             android:textColor="@android:color/white"
+            android:textStyle="bold"
             app:backgroundTint="#00000000"
             app:backgroundTintMode="add" />
 
@@ -196,8 +206,10 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
             android:background="@drawable/select_button"
+            android:fontFamily="@font/main_font"
             android:text="@string/close_button"
             android:textColor="@android:color/white"
+            android:textStyle="bold"
             app:backgroundTint="#00000000"
             app:backgroundTintMode="add" />
 
