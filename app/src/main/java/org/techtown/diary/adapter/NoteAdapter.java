@@ -158,6 +158,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
                 }
             });
 
+            /* 수정, 삭제, 레이아웃 띄우는 코드 추가 */
             txtEdit.setOnClickListener((v)->{
 
             });
