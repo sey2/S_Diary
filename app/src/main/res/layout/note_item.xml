@@ -1,11 +1,10 @@
 <com.chauthai.swipereveallayout.SwipeRevealLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipe_layout"
-    app:dragEdge="right"
-    app:mode="same_level"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    app:dragEdge="right"
+    app:mode="same_level">
 
     <!--Swipe Layout-->
     <LinearLayout
@@ -41,8 +40,8 @@
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"
         android:orientation="horizontal">
-        <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
@@ -138,7 +137,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_margin="10dp"
                     android:padding="5dp"
-                    android:src="@drawable/picture1"/>
+                    android:src="@drawable/picture1" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
