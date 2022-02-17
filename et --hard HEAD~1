@@ -1,0 +1,872 @@
+[33mcommit 8a7df48b1ac73a261be7232cc4eca5567c1d2fe9[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: sey2 <casio2978@naver.com>
+Date:   Fri Feb 18 02:55:54 2022 +0900
+
+    [Update] 배경색 XML 파일 적용 (02.18)
+
+[33mcommit 646dce04566f93d42e4ff9ac74fd102834fae718[m
+Author: sey2 <casio2978@naver.com>
+Date:   Fri Feb 18 02:55:30 2022 +0900
+
+    [Add] 기본 배경색 XMl 파일 추가 (02.18)
+
+[33mcommit 66a8d26807c2c028d2b9a6f1de28e82cb00292d4[m
+Author: sey2 <casio2978@naver.com>
+Date:   Fri Feb 18 02:55:11 2022 +0900
+
+    [Del] 삭제 (02.18)
+
+[33mcommit ef72bdf1fc643a2102a1a4bbbc18cb9b8aef711b[m
+Author: sey2 <casio2978@naver.com>
+Date:   Fri Feb 18 02:18:50 2022 +0900
+
+    [Fix] Swipelayout 배경색 삭제 (02.18)
+
+[33mcommit a9cca082d306217e9713a497c0e9a75c16283870[m
+Author: sey2 <casio2978@naver.com>
+Date:   Fri Feb 18 02:18:33 2022 +0900
+
+    [Add] 기본 배경색 추가 (02.18)
+
+[33mcommit 57a42e1b3b534035ef25c2e0389b5b92335d4ccc[m
+Merge: cebf0cd eaa9b18
+Author: sey2 <casio2978@naver.com>
+Date:   Fri Feb 18 02:09:19 2022 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit cebf0cd0eeb4a614cd5c6fb0485c954c6aadd546[m
+Author: sey2 <casio2978@naver.com>
+Date:   Fri Feb 18 02:07:40 2022 +0900
+
+    [Add] 기본 배경색 추가 (02.18)
+
+[33mcommit 4734d9039b330c2974b1632c269e6de1834eeda5[m
+Author: sey2 <casio2978@naver.com>
+Date:   Fri Feb 18 02:02:27 2022 +0900
+
+    [ADD] 배경색 이미지 추가 (02.18)
+
+[33mcommit eaa9b18f0e263ba63189a2801e6624d0d7f01100[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 17 16:50:58 2022 +0900
+
+    [Docs] 주석문 추가 ✨ (22.02.17)
+
+[33mcommit b9e7e4b1db73312dcaa44b62f8e3f4ff387de33f[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 17 16:49:45 2022 +0900
+
+    [Docs] 리드미 TodoList 최신화✨ (22.02.17)
+
+[33mcommit 63951aeb7787fe5e44e56eb4e9d012b7e769c325[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 17 16:48:28 2022 +0900
+
+    [Docs] 리드미 TodoList 최신화✨ (22.02.17)
+
+[33mcommit f7678df4afac10bc43740729c07f7fab5f95b4d1[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 17 16:44:33 2022 +0900
+
+    [Docs] 리드미 TodoList 최신화✨ (22.02.17)
+
+[33mcommit ab88e6254b6e395774488124096281cd185c1d0f[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 17 16:42:31 2022 +0900
+
+    [Update] SwipeLayout 의존성 추가✨ (22.02.17)
+
+[33mcommit a7bfb8ddc615e982aeaf6b56f20f77aeb3c535b1[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 17 16:41:55 2022 +0900
+
+    [Update] 텍스트 간격 수정 🐤 (22.02.17)
+
+[33mcommit f39cbd28d3aba88aac1cf39387c6591b7889c922[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 17 16:40:58 2022 +0900
+
+    [Update] SwipeLayout 코드 추가 🐤 (22.02.17)
+
+[33mcommit edd0ae04c0a81a0b03d39e9b9d992ccee0f84aa4[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 17 16:40:11 2022 +0900
+
+    [Update] sliderView 추가 (22.02.16)
+
+[33mcommit f936a6b9e851236dbd705c44cf3db1ca42928602[m
+Author: sey2 <casio2978@naver.com>
+Date:   Thu Feb 17 00:44:09 2022 +0900
+
+    [Docs] 리드미 파일 최신화 (02.17)
+
+[33mcommit decd25ad2752bf7eb2edf229c5d67875cb6b0fc8[m
+Author: sey2 <casio2978@naver.com>
+Date:   Thu Feb 17 00:42:01 2022 +0900
+
+    [Docs] 리드미 파일 최신화 (02.16)
+
+[33mcommit 553985acc169fb8d5ffb6f756a62aed7c7dcdbbd[m
+Author: sey2 <casio2978@naver.com>
+Date:   Thu Feb 17 00:20:19 2022 +0900
+
+    [Update] Bottom 네비게이이션 바 색 변경(02.16)
+
+[33mcommit 64975d1c7c09673d6cc0ff464fa6c5783fc6ca06[m
+Author: sey2 <casio2978@naver.com>
+Date:   Thu Feb 17 00:18:21 2022 +0900
+
+    [Update] Add Color (02.16)
+
+[33mcommit d1f3477421e901ed2770343821d2b8f39bae0fef[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 23:56:18 2022 +0900
+
+    [Update] 앱 로고 사이즈 조정 (02.16)
+
+[33mcommit 72b6d033c772858a02a3a5a20eb327e9b2ef185a[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 23:56:00 2022 +0900
+
+    [Update] 스플래시 화면 백그라운드 색 변경 (02.16)
+
+[33mcommit fa65ea021d7e8aa540c51985da501116a900a999[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 23:55:43 2022 +0900
+
+    [Update] 어플 로고 위치 변경 (02.16)
+
+[33mcommit b445210ad52da3fcdb3f1fc1cdec62d14878b548[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 23:02:20 2022 +0900
+
+    [Update] 어플 아이콘 변경 (02.16)
+
+[33mcommit 1aa285200ddedde965451f6c1a70b17976792cf8[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 23:01:52 2022 +0900
+
+    [Update] 어플 로고 변경 (02.16)
+
+[33mcommit 1e5aa3bbf1ca357beb47d30475ec41d069e15b01[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 23:01:41 2022 +0900
+
+    [Update] 스플래쉬 화면 지속시간 변경 (02.16)
+
+[33mcommit 4563c7fad78de1d5876ee70b3effa186f0bb7007[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 22:37:34 2022 +0900
+
+    [Docs] 리드미 최신화 (02.16)
+
+[33mcommit f89e6247c373123b0c8986047dd7b1301f343359[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 22:32:04 2022 +0900
+
+    [Docs] 리드미 최신화 (02.16)
+
+[33mcommit 9b4487c23d9d525b32eebf6f35ae937adea7ad9c[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 22:31:50 2022 +0900
+
+    [Update] 어플 아이콘 변경 (02.16)
+
+[33mcommit dd7538e30b42ae88dfe72deb66a7026096785a60[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 17:59:10 2022 +0900
+
+    [Update] Toast 메시지 삭제 (02.16)
+
+[33mcommit 04e4b911e955b24d7c2d2a83f2814efa18dbe514[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 17:58:52 2022 +0900
+
+    [Docs] 리드미 ToDoList 최신화 (02.16)
+
+[33mcommit ee0e0fea0cc74e3fe6556f136ebb96dea62a52e7[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 17:48:25 2022 +0900
+
+    [Docs] 리드미 ToDoList 최신화 (02.16)
+
+[33mcommit 392f15cfcc82e1a86b9c69907053d198e273624a[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Wed Feb 16 17:42:34 2022 +0900
+
+    [Update] 코드 리펙토링 🔥 (22.02.16)
+
+[33mcommit 46777c5b72d8caebb9853aecde235dc5585c1540[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Wed Feb 16 17:40:14 2022 +0900
+
+    [Update] 코드 리펙토링 🔥 (22.02.16)
+
+[33mcommit f8f6fe24ece574e798f6a9c8e62cc2d738ddc7fb[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 17:37:17 2022 +0900
+
+    [Update] 코드 리팩토링 (02.16)
+
+[33mcommit 2db852d896793a04b9da1178f4e8fa7c84fb9439[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 17:16:01 2022 +0900
+
+    [Update] 코드 리팩토링 (02.16)
+
+[33mcommit 8ff75a17dcc091a1ebdd73fca329fc3283a19d99[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 17:15:43 2022 +0900
+
+    [Update] 메소드 수정 (02.16)
+
+[33mcommit ce762fffc6d7a89436a17dc116293d6efcd2be12[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 17:15:18 2022 +0900
+
+    [FIX] 이미지 저장 버그 수정 ! !!!!! !!!! !!! !!! !!  (02.16)
+
+[33mcommit ecca08954caaad8e59162f5eb93a72a4c26fff76[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 17:14:49 2022 +0900
+
+    [Update] 경로 수정 (02.16)
+
+[33mcommit fd740abfec58486d5ec58f72e758ae9919851121[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 16:02:05 2022 +0900
+
+    [Update] Folder Name (02.16)
+
+[33mcommit 16241a9bbaff249c487d160a90e49f91335bb40b[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 15:44:52 2022 +0900
+
+    [Update] SQL 코드 수정  (02.16)
+
+[33mcommit 91398a75e29e682952cc33f98b73d89c52a83ce7[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 15:44:28 2022 +0900
+
+    [Update] 스플래쉬 화면 추가 (02.16)
+
+[33mcommit cc5561a4b483589feba7d526a43ebd59811aea2a[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 15:43:55 2022 +0900
+
+    [ADD] 스플래쉬 화면 추가 (02.16)
+
+[33mcommit 62bb058128fa105c55e4b7e576d531899f31d473[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 16 15:43:33 2022 +0900
+
+    [ADD] App logo 추가 (02.16)
+
+[33mcommit 178ea539239669af49083b9cab3ab5452b6ceb8f[m
+Author: sey2 <casio2978@naver.com>
+Date:   Tue Feb 15 21:45:08 2022 +0900
+
+    [Update] 수정 필요 (02.15)
+
+[33mcommit 7c7971f222992f2ef2482b26ed1e896fd260821a[m
+Author: sey2 <casio2978@naver.com>
+Date:   Tue Feb 15 21:44:49 2022 +0900
+
+    [Update] 카메라 사진 저장 버그 수정 필요 (02.15)
+
+[33mcommit 37d8ddeb40ac786e26f81801a5cb7a4a7517f08d[m
+Author: sey2 <casio2978@naver.com>
+Date:   Tue Feb 15 21:44:17 2022 +0900
+
+    [Update] 컴파일 설정 (02.15)
+
+[33mcommit 4a411e45b7f42d04b4bafba5cbff107b1d445e68[m
+Author: sey2 <casio2978@naver.com>
+Date:   Tue Feb 15 21:43:57 2022 +0900
+
+    [Update] 영어 지원 (02.15)
+
+[33mcommit 21f38d6fe38ddbee2a1458b6dfdbd0ac94530242[m
+Author: sey2 <casio2978@naver.com>
+Date:   Tue Feb 15 21:43:36 2022 +0900
+
+    [Update] 앱 아이콘 설정 변경 (02.15)
+
+[33mcommit 200f24ba2d9aabffed08a0357049929b7f55d69b[m
+Author: sey2 <casio2978@naver.com>
+Date:   Tue Feb 15 21:43:16 2022 +0900
+
+    [Add] 앱 아이콘 추가 (02.15)
+
+[33mcommit d61e225349af8b0efe86dc802cffa870bb8618c2[m
+Author: sey2 <casio2978@naver.com>
+Date:   Tue Feb 15 17:15:16 2022 +0900
+
+    [Fix] 카메라 앱 전환 버그 수정 (02.15)
+
+[33mcommit b0376c8bec2030ba6280cf0bb4a52d1cc1db5d2b[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 14 19:55:25 2022 +0900
+
+    [Update] 데이터베이스 코드 추가 (02.14)
+
+[33mcommit 4c6567f868539df500565063d3b9a7498b705394[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 14 19:55:11 2022 +0900
+
+    [Update] 데이터베이스 코드 추가 (02.14)
+
+[33mcommit b87e4d5ce1935412ea6bf1f70a4188991bc85dcc[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 14 19:54:43 2022 +0900
+
+    [Update] 데이터베이스에서 저장된 일기 불러오는 코드 추가 (02.14)
+
+[33mcommit ccdfef7e2127b2af145b5ce04cda5dad83a72729[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 14 19:54:12 2022 +0900
+
+    [Update] 데이터베이스에서 저장된 일기 불러오는 코드 추가 (02.14)
+
+[33mcommit 2459fc3fb15cbc09247416a4e96a7aa011d53185[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 14 19:53:43 2022 +0900
+
+    [Update] 저장된 일기 데이터 조회 코드 추가(02.14)
+
+[33mcommit bb3ebf385702d7748e99724b70f7c49b0a95ec26[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 14 18:05:41 2022 +0900
+
+    [Update] 저장된 일기 데이터 조회 코드 추가(02.14)
+
+[33mcommit cf4ca453e09daf97b8454f8b0b9c3893e01cf03e[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 14 17:50:33 2022 +0900
+
+    [Add] db 코드추가 (02.14)
+
+[33mcommit 69334cad85594eb5a2cd6da9607d8401251c8d0e[m
+Merge: e5f6520 5a83ea4
+Author: sey2 <casio2978@naver.com>
+Date:   Sun Feb 13 15:58:38 2022 +0900
+
+    Merge remote-tracking branch 'origin/master'
+
+[33mcommit e5f652010cfed2636f78ea828f4db6af8e099d82[m
+Author: sey2 <casio2978@naver.com>
+Date:   Sun Feb 13 15:58:20 2022 +0900
+
+    [Add] db 코드 추가 (22.02.13)
+
+[33mcommit e9d7a65d69398777c995a77b29421b69e7cac701[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 22:35:34 2022 +0900
+
+    [Add] db 코드 추가 (22.02.13)
+
+[33mcommit 5a83ea445f264d25509c737040116b84ce44e9f4[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 22:35:34 2022 +0900
+
+    [Docs] 리드미 폴더링 추가 📦 (22.02.12)
+
+[33mcommit 8d730294358c8d1122d6f9febfdc6098efe6e63c[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 22:31:30 2022 +0900
+
+    [Docs] 리드미 폴더링 추가 📦 (22.02.12)
+
+[33mcommit 23febc9c4118b37ed067c5d399be87ea5878c063[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 22:31:06 2022 +0900
+
+    [Update] Rename package (22.02.12)
+
+[33mcommit 9e8f6d98b5fb4292047e338c3f482dab64356566[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 22:08:09 2022 +0900
+
+    [update] import package (22.02.12)
+
+[33mcommit 536588f58ba4e5f0147fb6640ce018e5b4ac5494[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 22:07:06 2022 +0900
+
+    [Move] 폴더링 (22.02.12)
+
+[33mcommit 3070eb5f90665c5090d200067120b64a6073a137[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:44:00 2022 +0900
+
+    [Docs] ToDoList 최신화 (22.02.12)
+
+[33mcommit c89d497df9e6e6a0e514d7d2a916fb2a1ccba8e9[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:42:36 2022 +0900
+
+    [Fix] 카메라 앱 전환 오류 수정 (22.02.12)
+
+[33mcommit 2e34a10589f3ea27d933d4d9be6f81670da1c081[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:26:49 2022 +0900
+
+    [Fix] 코드 수정 (22.02.12)
+    
+    - 사진을 삭제 했을때 이미지 변경
+
+[33mcommit b3816c08c154bb630a26d648b56b7dca4e0a70a7[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:06:42 2022 +0900
+
+    [Update] 코드 리팩토링 (22.02.12)
+
+[33mcommit 54c7de33eeedaef5b974a4dedb574a0f7477bc4d[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:06:17 2022 +0900
+
+    [Update] Auto Permission 코드 추가 (22.02.12)
+
+[33mcommit f174a6517aedc0abaab7755ab61ba85bb0409e99[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:05:58 2022 +0900
+
+    [Update] 아이콘 id (22.02.12)
+
+[33mcommit 7ed8caedc44ff85380272c98b6bd0bcb54fe36e5[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:05:43 2022 +0900
+
+    [Update] 날씨 & 현재 위치 & 카메라 접근 코드 추 (22.02.12)
+
+[33mcommit 94d3479c5664bfc9c3ad955f9f9bc80d3e7ac5e0[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:04:33 2022 +0900
+
+    [Add] SD 카드 접근 파일 (22.02.12)
+
+[33mcommit b4d43ef76c7ef0657a792c06484767ef5922de9e[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:03:40 2022 +0900
+
+    [Fix] 빌드 에러 수정  (22.02.12)
+
+[33mcommit df8beea3ae7c88a2e23e2e66e2165a5fd060ebd4[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:03:15 2022 +0900
+
+    [Update] array 데이터 추가 (22.02.12)
+
+[33mcommit 3300f76f9b08856e75e444b8c968d84513feec63[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:02:47 2022 +0900
+
+    [Add] 상수 클래스 정의 (22.02.12)
+
+[33mcommit 5114aa1f0f55f0b31b2d2922363865bfa72a30d2[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:02:24 2022 +0900
+
+    [Update] 카메라 제공자 추가 (22.02.12)
+
+[33mcommit 3a3e17ee1666991d3ac0e6721f4786aa499f67b8[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 18:01:46 2022 +0900
+
+    [Add] 데이터 클래스 추가 (22.02.12)
+
+[33mcommit 5a3254ef4b55734d3a6f931a94e78b4848953242[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 15:20:31 2022 +0900
+
+    [Update] 매니페스트 권한 추가(22.02.12)
+    
+    - 인터넷 권한
+    - 위치 정보 접근 권한
+    - SD 카드 접근 권한 (READ,WRITE)
+
+[33mcommit f5d8ac266475b9739b6895fee8401699696d121d[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 15:13:41 2022 +0900
+
+    [Add] 날씨 데이터 요청 코드 추가 (22.02.12)
+
+[33mcommit a3f09ef769d74b55ef409a248905ddcee967dbba[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 14:57:23 2022 +0900
+
+    [Update] Volley & Gson 의존성 추가 (22.02.12)
+
+[33mcommit e0d754fa6a1b38986ab026fc287fd3eddabd1695[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 14:50:19 2022 +0900
+
+    [Add] 경위도 좌표 -> 격자 번호 변환 소스 코드 추가(22.02.12)
+
+[33mcommit 4c31cdfb24e1cc42262f6677dd3dd6b873143ce9[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 14:47:08 2022 +0900
+
+    [Update] GPS 리스너 인터페이스 구현 (22.02.12)
+
+[33mcommit e9601ec688cb5a6af979b7d0cdddb01d84667fa2[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 14:46:39 2022 +0900
+
+    [Docs] ReadMe Library 업데이트 (22.02.12)
+
+[33mcommit 181f07504dc52abb44198106b852f2df5a4b1a1c[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 14:27:00 2022 +0900
+
+    [Update] GPS 기능 추가 (22.02.12)
+    
+    - 날씨 데이터 파싱
+    
+    - 현재 위치 기능 코드 추가
+
+[33mcommit 06abc23afc467ab732ed432d71c154ed19211064[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 14:25:55 2022 +0900
+
+    [Doc] GPS 기능 추가 (22.02.11)
+    
+    - 날씨 데이터 파싱
+    
+    - 현재 위치 기능 코드 추가
+
+[33mcommit 23e65b60c0c39ca7745ddb0df1732ff8edde1f07[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 13:53:28 2022 +0900
+
+    [Doc] 리드미 TodoList 최신화(22.02.11)
+
+[33mcommit 9ec78a432b7156f490a01f4fb222cd408fc4edcc[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Sat Feb 12 13:48:48 2022 +0900
+
+    [Update] 통계화면 코드 작성(22.02.11)
+
+[33mcommit b89bdf29a0e0da8b363137ee4a9604e8b6defce8[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Fri Feb 11 17:01:15 2022 +0900
+
+    [Update] 통계화면 레이아웃 구성 (22.02.11)
+
+[33mcommit acf0d0971afc08dfb685f3d50bb168aa5dad8ba6[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Fri Feb 11 16:32:10 2022 +0900
+
+    [Update] gitignore 파일 업데이트 (22.02.11)
+
+[33mcommit 4eddb05879a34d8d092f937b97aa6ec3424a450e[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Fri Feb 11 16:29:22 2022 +0900
+
+    [Update] gitignore 파일 업데이트 (22.02.11)
+
+[33mcommit 653f28ea0cee930bad9ffb3e85b99f2c57c7cc23[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Fri Feb 11 16:28:45 2022 +0900
+
+    [Update] 프로젝트 정보 (22.02.11)
+
+[33mcommit a94c5e80bb843c49f2c63d0ff79c596930c4dec3[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Fri Feb 11 16:26:00 2022 +0900
+
+    [Update] 테스트 일기 이모티콘,날씨 아이콘 변경 (22.02.11)
+
+[33mcommit 3dc309fbb5da20d7165ebbd7fb71f84d04b9bbfe[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Fri Feb 11 16:25:17 2022 +0900
+
+    [Update] 이모티콘,날씨 아이콘 set Method 코드 간결화 성공✨
+    (22.02.11)
+
+[33mcommit 81710647ebe650e0f20e46df49fdea7487667b19[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Fri Feb 11 15:54:18 2022 +0900
+
+    [Update] 프로젝트 정보 업데이트 (22.02.11)
+
+[33mcommit c8378b7edac8fc6139e4e121034b95138fe0d218[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Fri Feb 11 15:53:19 2022 +0900
+
+    [Update] 리드미 TodoList 최신화 (22.02.11)
+
+[33mcommit 5a3d565410952932335a074514ae91a9dfaf9624[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Fri Feb 11 15:51:32 2022 +0900
+
+    [Fix] 오타 수정 ! (22.02.11)
+
+[33mcommit 8e313a320409db48388a9b988fbd6fb8ac3ae32c[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Fri Feb 11 15:51:03 2022 +0900
+
+    [Update] 일기 작성 화면 컴포넌트 이벤트 처리 코드 추가 (22.02.11)
+
+[33mcommit 8a426e626526a3f6cda77b08b276df8de18b2744[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Fri Feb 11 15:30:54 2022 +0900
+
+    [Update] 일기 작성 화면 레이아웃 코드 작성 😛 (22.02.11)
+
+[33mcommit f6dd070bfed02a70586712544f0d1a2340946fb8[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 17:47:51 2022 +0900
+
+    [Update] 코드 업데이트 필요(22.02.10)
+
+[33mcommit 5b40c899d39c286fc570ef05285371ebd32d158d[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 17:46:59 2022 +0900
+
+    [Update] Readme Todo List 수정(22.02.10)
+
+[33mcommit d523f2f2b7b4f6ff663acd6b2e10d7c2f54f7674[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 17:21:44 2022 +0900
+
+    [Fix] 일기 작성 버튼 백그라운드 색깔 적용 안되는 버그 수정(22.02.10)
+
+[33mcommit 9448d1162817c62521fa7fb5e7f3066f2da9a84f[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 17:09:34 2022 +0900
+
+    [Update] 프로젝트 셋팅(22.02.10)
+
+[33mcommit f2b50527c69d2b08ca088aa2517b9b60c0447840[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 17:09:19 2022 +0900
+
+    [Update] 오타 수정(22.02.10)
+
+[33mcommit b1fcb61dbc9c160bbab40baa7763e7388e3d8dd5[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 17:08:50 2022 +0900
+
+    [Fix] 오타 수정(22.02.10)
+
+[33mcommit b88e6fdf57d5c5a55864f2b21c0b8d5c3e00e1c4[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 17:08:17 2022 +0900
+
+    [Update] PictureExit 테스트 (22.02.10)
+
+[33mcommit 1a6492f59941168c70c63c287770dfce28efb038[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 16:25:22 2022 +0900
+
+    [Docs] 리드 미 todo list 수정 (22.02.10)
+
+[33mcommit ddc9f20a1088f9aeb56a10741fd9e9c8b91e9ed3[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 16:22:38 2022 +0900
+
+    [Update] (22.02.19)
+
+[33mcommit 60279295f023cb9fa135f5b98c249f75fd8d5edf[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 16:22:10 2022 +0900
+
+    [Update] 프래그먼트 코드 업데이트 (22.02.10)
+    
+    - OnAttach, OnDetach 메서드 수정
+    - initUi 메서드 추가
+
+[33mcommit 494ca2b2794b07e81da85afec690518a77bb5394[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 16:20:51 2022 +0900
+
+    [Add] 아이템 색상을 위한 xml 레아아웃 정의 (22.02.10)
+
+[33mcommit 53e59dcc6e8043703370ce9b019a87834a8568e5[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 16:20:31 2022 +0900
+
+    [Fix] 버그 수정 (22.02.10)
+    
+    - 속성 수정
+    - 리싸이클러 뷰 순서 변경
+    - 상대 레이아웃 height 조정
+
+[33mcommit bdd50edcaaa8263a8f8fc8c0391dfad42667525d[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 16:18:56 2022 +0900
+
+    [Add] 아이템 선택 했을 때 이벤트 처리를 위한 인터페이스 구현(22.02.10)
+
+[33mcommit 91301fc98ac741e9d56033782f4105df9283792d[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 16:17:52 2022 +0900
+
+    [Add] 일기 데이터 관리를 위한 Note 클래스 (22.02.10)
+
+[33mcommit 9d00db0d8d7442a1849eb9de641459da9518e208[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 16:17:28 2022 +0900
+
+    [Add] 리싸이클러 뷰의 데이터 관리를 위한 NoteAdapter 추가 (22.02.10)
+
+[33mcommit 056d0c5fba56d6267d127ccd6bfdfb72ba83ce15[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Thu Feb 10 16:15:22 2022 +0900
+
+    [Add] 아이콘 및 아이템 이미지 추가 (22.02.10)
+
+[33mcommit ef974fa9623feb7c415694b9df47103228c57049[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 17:34:41 2022 +0900
+
+    <Upadte> Fragment 레이아웃 초기 구성 소스 코드(22.02.09)
+
+[33mcommit 7e6839d2585437c63883c18db94490fdd5cf6897[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 17:33:43 2022 +0900
+
+    <Add> 리싸이클러뷰안에 들어갈 카드뷰 레이아웃 추가(22.02.09)
+
+[33mcommit 08cc6cf1254be1caea9e5e26ec3b4936787bcaf0[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 17:33:10 2022 +0900
+
+    <Add> 카드뷰에 들어갈 사진 추가 (22.02.09)
+
+[33mcommit cfd34058a8602b5dce6892cb07f7c4fc7a6fcda1[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 17:00:24 2022 +0900
+
+    <Add> 버튼 배열 XML 추가 (22.02.09)
+
+[33mcommit 1ab94f99d4eee0c93863116a22a9f49786b15645[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 16:59:41 2022 +0900
+
+    <Add> 선택 버튼 디자인 레이아웃 추가
+
+[33mcommit ac8db431fbe55b19e0e3cb769ffd0bda4c3db335[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 16:40:11 2022 +0900
+
+    <Add> 선택 버튼 디자인 레이아웃 추가
+
+[33mcommit 905e14eea0751a5dadaed77157b78373ad6bb348[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 00:22:12 2022 +0900
+
+    [Update] 라이브러리 의존성 추가 (22.02.09)
+    
+    'lib.kingja.switchbutton:switchbutton:1.1.8'
+     -> 라디오 버튼
+    
+    'com.github.channguyen:rsv:1.0.1'
+     -> 시크바가 아닌 구간 선택
+    
+    'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    -> 그래프 그리기 위한 라이브러리
+
+[33mcommit 98b67d2af5326af67c0897496c26f2a235b71dbe[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 00:20:44 2022 +0900
+
+    [Update] jitpack.io 추가 (라이브러리 다운로드 서버) (22.02.09)
+
+[33mcommit e3ee562c3cfbd7a089e4dc0eda96cca84d48ca8b[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 00:10:47 2022 +0900
+
+    [Docs] Todo List Update (22.02.09)
+
+[33mcommit 26ac1dc3259e05ce17f5bda02b546447436df764[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 00:09:17 2022 +0900
+
+    [Update] 프로젝트 셋팅 (22.02.09)
+
+[33mcommit 3cd82cf7016a6dc4176e390aa22b6bd215e78d18[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 00:08:52 2022 +0900
+
+    [Update] 프래그먼트 인플레이션 소스 코드 추가 (22.02.08)
+
+[33mcommit 3460eee88d011e19ee172c148c638de11b90fcea[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 00:08:18 2022 +0900
+
+    [Update] 프래그먼트 전환을 위한 인터페이스 추가 (22.02.08)
+
+[33mcommit 75d82262715e2828239cde2103eefc487498af38[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 00:07:29 2022 +0900
+
+    [Update] 메인화면 레이아웃 구성 업데이트 (22.02.08)
+
+[33mcommit 31edeb8cb68a5360233479f1481e139ac595d769[m
+Author: sey2 <casio2978@naver.com>
+Date:   Wed Feb 9 00:07:02 2022 +0900
+
+    [Add] 메인화면 구성을 위한 fragment 파일 추가 (22.02.08)
+
+[33mcommit 920e860f506a6dee5d316989afa7820151418089[m
+Author: sey2 <casio2978@naver.com>
+Date:   Tue Feb 8 23:37:01 2022 +0900
+
+    [Add] 메인 화면 하단 바 XML 추가 (22.02.08)
+
+[33mcommit 3c69c7eef0c336ad95dd0cae68b16bee035266d6[m
+Author: sey2 <casio2978@naver.com>
+Date:   Tue Feb 8 23:36:26 2022 +0900
+
+    [Update] 메인 화면 하단 바 레이아웃 구성 (22.02.08)
+
+[33mcommit dc5a16adcafe6cef141439744d5a657ab68fd94e[m
+Author: sey2 <casio2978@naver.com>
+Date:   Tue Feb 8 23:35:12 2022 +0900
+
+    [Add] Icon 추가 (22.02.08)
+
+[33mcommit fc837f21efaf0e22b71346e3852c5408312e5142[m
+Author: casio2978 <casio2978@naver.com>
+Date:   Tue Feb 8 14:34:14 2022 +0900
+
+    [Doc] 리드미 참고 사이트 수정 (22.02.08)
+
+[33mcommit dd8151d9c39e3fbf6563e022790dd03f562fbf41[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 7 08:03:21 2022 +0900
+
+     [Docs] 앱 초기 구성 README 파일 갱신 (22.02.07)
+
+[33mcommit 70fbafa3349ccd86cb65c81ab4b5aaa54f86b5c1[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 7 07:57:43 2022 +0900
+
+    [Init] 앱 초기 구성 README 파일 갱신 (22.02.07)
+
+[33mcommit 4252fec6355667d834256c88e247169a4f9adb55[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 7 07:50:35 2022 +0900
+
+    [Docs] 앱 초기 구성 README 파일 갱신 (22.02.07)
+
+[33mcommit 76527d5cddbe572ea5a72f536c06422a73dd4503[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 7 06:58:21 2022 +0900
+
+    [Init] 앱 초기 구성 README 파일 갱신 (22.02.07)
+
+[33mcommit 171c9ae0c17b3d4e7c2f39c3e2424718249fdf15[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 7 06:51:06 2022 +0900
+
+    [Init] 프로젝트 초기 셋팅 (22.02.07)
+
+[33mcommit 65c06672b163ac9d09bd2e433b72abb029037b3d[m
+Author: sey2 <casio2978@naver.com>
+Date:   Mon Feb 7 06:45:21 2022 +0900
+
+    [Init] 프로젝트 초기 셋팅 (22.02.07)
