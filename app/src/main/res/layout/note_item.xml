@@ -179,6 +179,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/main_font"
                         android:text="내용"
+                        android:textColor="@color/black"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -209,6 +210,7 @@
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:fontFamily="@font/main_font"
+                            android:textColor="@color/black"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
