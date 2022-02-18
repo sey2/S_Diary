@@ -1,9 +1,15 @@
 ## :memo: S Diary
+![한줄일기](https://user-images.githubusercontent.com/54762273/154733849-77912e5d-e5a1-43be-b23d-619bb113f676.png)
+
+<br>
+
 <table align="center">
   <tr>
     <td><img src="https://user-images.githubusercontent.com/54762273/154274780-f78003a2-d912-4725-b52b-14cc3ae53dec.png" width="300px" height="300px" /></td>
     <td><img src="https://user-images.githubusercontent.com/54762273/154296621-ecdf539b-8635-4447-bf69-d0d45ece072c.png" width="300px" height="300px" /> </tr>
 </table>
+
+<br>
 
 
 ## 💭  Todo List
@@ -21,7 +27,8 @@
 - [ ] SwipeLayout 기능 추가(삭제, 수정, hide 기능)
 - [ ] 일기 클릭하면 한눈에 보이는 뷰 추가
 - [ ] 일기 작성중 다른 화면 이동하면 일기 내용 삭제되게 하는 기능 추가
-- [x] 앱 스플래쉬 화면, 아이콘 제작 
+- [ ] 일기 작성화면 이모티콘 액션 효과 주기
+- [x] 앱 스플래쉬 화면, 아이콘 제작
 
 <br>
 
@@ -133,6 +140,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href = "https://droidbyme.medium.com/android-recyclerview-with-swipe-layout-ec62caedf694"> 📍 SwipeLayout </a>
 </details>
 
+
+---
+
+안드로이드 첫 토이 프로젝트입니다.
 
 
 
