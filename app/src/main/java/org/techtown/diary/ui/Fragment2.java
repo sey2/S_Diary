@@ -25,9 +25,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
-
-import com.github.channguyen.rsv.RangeSliderView;
-
 import org.techtown.diary.BuildConfig;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.Note;
@@ -284,7 +281,7 @@ public class Fragment2 extends Fragment {
                         if(selectedPhotoMenu == 0)
                             showPhotoCaptureActivity();
                         else if (selectedPhotoMenu == 1)
-                            showPhotoCaptureActivity();
+                            showPhotoSelectionActivity();
                         else if (selectedPhotoMenu == 2){
                             isPhotoCanceled = true;
                             isPhotoCaptured = false;
