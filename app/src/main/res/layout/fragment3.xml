@@ -33,6 +33,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/main_font"
                     android:text="기분별 비율"
+                    android:textColor="#B2EBEA"
+                    android:textColorHint="#B2EBEA"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -70,6 +72,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/main_font"
                     android:text="요일별 기분"
+                    android:textColor="#B2EBEA"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -78,43 +81,6 @@
                     android:layout_width="250dp"
                     android:layout_height="250dp"
                     android:layout_marginTop="10dp"
-                    android:layout_gravity="center_horizontal"/>
-
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="5dp"
-            app:cardBackgroundColor="#FFFFFFFF"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="5dp" >
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    android:text="기분 변화"
-                    />
-
-                <com.github.mikephil.charting.charts.LineChart
-                    android:id="@+id/chart3"
-                    android:layout_width="250dp"
-                    android:layout_height="250dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:layout_gravity="center_horizontal"/>
 
             </LinearLayout>
