@@ -44,19 +44,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int position) {
-        // Note item = items.get(position);
-
-        if(items != null && position <=0 && position < items.size()){
             Note item = items.get(position);
 
             binderHelper.setOpenOnlyOne(true);
             binderHelper.bind(viewHolder.swipelayout,Integer.toString(item.get_id()));
             viewHolder.setItem(item);
             viewHolder.setLayoutType(layoutType);
-
-        }
-        // viewHolder.setItem(item);
-       // viewHolder.setLayoutType(layoutType);
     }
 
     @Override
@@ -227,13 +220,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
        }
 
         public void setWeatherImage(int weatherIndex) {
-
-
             String packName = weatherImageView.getContext().getPackageName();
 
             for(int i=0; i<=6; i++){
                 if(i == weatherIndex){
-                    String str ="@drawable/weather_icon_" + Integer.toString(weatherIndex+1);
+                    String str ="@drawable/weather_" + Integer.toString(weatherIndex+1);
                     int path = weatherImageView.getResources().getIdentifier(str,"drawable",packName);
                     weatherImageView.setImageResource(path);
                     weatherImageView2.setImageResource(path);
