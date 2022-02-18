@@ -8,6 +8,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -425,7 +432,7 @@ public class Fragment2 extends Fragment {
                 resultPhotoBitmap = decodeSampledBitmapFromResource(file,
                         pictureImageView.getWidth(), pictureImageView.getHeight());
 
-                pictureImageView.setImageBitmap(resultPhotoBitmap);
+                pictureImageView.setImageBitmap(getRoundedCornerBitmap(resultPhotoBitmap,10));
                 break;
 
             case AppConstants.REQ_PHOTO_SELECTION:  // 사진을 앨범에서 선택하는 경우
@@ -436,7 +443,7 @@ public class Fragment2 extends Fragment {
                 try{
                     InputStream instream = resolver.openInputStream(fileUri);
                     resultPhotoBitmap = BitmapFactory.decodeStream(instream);
-                    pictureImageView.setImageBitmap(resultPhotoBitmap);
+                    pictureImageView.setImageBitmap(getRoundedCornerBitmap(resultPhotoBitmap,10));
 
                     instream.close();
 
@@ -453,8 +460,25 @@ public class Fragment2 extends Fragment {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = sampleSize;
         resultPhotoBitmap = BitmapFactory.decodeFile(picturePath, options);
-
         pictureImageView.setImageBitmap(resultPhotoBitmap);
+    }
+
+    /* 비트맵 모서리 둥글게*/
+    public static Bitmap getRoundedCornerBitmap(Bitmap bitmap, int px) {
+        Bitmap output = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+        final int color = 0xff424242;
+        final Paint paint = new Paint();
+        final Rect rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+        final RectF rectF = new RectF(rect);
+        final float roundPx = px;
+        paint.setAntiAlias(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        paint.setColor(color);
+        canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(bitmap, rect, rect, paint);
+        return output;
     }
 
 
