@@ -57,6 +57,8 @@ public class Fragment2 extends Fragment {
     Note item;
 
     ImageView weatherIcon;
+    ImageView weatherImage1; // 내용 위주
+    ImageView weatherImage2; // 사진 위주
     TextView dateTextView;
     TextView locationTextView;
 
@@ -120,6 +122,8 @@ public class Fragment2 extends Fragment {
     // XML 레이아웃 안에 들어 있는 위젯이나 레이아웃을 찾아 변수에 할당하기 위한 메서드
     private void initUI(ViewGroup rootView){
         weatherIcon = rootView.findViewById(R.id.weatherIcon);
+        weatherImage1 = rootView.findViewById(R.id.weatherImageView);
+        weatherImage2 = rootView.findViewById(R.id.weatherImageView2);
         dateTextView = rootView.findViewById(R.id.dateTextView);
         locationTextView = rootView.findViewById(R.id.locationTextView);
 
@@ -192,10 +196,11 @@ public class Fragment2 extends Fragment {
         if(data != null){
             for(int i=0; i<array.length; i++){
                 if(array[i].equals(data)) {
-                    String str = "@drawable/weather_+" + i+1;
+                    String str = "@drawable/weather_" + Integer.toString(i+1);
                     int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
                     weatherIcon.setImageResource(path);
-                    return;
+                    weatherIndex = i;
+                    break;
                 }
             }
 
@@ -344,9 +349,10 @@ public class Fragment2 extends Fragment {
 
         for(int i=0; i<7; i++){
             if(index == i) {
-                String str = "@drawable/weather_+" + i+1;
+                String str = "@drawable/weather_" + Integer.toString(i+1);
                 int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
                 weatherIcon.setImageResource(path);
+                weatherIndex = index;
                 return;
             }
         }

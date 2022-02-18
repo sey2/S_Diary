@@ -70,17 +70,6 @@ public class Fragment1 extends Fragment {
 
     // XML 레이아웃 안에 들어 있는 위젯이나 레이아웃을 찾아 변수에 할당하기 위한 메서드
     private void initUI(ViewGroup rootView){
-
-        Button todayWriteButton = rootView.findViewById(R.id.todayWriteButton);
-        todayWriteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null) {
-                    listener.onTabSelected(1);
-                }
-            }
-        });
-
         SwitchMultiButton switchButton = rootView.findViewById(R.id.switchButton);
         switchButton.setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
             @Override
