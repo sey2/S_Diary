@@ -232,8 +232,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
                 }
             }
 
-            weatherImageView.setImageResource(R.drawable.weather_icon_1);
-            weatherImageView2.setImageResource(R.drawable.weather_icon_1);
+            weatherImageView.setImageResource(R.drawable.weather_1);
+            weatherImageView2.setImageResource(R.drawable.weather_1);
 
         }
 
