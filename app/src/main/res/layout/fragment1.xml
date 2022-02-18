@@ -21,9 +21,10 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="1dp"
             android:layout_marginEnd="5dp"
+            android:fontFamily="@font/main_font"
             android:padding="8dp"
-            app:selectedColor="#B2DCF2"
-            app:strokeRadius="5dp"
+            app:selectedColor="#78C0E8"
+            app:strokeRadius="10dp"
             app:strokeWidth="1dp"
             app:switchTabs="@array/switch_tabs"
             app:textSize="14sp" />

@@ -72,18 +72,21 @@
                     android:id="@+id/contentsInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="#B2EBEA"
+                    android:backgroundTintMode="src_over"
                     android:fontFamily="@font/main_font"
                     android:hint="@string/input_contents_hint"
                     android:maxLines="1"
+                    android:textColor="#B2EBEA"
+                    android:textColorHint="#B2EBEA"
                     android:textSize="32sp"
                     android:textStyle="bold" />
 
                 <ImageView
                     android:id="@+id/pictureImageView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    android:src="@drawable/imagetoset" />
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/imagetab" />
 
             </LinearLayout>
 
@@ -107,18 +110,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#DDFDFC"
             android:orientation="vertical">
-
-            <com.github.channguyen.rsv.RangeSliderView
-                android:id="@+id/sliderView"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="20dp"
-                app:filledColor="#FF6600"
-                app:emptyColor="#a8aeb8"
-                app:rangeCount="5"
-                app:sliderRadiusPercent="0.4"
-                app:barHeightPercent="0.1" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -128,34 +121,39 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/mood1"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
-                    android:src="@drawable/smile1_48"/>
+                    android:src="@drawable/smile1_48" />
 
                 <ImageView
+                    android:id="@+id/mood2"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
-                    android:src="@drawable/smile2_48"/>
+                    android:src="@drawable/smile2_48" />
 
                 <ImageView
+                    android:id="@+id/mood3"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
-                    android:src="@drawable/smile3_48"/>
+                    android:src="@drawable/smile3_48" />
 
                 <ImageView
+                    android:id="@+id/mood4"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
-                    android:src="@drawable/smile4_48"/>
+                    android:src="@drawable/smile4_48" />
 
                 <ImageView
+                    android:id="@+id/mood5"
                     android:layout_width="0dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
-                    android:src="@drawable/smile5_48"/>
+                    android:src="@drawable/smile5_48" />
 
             </LinearLayout>
 
@@ -167,8 +165,13 @@
         android:id="@+id/bottomLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginStart="-3dp"
+        android:layout_marginEnd="2dp"
         android:layout_marginBottom="60dp"
+        android:clipChildren="true"
         android:paddingTop="10dp"
         android:paddingBottom="10dp">
 
@@ -177,11 +180,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="0dp"
             android:background="@drawable/select_button"
+            android:elevation="10dp"
             android:fontFamily="@font/main_font"
             android:text="@string/save_button"
-            android:textColor="@android:color/white"
+            android:textColor="@color/black"
             android:textStyle="bold"
             app:backgroundTint="#00000000"
             app:backgroundTintMode="add" />
@@ -194,7 +200,7 @@
             android:background="@drawable/select_button"
             android:fontFamily="@font/main_font"
             android:text="@string/delete_button"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             app:backgroundTint="#00000000"
             app:backgroundTintMode="add" />
@@ -208,7 +214,7 @@
             android:background="@drawable/select_button"
             android:fontFamily="@font/main_font"
             android:text="@string/close_button"
-            android:textColor="@android:color/white"
+            android:textColor="@color/black"
             android:textStyle="bold"
             app:backgroundTint="#00000000"
             app:backgroundTintMode="add" />

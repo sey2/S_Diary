@@ -51,7 +51,6 @@ public class Fragment2 extends Fragment {
     int _id = -1;
     int weatherIndex = 0;
 
-    RangeSliderView moodSlider;
     int moodIndex = 2;
 
     Note item;
@@ -64,6 +63,13 @@ public class Fragment2 extends Fragment {
 
     EditText contentsInput;
     ImageView pictureImageView;
+
+    ImageView moodImageView1;
+    ImageView moodImageView2;
+    ImageView moodImageView3;
+    ImageView moodImageView4;
+    ImageView moodImageView5;
+
 
     boolean isPhotoCaptured;
     boolean isPhotoFileSaved;
@@ -88,7 +94,7 @@ public class Fragment2 extends Fragment {
         if(requestListener != null)
             requestListener.onRequest("getCurrentLocation");
 
-        applyItem();
+       // applyItem();
 
         packName = weatherIcon.getContext().getPackageName();
 
@@ -177,17 +183,30 @@ public class Fragment2 extends Fragment {
             }
         });
 
-        moodSlider = rootView.findViewById(R.id.sliderView);
-        final RangeSliderView.OnSlideListener listener = new RangeSliderView.OnSlideListener() {
-            @Override
-            public void onSlide(int index) {
-                Toast.makeText(context, "moodIndex changed to " + index, Toast.LENGTH_LONG).show();
-                moodIndex = index;
-            }
-        };
+        moodImageView1 = rootView.findViewById(R.id.mood1);
+        moodImageView1.setOnClickListener((v)->{
+            moodIndex = 0;
+        });
 
-        moodSlider.setOnSlideListener(listener);
-        moodSlider.setInitialIndex(2);  // 슬라이더 인덱스 설정
+        moodImageView2 = rootView.findViewById(R.id.mood2);
+        moodImageView2.setOnClickListener((v)->{
+            moodIndex = 1;
+        });
+
+        moodImageView3 = rootView.findViewById(R.id.mood3);
+        moodImageView3.setOnClickListener((v)->{
+            moodIndex = 2;
+        });
+
+        moodImageView4 = rootView.findViewById(R.id.mood4);
+        moodImageView4.setOnClickListener((v)->{
+            moodIndex = 3;
+        });
+
+        moodImageView5 = rootView.findViewById(R.id.mood5);
+        moodImageView5.setOnClickListener((v)->{
+            moodIndex = 4;
+        });
     }
 
     public void setWeather(String data){
@@ -270,7 +289,7 @@ public class Fragment2 extends Fragment {
                             isPhotoCanceled = true;
                             isPhotoCaptured = false;
 
-                            pictureImageView.setImageResource(R.drawable.noimagefound);
+                            pictureImageView.setImageResource(R.drawable.imagetab);
                         }
                     }
                 });
@@ -297,7 +316,6 @@ public class Fragment2 extends Fragment {
     public void setMood(String mood) {
         try {
             moodIndex = Integer.parseInt(mood);
-            moodSlider.setInitialIndex(moodIndex);
         } catch(Exception e) {
             e.printStackTrace();
         }
