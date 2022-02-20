@@ -1,8 +1,7 @@
 package org.techtown.diary.adapter;
 
-import android.app.Application;
+import android.database.Cursor;
 import android.net.Uri;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,18 +17,18 @@ import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.chauthai.swipereveallayout.ViewBinderHelper;
 
 import org.techtown.diary.R;
+import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.listener.OnNoteItemClickListener;
-
+import org.techtown.diary.ui.Fragment1;
 import java.util.ArrayList;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         implements OnNoteItemClickListener {
 
-    ArrayList<Note> items = new ArrayList<Note>();
+    static ArrayList<Note> items = new ArrayList<Note>();
     private final ViewBinderHelper binderHelper = new ViewBinderHelper();
 
     OnNoteItemClickListener listener;
-
     int layoutType = 0;
 
     @NonNull
@@ -38,6 +36,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
         View itemView = inflater.inflate(R.layout.note_item, viewGroup, false);
+
 
         return new ViewHolder(itemView, this, layoutType);
     }
@@ -48,6 +47,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
 
             binderHelper.setOpenOnlyOne(true);
             binderHelper.bind(viewHolder.swipelayout,Integer.toString(item.get_id()));
+            viewHolder.bind(item);
             viewHolder.setItem(item);
             viewHolder.setLayoutType(layoutType);
     }
@@ -85,11 +85,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         layoutType = position;
     }
 
-   public static class ViewHolder extends RecyclerView.ViewHolder {
+   public class ViewHolder extends RecyclerView.ViewHolder {
         SwipeRevealLayout swipelayout;
-        private View txtEdit;
-        private View txtDelete;
-
+        private View deleteLayout;
+        private View editLayout;
 
         LinearLayout layout1;
         LinearLayout layout2;
@@ -112,12 +111,14 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         TextView dateTextView;
         TextView dateTextView2;
 
-        public ViewHolder(View itemView, final OnNoteItemClickListener listener, int layoutType) {
+        NoteDatabase database;
+
+       public ViewHolder(View itemView, final OnNoteItemClickListener listener, int layoutType) {
             super(itemView);
 
             swipelayout = (SwipeRevealLayout) itemView.findViewById(R.id.swipe_layout);
-            txtEdit = itemView.findViewById(R.id.txtEdit);
-            txtDelete = itemView.findViewById(R.id.txtDelete);
+            editLayout = itemView.findViewById(R.id.txtEdit);
+            deleteLayout = itemView.findViewById(R.id.txtDelete);
 
             layout1 = itemView.findViewById(R.id.layout1);
             layout2 = itemView.findViewById(R.id.layout2);
@@ -140,6 +141,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             dateTextView = itemView.findViewById(R.id.dateTextView);
             dateTextView2 = itemView.findViewById(R.id.dateTextView2);
 
+           // 데이터 베이스 객체 얻어오기
+           Fragment1 fragment1 = new Fragment1();
+           database = NoteDatabase.getInstance(fragment1.context);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -151,16 +156,33 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
                 }
             });
 
-            /* 수정, 삭제, 레이아웃 띄우는 코드 추가 */
-            txtEdit.setOnClickListener((v)->{
-
-            });
-
-            txtDelete.setOnClickListener((v) ->{
-
-            });
-
             setLayoutType(layoutType);
+        }
+
+        public void bind(final Note item){
+            deleteLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("test", "position = " + Integer.toString(getAdapterPosition()));
+
+                    int position = item._id;
+
+                    // 리싸이클러 뷰 아이템 목록에서 안보이게 하기
+                    items.remove(getAdapterPosition());
+                    notifyItemRemoved(getAdapterPosition());
+
+                    // 일기 삭제
+                    deleteNote(position);
+                }
+            });
+
+
+            editLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String displayText = ""  + " clicked";
+                }
+            });
         }
 
 
@@ -245,6 +267,18 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
                 layout1.setVisibility(View.GONE);
                 layout2.setVisibility(View.VISIBLE);
             }
+        }
+
+        /* swipe 삭제 버튼 누르면 DB에서 해당 일기를 찾아 삭제 */
+        public void deleteNote(int position){
+           String sql = "select _id, WEATHER, ADDRESS, LOCATION_X, LOCATION_Y, CONTENTS, MOOD, PICTURE, CREATE_DATE, MODIFY_DATE from " + NoteDatabase.TABLE_NOTE + " order by CREATE_DATE desc";
+            Cursor outCursor = database.rawQuery(sql);
+
+            sql = "delete from " + NoteDatabase.TABLE_NOTE +
+                    " where " +
+                    "   _id = " + position;
+
+            database.execSQL(sql);
         }
 
     }
