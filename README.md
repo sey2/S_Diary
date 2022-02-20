@@ -1,5 +1,5 @@
 ## :memo: S Diary
-![한줄일기](https://user-images.githubusercontent.com/54762273/154733849-77912e5d-e5a1-43be-b23d-619bb113f676.png)
+![한줄일기](https://user-images.githubusercontent.com/54762273/154853546-a3383b91-fc6e-43dd-ba9a-284dc9a007fa.png)
 
 <br>
 
