@@ -10,8 +10,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.techtown.diary.adapter.Note;
 import org.techtown.diary.data.AppConstants;
-import org.techtown.diary.listener.OnNoteItemClickListener;
 import org.techtown.diary.listener.OnTabSelectedListener;
 import org.techtown.diary.R;
 
@@ -33,7 +30,7 @@ public class Fragment1 extends Fragment {
     RecyclerView recyclerView;
     NoteAdapter adapter;
 
-    Context context;
+    public Context context;
     OnTabSelectedListener listener;
 
     @Override   /* Acticity 에서 프래그먼트를 호출하면 호출되는 메서드 */
@@ -89,6 +86,7 @@ public class Fragment1 extends Fragment {
 
         recyclerView.setAdapter(adapter);
 
+        /*          작동 안함 ;;
         adapter.setOnItemClickListener(new OnNoteItemClickListener() {
             @Override
             public void onItemClick(NoteAdapter.ViewHolder holder, View view, int position) {
@@ -98,15 +96,14 @@ public class Fragment1 extends Fragment {
             }
         });
 
+         */
+
     }
 
     /* 리스트 데이터 로딩 */
     @SuppressLint("Range")
     public int loadNoteListData(){
         AppConstants.println("loadNoteListData called.");
-
-        //String sql = "select _id, WEATHER, ADDRESS, LOCATION_X, LOCATION_Y, CONTENTS, MOOD, PICTURE, " +
-          //      "CREATE_DATE, MODIFY_DATE from " + NoteDatabase.TABLE_NOTE + " order by CREATE_DATE desc";
 
         String sql = "select _id, WEATHER, ADDRESS, LOCATION_X, LOCATION_Y, CONTENTS, MOOD, PICTURE, CREATE_DATE, MODIFY_DATE from " + NoteDatabase.TABLE_NOTE + " order by CREATE_DATE desc";
         int recordCount = -1;
@@ -158,6 +155,7 @@ public class Fragment1 extends Fragment {
             adapter.setItems(items);
             adapter.notifyDataSetChanged();
         }
+
 
         return recordCount;
     }
