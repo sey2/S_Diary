@@ -15,22 +15,24 @@
         <TextView
             android:id="@+id/txtEdit"
             android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:background="#d2691e"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
+            android:drawableRight="@drawable/edit_48"
             android:fontFamily="@font/main_font"
             android:gravity="center"
-            android:text="EDIT"
             android:textColor="#ffffff"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtDelete"
             android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:background="#d269"
+            android:layout_height="100dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/trash_48"
             android:fontFamily="@font/main_font"
             android:gravity="center"
-            android:text="DELETE"
             android:textColor="#ffffff"
             android:textStyle="bold" />
 
