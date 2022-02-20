@@ -1,6 +1,5 @@
 package org.techtown.diary.adapter;
 
-import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
