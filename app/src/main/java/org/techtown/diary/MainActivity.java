@@ -113,7 +113,6 @@ public class MainActivity extends AppCompatActivity
                 .onGranted(new Action<List<String>>() {
                     @Override
                     public void onAction(List<String> permissions) {
-                        showToast("허용된 권한 갯수 : " + permissions.size());
                     }
                 })
                 .onDenied(new Action<List<String>>() {
