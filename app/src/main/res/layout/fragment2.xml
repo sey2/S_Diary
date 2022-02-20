@@ -110,7 +110,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#DDFDFC"
+            android:background="#F8EED0"
             android:orientation="vertical">
 
             <LinearLayout
@@ -180,9 +180,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="6dp"
             android:background="@drawable/select_button"
             android:elevation="10dp"
             android:fontFamily="@font/main_font"
@@ -196,7 +195,10 @@
             android:id="@+id/deleteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_centerInParent="true"
+            android:layout_marginStart="168dp"
+            android:layout_marginTop="6dp"
             android:background="@drawable/select_button"
             android:fontFamily="@font/main_font"
             android:text="@string/delete_button"
@@ -211,6 +213,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginTop="6dp"
             android:background="@drawable/select_button"
             android:fontFamily="@font/main_font"
             android:text="@string/close_button"

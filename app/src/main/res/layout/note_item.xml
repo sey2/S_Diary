@@ -224,7 +224,7 @@
                             android:layout_centerVertical="true"
                             android:fontFamily="@font/main_font"
                             android:text="02월10일"
-                            android:textColor="#FF0000FF"
+                            android:textColor="#B2EBEA"
                             android:textSize="16sp"
                             android:textStyle="bold" />
                     </RelativeLayout>
