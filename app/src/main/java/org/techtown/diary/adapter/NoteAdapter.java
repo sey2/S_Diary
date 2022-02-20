@@ -159,6 +159,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             setLayoutType(layoutType);
         }
 
+        // Swipe Layout (삭제, 수정) 리스너 설정
         public void bind(final Note item){
             deleteLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -271,10 +272,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
 
         /* swipe 삭제 버튼 누르면 DB에서 해당 일기를 찾아 삭제 */
         public void deleteNote(int position){
-           String sql = "select _id, WEATHER, ADDRESS, LOCATION_X, LOCATION_Y, CONTENTS, MOOD, PICTURE, CREATE_DATE, MODIFY_DATE from " + NoteDatabase.TABLE_NOTE + " order by CREATE_DATE desc";
-            Cursor outCursor = database.rawQuery(sql);
 
-            sql = "delete from " + NoteDatabase.TABLE_NOTE +
+           String sql = "delete from " + NoteDatabase.TABLE_NOTE +
                     " where " +
                     "   _id = " + position;
 
