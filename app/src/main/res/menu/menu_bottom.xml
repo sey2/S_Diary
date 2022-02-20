@@ -7,17 +7,18 @@
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/list_48"
-        android:title="" />
+        android:title="나의 일기" />
     <item
         android:id="@+id/tab2"
         app:showAsAction="ifRoom"
+        android:enabled="true"
         android:icon="@drawable/write_48"
-        android:title="" />
+        android:title="오늘 한줄" />
     <item
         android:id="@+id/tab3"
         app:showAsAction="ifRoom"
         android:enabled="true"
         android:icon="@drawable/graph_48"
-        android:title="" />
+        android:title="통계" />
 
 </menu>
