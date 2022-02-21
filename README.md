@@ -1,5 +1,6 @@
 ## :memo: S Diary
-![한줄일기](https://user-images.githubusercontent.com/54762273/154853546-a3383b91-fc6e-43dd-ba9a-284dc9a007fa.png)
+![한줄일기](https://user-images.githubusercontent.com/54762273/154873330-50e5637a-85f6-44fb-9248-246010a77442.png)
+
 
 <br>
 
@@ -24,7 +25,8 @@
 - [x] 데이터베이스 연동하기
 - [x] 마무리 (앱 아이콘, 스플래시 화면)
 - [x] SwipeLayout 추가
-- [ ] SwipeLayout 기능 추가(삭제, 수정 기능 추가)  - 🔨 
+- [ ] SwipeLayout 기능 추가(삭제, 수정 기능 추가)  - 🔨
+- [ ] 삭제할때 알림창 나오게 하기
 - [ ] 일기 클릭하면 한눈에 보이는 뷰 추가
 - [ ] 일기 작성중 다른 화면 이동하면 일기 내용 삭제되게 하는 기능 추가
 - [ ] 일기 작성화면 이모티콘 액션 효과 주기
