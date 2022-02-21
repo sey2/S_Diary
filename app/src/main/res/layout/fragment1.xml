@@ -12,23 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <lib.kingja.switchbutton.SwitchMultiButton
-            android:id="@+id/switchButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginEnd="5dp"
-            android:fontFamily="@font/main_font"
-            android:padding="8dp"
-            app:selectedColor="#78C0E8"
-            app:strokeRadius="10dp"
-            app:strokeWidth="1dp"
-            app:switchTabs="@array/switch_tabs"
-            app:textSize="14sp" />
-
         <TextView
             android:id="@+id/dirayList"
             android:layout_width="wrap_content"
@@ -40,7 +23,28 @@
             android:fontFamily="@font/main_font"
             android:text="일기 목록"
             android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textSize="24sp" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@null"
+            android:src="@drawable/picture_48" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="76dp"
+            android:background="@null"
+            android:src="@drawable/read_48" />
+
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

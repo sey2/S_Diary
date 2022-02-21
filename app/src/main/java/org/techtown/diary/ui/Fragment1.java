@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -23,12 +24,14 @@ import org.techtown.diary.R;
 import java.util.ArrayList;
 import java.util.Date;
 
-import lib.kingja.switchbutton.SwitchMultiButton;
 
 public class Fragment1 extends Fragment {
 
     RecyclerView recyclerView;
     NoteAdapter adapter;
+
+    ImageButton imageButton1;
+    ImageButton imageButton2;
 
     public Context context;
     OnTabSelectedListener listener;
@@ -67,14 +70,21 @@ public class Fragment1 extends Fragment {
 
     // XML 레이아웃 안에 들어 있는 위젯이나 레이아웃을 찾아 변수에 할당하기 위한 메서드
     private void initUI(ViewGroup rootView){
-        SwitchMultiButton switchButton = rootView.findViewById(R.id.switchButton);
-        switchButton.setOnSwitchListener(new SwitchMultiButton.OnSwitchListener() {
-            @Override
-            public void onSwitch(int position, String tabText) {
-                adapter.switchLayout(position);
-                adapter.notifyDataSetChanged();
-            }
+
+        /* 사진 위주 */
+        ImageButton imageButton1 = rootView.findViewById(R.id.imageButton);
+        imageButton1.setOnClickListener((v)->{
+            adapter.switchLayout(1);
+            adapter.notifyDataSetChanged();
         });
+
+        /* 내용 위주 */
+        ImageButton imageButton2 = rootView.findViewById(R.id.imageButton2);
+        imageButton2.setOnClickListener((v)->{
+            adapter.switchLayout(0);
+            adapter.notifyDataSetChanged();
+        });
+
 
         recyclerView = rootView.findViewById(R.id.recyclerView);
 
