@@ -92,15 +92,11 @@ public class Fragment2 extends Fragment {
 
         initUI(rootView);
 
-        Log.d("cr", "create");
-
         // 입력 화면이 보일 때 마다 현재 위치를 확인함 (onCreateView)
         if(requestListener != null)
             requestListener.onRequest("getCurrentLocation");
 
         packName = container.getContext().getPackageName();
-
-       // applyItem();
 
         return rootView;
     }
@@ -389,15 +385,10 @@ public class Fragment2 extends Fragment {
 
     public void setWeatherIndex(int index) {
 
-        for(int i=0; i<7; i++){
-            if(index == i) {
-                String str = "@drawable/weather_" + Integer.toString(i+1);
-                int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
-                weatherIcon.setImageResource(path);
-                weatherIndex = index;
-                break;
-            }
-        }
+        String str = "@drawable/weather_" + Integer.toString(index-1);
+        int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
+        weatherIcon.setImageResource(path);
+        weatherIndex = index;
 
     }
 
