@@ -98,7 +98,6 @@ public class Fragment1 extends Fragment {
 
 
         adapter = new NoteAdapter();
-
         recyclerView.setAdapter(adapter);
 
 
@@ -115,7 +114,7 @@ public class Fragment1 extends Fragment {
                 builder.setMessage("정말 삭제하시겠습니까?");
 
 
-                builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("삭제", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -129,7 +128,7 @@ public class Fragment1 extends Fragment {
                     }
                 });
 
-                builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("취소", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
