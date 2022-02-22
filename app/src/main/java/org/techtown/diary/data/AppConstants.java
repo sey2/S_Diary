@@ -14,6 +14,7 @@ public class AppConstants {
 
     public static final int CONTENT_PHOTO = 105;
     public static final int CONTENT_PHOTO_EX = 106;
+    public static final int CONTENT_DELETE = 107;
 
     public static  String FOLDER_PHOTO ;
     public static  String DATABASE_NAME = "note.db";

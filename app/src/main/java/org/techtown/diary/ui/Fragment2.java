@@ -51,7 +51,6 @@ public class Fragment2 extends Fragment {
     OnRequestListener requestListener;
 
     int mMode = AppConstants.MODE_INSERT;
-    int _id = -1;
     int weatherIndex = 0;
 
     int moodIndex = 2;
@@ -93,13 +92,15 @@ public class Fragment2 extends Fragment {
 
         initUI(rootView);
 
+        Log.d("cr", "create");
+
         // 입력 화면이 보일 때 마다 현재 위치를 확인함 (onCreateView)
         if(requestListener != null)
             requestListener.onRequest("getCurrentLocation");
 
         packName = container.getContext().getPackageName();
 
-       applyItem();
+       // applyItem();
 
         return rootView;
     }
@@ -173,9 +174,6 @@ public class Fragment2 extends Fragment {
             @Override
             public void onClick(View view) {
                 deleteNote();
-
-                if(listener != null)
-                    listener.onTabSelected(0);
             }
         });
 
@@ -304,12 +302,35 @@ public class Fragment2 extends Fragment {
 
                 break;
 
+            case AppConstants.CONTENT_DELETE:
+                builder = new AlertDialog.Builder(context);
+
+                builder.setTitle("알림 메시지");
+                builder.setMessage("정말 삭제 하시겠습니까?");
+
+                builder.setPositiveButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                builder.setNegativeButton("삭제", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        contentsInput.setText("");
+                        pictureImageView.setImageResource(R.drawable.imagetab);
+                    }
+                });
+
+                break;
+
             default:
                 break;
         }
 
-        AlertDialog dialog = builder.create();
-        dialog.show();
+        builder.show();
+
     }
 
     public void setContents(String data) {
@@ -534,6 +555,12 @@ public class Fragment2 extends Fragment {
         Log.d("Fragment2", "sql : " + sql);
         NoteDatabase database = NoteDatabase.getInstance(context);
         database.execSQL(sql);
+
+        contentsInput.setText("");
+        pictureImageView.setImageResource(R.drawable.imagetab);
+
+        // 일기 작성 화면 내용 지움
+
     }
 
     private void modifyNote(){
@@ -566,15 +593,9 @@ public class Fragment2 extends Fragment {
     private void deleteNote(){
         AppConstants.println("deleteNote called");
 
-        if(item != null){
-            String sql = "delete from " + NoteDatabase.TABLE_NOTE +
-                    " where " +
-                    "   _id = " + item.get_id();
+        showDialog(AppConstants.CONTENT_DELETE);
+        isPhotoFileSaved = false;
 
-            Log.d("Fragment2", "sql : " + sql);
-            NoteDatabase database = NoteDatabase.getInstance(context);
-            database.execSQL(sql);
-        }
     }
 
     private String savePicture() {
