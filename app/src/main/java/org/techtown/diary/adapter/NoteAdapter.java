@@ -1,5 +1,6 @@
 package org.techtown.diary.adapter;
 
+import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,7 +19,7 @@ import com.chauthai.swipereveallayout.ViewBinderHelper;
 import org.techtown.diary.R;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.listener.OnNoteItemClickListener;
-import org.techtown.diary.ui.Fragment1;
+
 import java.util.ArrayList;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
@@ -29,6 +30,9 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
 
     OnNoteItemClickListener listener;
     int layoutType = 0;
+
+    Context context;
+
 
     @NonNull
     @Override
@@ -46,7 +50,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
 
             binderHelper.setOpenOnlyOne(true);
             binderHelper.bind(viewHolder.swipelayout,Integer.toString(item.get_id()));
-            viewHolder.bind(item);
+            viewHolder.bind(item, items);
             viewHolder.setItem(item);
             viewHolder.setLayoutType(layoutType);
     }
@@ -73,10 +77,16 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
     }
 
     @Override
-    public void onItemClick(ViewHolder holder, View view, int position) {
+    public void onDeleteClick(ViewHolder holder, View view, int position,int adapterPosition, ArrayList<Note> items) {
         if (listener != null) {
-            listener.onItemClick(holder, view, position);
+            listener.onDeleteClick(holder, view, position, adapterPosition,items);
         }
+    }
+
+    @Override
+    public void onEditClick(ViewHolder holder, View view, int position, int adapterPosition,ArrayList<Note> items){
+        if(listener != null)
+            listener.onEditClick(holder, view, position, adapterPosition, items);
     }
 
 
@@ -112,6 +122,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
 
         NoteDatabase database;
 
+        Context context;
+
        public ViewHolder(View itemView, final OnNoteItemClickListener listener, int layoutType) {
             super(itemView);
 
@@ -140,17 +152,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             dateTextView = itemView.findViewById(R.id.dateTextView);
             dateTextView2 = itemView.findViewById(R.id.dateTextView2);
 
-           // 데이터 베이스 객체 얻어오기
-           Fragment1 fragment1 = new Fragment1();
-           database = NoteDatabase.getInstance(fragment1.context);
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
 
                     if (listener != null) {
-                        listener.onItemClick(ViewHolder.this, view, position);
+                       // listener.onItemClick(ViewHolder.this, view, position);
                     }
                 }
             });
@@ -159,20 +167,18 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         }
 
         // Swipe Layout (삭제, 수정) 리스너 설정
-        public void bind(final Note item){
+        public void bind(final Note item, final ArrayList<Note> items){
             deleteLayout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("test", "position = " + Integer.toString(getAdapterPosition()));
 
+                @Override
+                public void onClick(View view) {
                     int position = item._id;
 
-                    // 리싸이클러 뷰 아이템 목록에서 안보이게 하기
-                    items.remove(getAdapterPosition());
-                    notifyItemRemoved(getAdapterPosition());
+                    if(listener != null){
+                        listener.onDeleteClick(ViewHolder.this, view, position,getAdapterPosition(), items);
+                    }
 
-                    // 일기 삭제
-                    deleteNote(position);
+
                 }
             });
 
@@ -269,15 +275,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             }
         }
 
-        /* swipe 삭제 버튼 누르면 DB에서 해당 일기를 찾아 삭제 */
-        public void deleteNote(int position){
-
-           String sql = "delete from " + NoteDatabase.TABLE_NOTE +
-                    " where " +
-                    "   _id = " + position;
-
-            database.execSQL(sql);
-        }
 
     }
 
