@@ -4,7 +4,9 @@ import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.NoteAdapter;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.techtown.diary.adapter.Note;
 import org.techtown.diary.data.AppConstants;
+import org.techtown.diary.listener.OnNoteItemClickListener;
 import org.techtown.diary.listener.OnTabSelectedListener;
 import org.techtown.diary.R;
 
@@ -30,11 +33,10 @@ public class Fragment1 extends Fragment {
     RecyclerView recyclerView;
     NoteAdapter adapter;
 
-    ImageButton imageButton1;
-    ImageButton imageButton2;
-
     public Context context;
     OnTabSelectedListener listener;
+
+    NoteDatabase database;
 
     @Override   /* Acticity 에서 프래그먼트를 호출하면 호출되는 메서드 */
     public void onAttach(Context context){
@@ -44,6 +46,9 @@ public class Fragment1 extends Fragment {
 
         if(context instanceof OnTabSelectedListener)
             listener = (OnTabSelectedListener) context;
+
+        database = NoteDatabase.getInstance(context);
+
     }
 
     @Override /* Activity에서 프래그먼트가 제거될 때 호출되는 메서드 */
@@ -96,17 +101,46 @@ public class Fragment1 extends Fragment {
 
         recyclerView.setAdapter(adapter);
 
-        /*          작동 안함 ;;
+
         adapter.setOnItemClickListener(new OnNoteItemClickListener() {
             @Override
-            public void onItemClick(NoteAdapter.ViewHolder holder, View view, int position) {
-                Note item = adapter.getItem(position);
+            public void onEditClick(NoteAdapter.ViewHolder holder, View view, int position,int adapterPosition,ArrayList<Note> items) {
 
-                Toast.makeText(getContext(), "아이템 선택됨 : " + item.getContents(), Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onDeleteClick(NoteAdapter.ViewHolder holder, View view, int position, int adapterPosition, ArrayList<Note> items) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("알림 메시지");
+                builder.setMessage("정말 삭제하시겠습니까?");
+
+
+                builder.setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                        // 리싸이클러 뷰 아이템 목록에서 안보이게 하기
+                        items.remove(adapterPosition);
+
+                        adapter.notifyItemRemoved(adapterPosition);
+
+                        // 일기 삭제
+                        deleteNote(position);
+                    }
+                });
+
+                builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+
+                builder.show();
             }
         });
 
-         */
+
 
     }
 
@@ -169,6 +203,17 @@ public class Fragment1 extends Fragment {
 
         return recordCount;
     }
+
+    /* swipe 삭제 버튼 누르면 DB에서 해당 일기를 찾아 삭제 */
+    public void deleteNote(int position){
+
+        String sql = "delete from " + NoteDatabase.TABLE_NOTE +
+                " where " +
+                "   _id = " + position;
+
+        database.execSQL(sql);
+    }
+
 }
 
 
