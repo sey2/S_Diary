@@ -29,6 +29,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import org.techtown.diary.BuildConfig;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.Note;
@@ -56,7 +58,7 @@ public class Fragment2 extends Fragment {
 
     Note item;
 
-    ImageView weatherIcon;
+    ImageView weatherIcon;      // 일기 작성 화면 일기 왼쪽 상단 아이콘
     ImageView weatherImage1; // 내용 위주
     ImageView weatherImage2; // 사진 위주
     TextView dateTextView;
@@ -95,9 +97,9 @@ public class Fragment2 extends Fragment {
         if(requestListener != null)
             requestListener.onRequest("getCurrentLocation");
 
-       // applyItem();
+        packName = container.getContext().getPackageName();
 
-        packName = weatherIcon.getContext().getPackageName();
+       applyItem();
 
         return rootView;
     }
@@ -113,6 +115,7 @@ public class Fragment2 extends Fragment {
 
         if(context instanceof OnRequestListener)
             requestListener= (OnRequestListener) context;
+
     }
 
     @Override
@@ -125,6 +128,7 @@ public class Fragment2 extends Fragment {
             requestListener = null;
         }
     }
+
 
     // XML 레이아웃 안에 들어 있는 위젯이나 레이아웃을 찾아 변수에 할당하기 위한 메서드
     private void initUI(ViewGroup rootView){
@@ -223,8 +227,6 @@ public class Fragment2 extends Fragment {
                     break;
                 }
             }
-
-            Log.d("Fragment2", "Unknown weather string: " + data);
         }
     }
 
@@ -372,7 +374,7 @@ public class Fragment2 extends Fragment {
                 int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
                 weatherIcon.setImageResource(path);
                 weatherIndex = index;
-                return;
+                break;
             }
         }
 
