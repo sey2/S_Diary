@@ -21,6 +21,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -69,6 +71,7 @@ public class Fragment2 extends Fragment {
     ImageView moodImageView3;
     ImageView moodImageView4;
     ImageView moodImageView5;
+    ImageView curMood = null;
 
 
     boolean isPhotoCaptured;
@@ -82,6 +85,8 @@ public class Fragment2 extends Fragment {
     static Bitmap resultPhotoBitmap;
 
     String packName;
+
+    Animation moodAnim;
 
 
     @Override
@@ -136,6 +141,9 @@ public class Fragment2 extends Fragment {
         contentsInput = rootView.findViewById(R.id.contentsInput);
         pictureImageView = rootView.findViewById(R.id.pictureImageView);
 
+        moodAnim = AnimationUtils.loadAnimation(context,R.anim.mood_icon_ani);
+        curMood = rootView.findViewById(R.id.mood1);
+
         pictureImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,28 +190,45 @@ public class Fragment2 extends Fragment {
 
         moodImageView1 = rootView.findViewById(R.id.mood1);
         moodImageView1.setOnClickListener((v)->{
+            curMood.clearAnimation();
             moodIndex = 0;
+            moodImageView1.startAnimation(moodAnim);
+            curMood = moodImageView1;
         });
 
         moodImageView2 = rootView.findViewById(R.id.mood2);
         moodImageView2.setOnClickListener((v)->{
+            curMood.clearAnimation();
             moodIndex = 1;
+            moodImageView2.startAnimation(moodAnim);
+            curMood = moodImageView2;
         });
 
         moodImageView3 = rootView.findViewById(R.id.mood3);
         moodImageView3.setOnClickListener((v)->{
+            curMood.clearAnimation();
             moodIndex = 2;
+            moodImageView3.startAnimation(moodAnim);
+            curMood = moodImageView3;
         });
 
         moodImageView4 = rootView.findViewById(R.id.mood4);
         moodImageView4.setOnClickListener((v)->{
+            curMood.clearAnimation();
             moodIndex = 3;
+            moodImageView4.startAnimation(moodAnim);
+            curMood = moodImageView4;
         });
 
         moodImageView5 = rootView.findViewById(R.id.mood5);
         moodImageView5.setOnClickListener((v)->{
+            curMood.clearAnimation();
             moodIndex = 4;
+            moodImageView5.startAnimation(moodAnim);
+            curMood = moodImageView5;
         });
+
+
     }
 
     public void setWeather(String data){
@@ -612,6 +637,24 @@ public class Fragment2 extends Fragment {
         }
 
         return picturePath;
+    }
+
+    private View getSelectMood(View v){
+        int id = v.getId();
+
+        switch (id){
+            case R.id.mood1:
+                return moodImageView1;
+            case R.id.mood2:
+                return moodImageView2;
+            case R.id.mood3:
+                return moodImageView3;
+            case R.id.mood4:
+                return moodImageView4;
+            case R.id.mood5:
+                return moodImageView5;
+        }
+        return null;
     }
 
 }
