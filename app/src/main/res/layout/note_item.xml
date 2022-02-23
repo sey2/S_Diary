@@ -163,6 +163,8 @@
                     android:layout_height="200dp"
                     android:layout_gravity="center_vertical"
                     android:layout_margin="10dp"
+                    android:background="@drawable/bg_rounding"
+                    android:clipToOutline="true"
                     android:padding="5dp"
                     android:src="@drawable/picture1" />
 

@@ -29,8 +29,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import org.techtown.diary.BuildConfig;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.Note;
@@ -81,7 +79,7 @@ public class Fragment2 extends Fragment {
 
     Uri uri;
     File file;
-    Bitmap resultPhotoBitmap;
+    static Bitmap resultPhotoBitmap;
 
     String packName;
 
@@ -443,6 +441,8 @@ public class Fragment2 extends Fragment {
                 resultPhotoBitmap = decodeSampledBitmapFromResource(file,
                         pictureImageView.getWidth(), pictureImageView.getHeight());
 
+                resultPhotoBitmap = getRoundedCornerBitmap(resultPhotoBitmap,20);
+
                 pictureImageView.setImageBitmap(getRoundedCornerBitmap(resultPhotoBitmap,10));
                 break;
 
@@ -454,7 +454,9 @@ public class Fragment2 extends Fragment {
                 try{
                     InputStream instream = resolver.openInputStream(fileUri);
                     resultPhotoBitmap = BitmapFactory.decodeStream(instream);
-                    pictureImageView.setImageBitmap(getRoundedCornerBitmap(resultPhotoBitmap,10));
+                    resultPhotoBitmap = getRoundedCornerBitmap(resultPhotoBitmap,20);
+
+                    pictureImageView.setImageBitmap(getRoundedCornerBitmap(resultPhotoBitmap,15));
 
                     instream.close();
 
@@ -510,10 +512,7 @@ public class Fragment2 extends Fragment {
         int inSampleSize = 1;
 
         if(height > reqHeight || width > reqWidth){
-            final int halfHeight = height;
-            final int halfWidth = width;
-
-            while((halfHeight / inSampleSize) >= reqHeight && (halfWidth/inSampleSize) >= reqWidth){
+            while((height / inSampleSize) >= reqHeight && (width/inSampleSize) >= reqWidth){
                 inSampleSize*=2;
             }
 
@@ -521,7 +520,7 @@ public class Fragment2 extends Fragment {
         return inSampleSize;
     }
 
-    private String createFilename(){
+    public static String createFilename(){
         Date curDate = new Date();
         String curDateStr = String.valueOf(curDate.getTime());
 
@@ -547,10 +546,9 @@ public class Fragment2 extends Fragment {
         NoteDatabase database = NoteDatabase.getInstance(context);
         database.execSQL(sql);
 
+        // 일기 작성 화면 내용 지움
         contentsInput.setText("");
         pictureImageView.setImageResource(R.drawable.imagetab);
-
-        // 일기 작성 화면 내용 지움
 
     }
 

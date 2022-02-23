@@ -201,7 +201,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
 
             // set picture exists
             String picturePath = item.getPicture();
-            Log.d("NoteAdapter", "picturePath -> " + picturePath);
 
             if (picturePath != null && !picturePath.equals("")) {
                 pictureExistsImageView.setVisibility(View.VISIBLE);

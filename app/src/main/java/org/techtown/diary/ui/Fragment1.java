@@ -8,11 +8,15 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,6 +28,7 @@ import org.techtown.diary.listener.OnNoteItemClickListener;
 import org.techtown.diary.listener.OnTabSelectedListener;
 import org.techtown.diary.R;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -37,6 +42,7 @@ public class Fragment1 extends Fragment {
     OnTabSelectedListener listener;
 
     NoteDatabase database;
+    ImageView pictureImageView;
 
     @Override   /* Acticity 에서 프래그먼트를 호출하면 호출되는 메서드 */
     public void onAttach(Context context){
