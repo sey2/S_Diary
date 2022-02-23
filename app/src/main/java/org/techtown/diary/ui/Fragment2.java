@@ -87,6 +87,7 @@ public class Fragment2 extends Fragment {
     String packName;
 
     Animation moodAnim;
+    MoodClickListener moodClickListener;
 
 
     @Override
@@ -143,6 +144,7 @@ public class Fragment2 extends Fragment {
 
         moodAnim = AnimationUtils.loadAnimation(context,R.anim.mood_icon_ani);
         curMood = rootView.findViewById(R.id.mood1);
+        moodClickListener = new MoodClickListener();
 
         pictureImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -189,46 +191,19 @@ public class Fragment2 extends Fragment {
         });
 
         moodImageView1 = rootView.findViewById(R.id.mood1);
-        moodImageView1.setOnClickListener((v)->{
-            curMood.clearAnimation();
-            moodIndex = 0;
-            moodImageView1.startAnimation(moodAnim);
-            curMood = moodImageView1;
-        });
+        moodImageView1.setOnClickListener(moodClickListener);
 
         moodImageView2 = rootView.findViewById(R.id.mood2);
-        moodImageView2.setOnClickListener((v)->{
-            curMood.clearAnimation();
-            moodIndex = 1;
-            moodImageView2.startAnimation(moodAnim);
-            curMood = moodImageView2;
-        });
+        moodImageView2.setOnClickListener(moodClickListener);
 
         moodImageView3 = rootView.findViewById(R.id.mood3);
-        moodImageView3.setOnClickListener((v)->{
-            curMood.clearAnimation();
-            moodIndex = 2;
-            moodImageView3.startAnimation(moodAnim);
-            curMood = moodImageView3;
-        });
+        moodImageView3.setOnClickListener(moodClickListener);
 
         moodImageView4 = rootView.findViewById(R.id.mood4);
-        moodImageView4.setOnClickListener((v)->{
-            curMood.clearAnimation();
-            moodIndex = 3;
-            moodImageView4.startAnimation(moodAnim);
-            curMood = moodImageView4;
-        });
+        moodImageView4.setOnClickListener(moodClickListener);
 
         moodImageView5 = rootView.findViewById(R.id.mood5);
-        moodImageView5.setOnClickListener((v)->{
-            curMood.clearAnimation();
-            moodIndex = 4;
-            moodImageView5.startAnimation(moodAnim);
-            curMood = moodImageView5;
-        });
-
-
+        moodImageView5.setOnClickListener(moodClickListener);
     }
 
     public void setWeather(String data){
@@ -639,6 +614,16 @@ public class Fragment2 extends Fragment {
         return picturePath;
     }
 
+    class MoodClickListener implements View.OnClickListener{
+        @Override
+        public void onClick(View v){
+            curMood.clearAnimation();
+            curMood = (ImageView) getSelectMood(v);
+            curMood.startAnimation(moodAnim);
+            setMoodIndex();
+        }
+    }
+
     private View getSelectMood(View v){
         int id = v.getId();
 
@@ -655,6 +640,19 @@ public class Fragment2 extends Fragment {
                 return moodImageView5;
         }
         return null;
+    }
+
+    private void setMoodIndex(){
+        if(curMood == moodImageView1)
+            moodIndex = 0;
+        else if(curMood == moodImageView2)
+            moodIndex = 1;
+        else if(curMood == moodImageView3)
+            moodIndex = 2;
+        else if(curMood == moodImageView4)
+            moodIndex = 3;
+        else if(curMood == moodImageView5)
+            moodIndex = 4;
     }
 
 }
