@@ -148,17 +148,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             dateTextView = itemView.findViewById(R.id.dateTextView);
             dateTextView2 = itemView.findViewById(R.id.dateTextView2);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int position = getAdapterPosition();
-
-                    if (listener != null) {
-                       // listener.onItemClick(ViewHolder.this, view, position);
-                    }
-                }
-            });
-
             setLayoutType(layoutType);
         }
 
