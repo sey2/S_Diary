@@ -120,10 +120,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
         TextView dateTextView;
         TextView dateTextView2;
 
-        NoteDatabase database;
-
-        Context context;
-
        public ViewHolder(View itemView, final OnNoteItemClickListener listener, int layoutType) {
             super(itemView);
 
@@ -178,7 +174,6 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
                         listener.onDeleteClick(ViewHolder.this, view, position,getAdapterPosition(), items);
                     }
 
-
                 }
             });
 
@@ -224,9 +219,15 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             locationTextView.setText(item.getAddress());
             locationTextView2.setText(item.getAddress());
 
-            dateTextView.setText(item.getCreateDateStr());
-            dateTextView2.setText(item.getCreateDateStr());
+            dateTextView.setText(item.getCreateDateStr() +" 날씨 " + getWeatherString(item)); // 내용 위주    00월 00일 날씨 맑음
+            dateTextView2.setText(item.getCreateDateStr() +" 날씨 " + getWeatherString(item));    // 사진 위주
         }
+
+       public String getWeatherString(Note item){
+           String [] weathers = {"맑음", "구름 조금", "구름 많음", "흐림", "비", "눈/비", "눈"};
+
+           return weathers[Integer.parseInt(item.getWeather())];
+       }
 
         public void setMoodImage(int moodIndex) {
             String packName = moodImageView.getContext().getPackageName();
