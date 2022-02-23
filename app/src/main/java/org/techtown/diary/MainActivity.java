@@ -242,8 +242,13 @@ public class MainActivity extends AppCompatActivity
             currentAddress = null;
 
             Address address = addresses.get(0);
+
+            if(address.getAdminArea() != null){
+                currentAddress = address.getAdminArea();
+            }
+
             if (address.getLocality() != null) {
-                currentAddress = address.getLocality();
+                currentAddress +=  " " + address.getLocality();
             }
 
             if (address.getSubLocality() != null) {
@@ -252,6 +257,10 @@ public class MainActivity extends AppCompatActivity
                 } else {
                     currentAddress = address.getSubLocality();
                 }
+            }
+
+            if(address.getThoroughfare() != null){
+                currentAddress +=  " " + address.getThoroughfare();
             }
 
             String adminArea = address.getAdminArea();
@@ -286,6 +295,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    @Override
     public void processResponse(int requestCode, int responseCode, String response) {
         if (responseCode == 200) {
             if (requestCode == AppConstants.REQ_WEATHER_BY_GRID) {
