@@ -339,43 +339,6 @@ public class Fragment2 extends Fragment {
         }
     }
 
-    public void applyItem() {
-        AppConstants.println("applyItem called.");
-
-        if (item != null) {
-            mMode = AppConstants.MODE_MODIFY;
-
-            setWeatherIndex(Integer.parseInt(item.getWeather()));
-            setAddress(item.getAddress());
-            setDateString(item.getCreateDateStr());
-            setContents(item.getContents());
-
-            String picturePath = item.getPicture();
-            AppConstants.println("picturePath : " + picturePath);
-
-            if (picturePath == null || picturePath.equals("")) {
-                pictureImageView.setImageResource(R.drawable.noimagefound);
-            } else {
-                setPicture(item.getPicture(), 1);
-            }
-
-            setMood(item.getMood());
-        } else {
-            mMode = AppConstants.MODE_INSERT;
-
-            setWeatherIndex(0);
-            setAddress("");
-
-            Date currentDate = new Date();
-            String currentDateString = AppConstants.dateFormat3.format(currentDate);
-            setDateString(currentDateString);
-
-            contentsInput.setText("");
-            pictureImageView.setImageResource(R.drawable.noimagefound);
-            setMood("2");
-        }
-
-    }
 
     public void setItem(Note item) {
         this.item = item;
@@ -443,7 +406,7 @@ public class Fragment2 extends Fragment {
 
                 resultPhotoBitmap = getRoundedCornerBitmap(resultPhotoBitmap,20);
 
-                pictureImageView.setImageBitmap(getRoundedCornerBitmap(resultPhotoBitmap,10));
+                pictureImageView.setImageBitmap(resultPhotoBitmap);
                 break;
 
             case AppConstants.REQ_PHOTO_SELECTION:  // 사진을 앨범에서 선택하는 경우
@@ -454,9 +417,9 @@ public class Fragment2 extends Fragment {
                 try{
                     InputStream instream = resolver.openInputStream(fileUri);
                     resultPhotoBitmap = BitmapFactory.decodeStream(instream);
-                    resultPhotoBitmap = getRoundedCornerBitmap(resultPhotoBitmap,20);
 
-                    pictureImageView.setImageBitmap(getRoundedCornerBitmap(resultPhotoBitmap,15));
+                    resultPhotoBitmap = getRoundedCornerBitmap(resultPhotoBitmap,20);
+                    pictureImageView.setImageBitmap(resultPhotoBitmap);
 
                     instream.close();
 
