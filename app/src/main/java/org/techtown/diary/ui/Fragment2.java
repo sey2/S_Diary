@@ -37,6 +37,7 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import org.techtown.diary.BuildConfig;
+import org.techtown.diary.custom.ContentDeleteDialog;
 import org.techtown.diary.custom.PictureMenuDialog;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.Note;
@@ -240,7 +241,7 @@ public class Fragment2 extends Fragment {
         PictureMenuDialog pictureMenuDialog = new PictureMenuDialog(context);
         pictureMenuDialog.show();
 
-        if(is_Ex == true)
+        if(is_Ex)
             pictureMenuDialog.deleteRadioVisible();
         else
             pictureMenuDialog.deleteRadioGone();
@@ -288,7 +289,6 @@ public class Fragment2 extends Fragment {
         });
     }
     public void showDialog(int id){
-       AlertDialog.Builder builder = null;
 
         switch (id){
 
@@ -301,24 +301,16 @@ public class Fragment2 extends Fragment {
                 break;
 
             case AppConstants.CONTENT_DELETE:
-                builder = new AlertDialog.Builder(context);
-                builder.show();
-
-                builder.setTitle("알림 메시지");
-                builder.setMessage("정말 삭제 하시겠습니까?");
-
-                builder.setPositiveButton("취소", new DialogInterface.OnClickListener() {
+                ContentDeleteDialog contentDeleteDialog = new ContentDeleteDialog(context);
+                contentDeleteDialog.show();
+                contentDeleteDialog.deleteButtonListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
-
-                builder.setNegativeButton("삭제", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                    public void onClick(View view) {
                         contentsInput.setText("");
                         pictureImageView.setImageResource(R.drawable.imagetab);
+                        isPhotoFileSaved = false;
+                        isPhotoCaptured = false;
+                        contentDeleteDialog.dismiss();
                     }
                 });
 
@@ -328,7 +320,6 @@ public class Fragment2 extends Fragment {
                 break;
         }
 
-//        builder.show();
 
     }
 
@@ -554,8 +545,6 @@ public class Fragment2 extends Fragment {
         AppConstants.println("deleteNote called");
 
         showDialog(AppConstants.CONTENT_DELETE);
-        isPhotoFileSaved = false;
-
     }
 
     private String savePicture() {
