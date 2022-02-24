@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="bg_color">#F8EED0</color>
+    <color name="bg_deep_color">#F8F2E1</color>
     <color name="sky">#DDFDFC</color>
     <color name="status_bar">#B2EBEA</color>
     <color name="purple_200">#FFBB86FC</color>

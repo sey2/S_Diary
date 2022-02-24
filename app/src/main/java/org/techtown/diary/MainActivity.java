@@ -14,6 +14,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -25,7 +26,7 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
 
-import org.techtown.diary.adapter.Note;
+import org.techtown.diary.custom.StopWriteDialog;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.ui.Fragment1;
 import org.techtown.diary.ui.Fragment2;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity
     Fragment1 fragment1;    // 일기 목록
     Fragment2 fragment2;    // 일기 작성
     Fragment3 fragment3;    // 기분 통계
+    StopWriteDialog stopWriteDialog;
 
     BottomNavigationView bottomNavigation;
 
@@ -438,6 +440,35 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    public void showStopWriteDialog(){
+        stopWriteDialog = new StopWriteDialog(this);
+        stopWriteDialog.show();
+
+        stopWriteDialog.setCancelButtonOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                stopWriteDialog.dismiss();
+            }
+        });
+
+        stopWriteDialog.setBackButtonOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                stopWriteDialog.dismiss();
+                bottomNavigation.setSelectedItemId(R.id.tab1);
+            }
+        });
+
+        stopWriteDialog.setContinueButtonOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stopWriteDialog.dismiss();
+            }
+        });
+
+
+    }
+
     @Override
     public void onBackPressed(){
         if(bottomNavigation.getSelectedItemId() == R.id.tab1){
@@ -450,7 +481,10 @@ public class MainActivity extends AppCompatActivity
             if(System.currentTimeMillis() <= backPressTime + 2000)
                 super.onBackPressed();
 
-        }else
+        }else if (bottomNavigation.getSelectedItemId() == R.id.tab2){
+            showStopWriteDialog();
+        }
+        else
             bottomNavigation.setSelectedItemId(R.id.tab1);
     }
 

@@ -2,15 +2,12 @@ package org.techtown.diary.ui;
 
 import android.app.AlertDialog;
 import android.content.ContentResolver;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -39,7 +36,6 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import org.techtown.diary.BuildConfig;
-import org.techtown.diary.MainActivity;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.Note;
 import org.techtown.diary.data.AppConstants;
@@ -65,7 +61,6 @@ public class Fragment2 extends Fragment {
     int moodIndex = 2;
 
     Note item;
-
     ImageView weatherIcon;      // 일기 작성 화면 일기 왼쪽 상단 아이콘
     ImageView weatherImage1; // 내용 위주
     ImageView weatherImage2; // 사진 위주
@@ -335,6 +330,7 @@ public class Fragment2 extends Fragment {
         builder.show();
 
     }
+
 
     public void setItem(Note item) {
         this.item = item;
