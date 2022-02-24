@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
@@ -20,6 +21,8 @@ public class PictureMenuDialog extends Dialog {
     Button backButton;
     Button selectedButton;
 
+    RadioButton deleteRadio;
+
     public PictureMenuDialog(@NonNull Context context){
         super(context);
     }
@@ -30,10 +33,11 @@ public class PictureMenuDialog extends Dialog {
         setContentView(R.layout.picture_menu_dialog);
 
         radioGroup = findViewById(R.id.radioGroup);
-        radioGroupEx = findViewById(R.id.radioGroupEx);
         backButton = findViewById(R.id.backButton);
         selectedButton = findViewById(R.id.selectedButton);
         cancelButton = findViewById(R.id.cancelButton);     // 화면 닫기 x 버튼
+
+        deleteRadio = findViewById(R.id.deleteRadio);
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,25 +49,18 @@ public class PictureMenuDialog extends Dialog {
 
     }
 
-    public void RadioGroupVisible(){
-        radioGroup.setVisibility(View.VISIBLE);
-        radioGroupEx.setVisibility(View.GONE);
+    public void deleteRadioVisible(){
+        deleteRadio.setVisibility(View.VISIBLE);
     }
 
-    public void RadioGroupVisibleEx(){
-        radioGroup.setVisibility(View.GONE);
-        radioGroupEx.setVisibility(View.VISIBLE);
+    public void deleteRadioGone(){
+        deleteRadio.setVisibility(View.GONE);
     }
 
 
     public void rgGroupChangeListener(RadioGroup.OnCheckedChangeListener listener){
         radioGroup.setOnCheckedChangeListener(listener);
     }
-
-    public void rgGroupExChangeListener(RadioGroup.OnCheckedChangeListener listener){
-        radioGroupEx.setOnCheckedChangeListener(listener);
-    }
-
 
     public void setBackButtonListener(View.OnClickListener listener){
         backButton.setOnClickListener(listener);

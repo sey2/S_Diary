@@ -59,32 +59,6 @@
             android:fontFamily="@font/main_font"
             android:text="앨범에서 선택하기"
             android:textSize="16sp" />
-    </RadioGroup>
-
-
-    <RadioGroup
-        android:id="@+id/radioGroupEx"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-
-        <RadioButton
-            android:id="@+id/takePictureRadioEx"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/bg_color"
-            android:fontFamily="@font/main_font"
-            android:text="사진 찍기"
-            android:textSize="16sp" />
-
-        <RadioButton
-            android:id="@+id/selectPictureRadioEx"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:buttonTint="@color/bg_color"
-            android:fontFamily="@font/main_font"
-            android:text="앨범에서 선택하기"
-            android:textSize="16sp" />
 
         <RadioButton
             android:id="@+id/deleteRadio"
@@ -93,8 +67,9 @@
             android:buttonTint="@color/bg_color"
             android:fontFamily="@font/main_font"
             android:text="사진 삭제하기"
-            android:textSize="16sp" />>
+            android:textSize="16sp" />
     </RadioGroup>
+
 
     <LinearLayout
         android:layout_width="match_parent"

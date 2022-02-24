@@ -26,7 +26,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -237,18 +236,28 @@ public class Fragment2 extends Fragment {
         dateTextView.setText(dataString);
     }
 
-    public void contentDialogSet(){
+    public void contentDialogSet(boolean is_Ex){
         PictureMenuDialog pictureMenuDialog = new PictureMenuDialog(context);
         pictureMenuDialog.show();
-        pictureMenuDialog.RadioGroupVisible();
+
+        if(is_Ex == true)
+            pictureMenuDialog.deleteRadioVisible();
+        else
+            pictureMenuDialog.deleteRadioGone();
+
 
         pictureMenuDialog.rgGroupChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int whichButton) {
                 if(whichButton == R.id.takePictureRadio)
                     selectedPhotoMenu = R.id.takePictureRadio;
+
                 else if(whichButton == R.id.selectPictureRadio)
                     selectedPhotoMenu = R.id.selectPictureRadio;
+
+                else if (whichButton == R.id.deleteRadio)
+                    selectedPhotoMenu = R.id.deleteRadio;
+
             }
         });
 
@@ -260,49 +269,6 @@ public class Fragment2 extends Fragment {
                     pictureMenuDialog.dismiss();
                 }
                 else if(selectedPhotoMenu == R.id.selectPictureRadio) {
-                    showPhotoSelectionActivity();
-                    pictureMenuDialog.dismiss();
-                }
-            }
-        });
-
-        pictureMenuDialog.setBackButtonListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                pictureMenuDialog.dismiss();
-            }
-        });
-
-    }
-
-    public void contentDialogSet_Ex(){
-        PictureMenuDialog pictureMenuDialog = new PictureMenuDialog(context);
-        pictureMenuDialog.show();
-        pictureMenuDialog.RadioGroupVisibleEx();
-
-        pictureMenuDialog.rgGroupExChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int whichButton) {
-                if(whichButton == R.id.takePictureRadioEx)
-                    selectedPhotoMenu = R.id.takePictureRadioEx;
-
-                else if(whichButton == R.id.selectPictureRadioEx)
-                    selectedPhotoMenu = R.id.selectPictureRadioEx;
-
-                else if (whichButton == R.id.deleteRadio)
-                    selectedPhotoMenu = R.id.deleteRadio;
-
-            }
-        });
-
-        pictureMenuDialog.setSelectedButton(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(selectedPhotoMenu == R.id.takePictureRadioEx) {
-                    showPhotoCaptureActivity();
-                    pictureMenuDialog.dismiss();
-                }
-                else if(selectedPhotoMenu == R.id.selectPictureRadioEx) {
                     showPhotoSelectionActivity();
                     pictureMenuDialog.dismiss();
                 }else if(selectedPhotoMenu == R.id.deleteRadio){
@@ -327,45 +293,11 @@ public class Fragment2 extends Fragment {
         switch (id){
 
             case AppConstants.CONTENT_PHOTO:
-                contentDialogSet();
+                contentDialogSet(false);
                 break;
 
             case AppConstants.CONTENT_PHOTO_EX:
-                contentDialogSet_Ex();
-                /*
-                builder = new AlertDialog.Builder(context);
-
-                builder.setTitle("사진 메뉴 선택");
-                builder.setSingleChoiceItems(R.array.array_photo_ex, 0, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int whichButton) {
-                        selectedPhotoMenu = whichButton;
-                    }
-                });
-
-                builder.setPositiveButton("선택", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        if(selectedPhotoMenu == 0)
-                            showPhotoCaptureActivity();
-                        else if (selectedPhotoMenu == 1)
-                            showPhotoSelectionActivity();
-                        else if (selectedPhotoMenu == 2){
-                            isPhotoCanceled = true;
-                            isPhotoCaptured = false;
-
-                            pictureImageView.setImageResource(R.drawable.imagetab);
-                        }
-                    }
-                });
-
-                builder.setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) { }
-                });
-
-                 */
-
+                contentDialogSet(true);
                 break;
 
             case AppConstants.CONTENT_DELETE:
