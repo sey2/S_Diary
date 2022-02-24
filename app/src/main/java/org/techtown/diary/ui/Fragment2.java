@@ -2,12 +2,15 @@ package org.techtown.diary.ui;
 
 import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
@@ -31,6 +34,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
+
 import org.techtown.diary.BuildConfig;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.Note;
@@ -39,6 +46,7 @@ import org.techtown.diary.listener.OnRequestListener;
 import org.techtown.diary.listener.OnTabSelectedListener;
 import org.techtown.diary.R;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -344,15 +352,6 @@ public class Fragment2 extends Fragment {
         this.item = item;
     }
 
-    public void setWeatherIndex(int index) {
-
-        String str = "@drawable/weather_" + Integer.toString(index-1);
-        int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
-        weatherIcon.setImageResource(path);
-        weatherIndex = index;
-
-    }
-
     public void showPhotoCaptureActivity(){
         try{
             file = createFile();
@@ -388,6 +387,7 @@ public class Fragment2 extends Fragment {
     public void showPhotoSelectionActivity(){
         Intent intent = new Intent();
         intent.setType("image/*");
+        intent.putExtra("crop",true);
         intent.setAction(Intent.ACTION_GET_CONTENT);
 
         startActivityForResult(intent, AppConstants.REQ_PHOTO_SELECTION);
@@ -399,23 +399,23 @@ public class Fragment2 extends Fragment {
 
         switch (requestCode){
             case AppConstants.REQ_PHOTO_CAPTURE:        // 사진을 찍는 경우
-
-                setPicture(file.getAbsolutePath(), 8);
-                resultPhotoBitmap = decodeSampledBitmapFromResource(file,
-                        pictureImageView.getWidth(), pictureImageView.getHeight());
-
-                resultPhotoBitmap = getRoundedCornerBitmap(resultPhotoBitmap,20);
-
-                pictureImageView.setImageBitmap(resultPhotoBitmap);
+                CropImage.activity(getImageUri()).setGuidelines(CropImageView.Guidelines.ON).start(context, this);
                 break;
 
             case AppConstants.REQ_PHOTO_SELECTION:  // 사진을 앨범에서 선택하는 경우
                 Uri fileUri = intent.getData();
+                CropImage.activity(fileUri).setGuidelines(CropImageView.Guidelines.ON).start(context, this);
+                break;
+
+                /* 자른 사진을 pictureImageView에 적용 */
+            case CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE:
+                CropImage.ActivityResult result = CropImage.getActivityResult(intent);
+                Uri resultUri = result.getUri();
 
                 ContentResolver resolver = context.getContentResolver();
 
                 try{
-                    InputStream instream = resolver.openInputStream(fileUri);
+                    InputStream instream = resolver.openInputStream(resultUri);
                     resultPhotoBitmap = BitmapFactory.decodeStream(instream);
 
                     resultPhotoBitmap = getRoundedCornerBitmap(resultPhotoBitmap,20);
@@ -428,15 +428,27 @@ public class Fragment2 extends Fragment {
                     e.printStackTrace();
                 }
 
-                break;
+             break;
+
         }
+    }
+
+    /* 카메라로 찍은 사진을 Uri로 변환  (크롭 Result에 보내주기 위헤 ) */
+    private Uri getImageUri() {
+        setPicture(file.getAbsolutePath(), 8);
+        resultPhotoBitmap = decodeSampledBitmapFromResource(file,
+                pictureImageView.getWidth(), pictureImageView.getHeight());
+
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        resultPhotoBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), resultPhotoBitmap, "Title", null);
+        return Uri.parse(path);
     }
 
     public void setPicture(String picturePath, int sampleSize) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inSampleSize = sampleSize;
         resultPhotoBitmap = BitmapFactory.decodeFile(picturePath, options);
-        pictureImageView.setImageBitmap(resultPhotoBitmap);
     }
 
     /* 비트맵 모서리 둥글게*/
@@ -472,10 +484,13 @@ public class Fragment2 extends Fragment {
     public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight){
         final int height = options.outHeight;
         final int width = options.outWidth;
+        final int halfHeight = height / 2;
+        final int halfWidth = width / 2;
+
         int inSampleSize = 1;
 
         if(height > reqHeight || width > reqWidth){
-            while((height / inSampleSize) >= reqHeight && (width/inSampleSize) >= reqWidth){
+            while((halfHeight / inSampleSize) >= reqHeight && (halfWidth/inSampleSize) >= reqWidth){
                 inSampleSize*=2;
             }
 
