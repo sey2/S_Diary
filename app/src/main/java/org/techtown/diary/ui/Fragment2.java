@@ -39,6 +39,7 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import org.techtown.diary.BuildConfig;
+import org.techtown.diary.MainActivity;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.Note;
 import org.techtown.diary.data.AppConstants;
@@ -335,19 +336,6 @@ public class Fragment2 extends Fragment {
 
     }
 
-    public void setContents(String data) {
-        contentsInput.setText(data);
-    }
-
-    public void setMood(String mood) {
-        try {
-            moodIndex = Integer.parseInt(mood);
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
     public void setItem(Note item) {
         this.item = item;
     }
@@ -397,38 +385,46 @@ public class Fragment2 extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @NonNull  Intent intent){
         super.onActivityResult(requestCode, resultCode, intent);
 
-        switch (requestCode){
+        switch (requestCode) {
             case AppConstants.REQ_PHOTO_CAPTURE:        // 사진을 찍는 경우
-                CropImage.activity(getImageUri()).setGuidelines(CropImageView.Guidelines.ON).start(context, this);
+                if(resultCode == getActivity().RESULT_OK)
+                    CropImage.activity(getImageUri()).setGuidelines(CropImageView.Guidelines.ON).start(context, this);
+                else
+                    Log.d("test", "Not RESULT_OK");
                 break;
 
             case AppConstants.REQ_PHOTO_SELECTION:  // 사진을 앨범에서 선택하는 경우
-                Uri fileUri = intent.getData();
-                CropImage.activity(fileUri).setGuidelines(CropImageView.Guidelines.ON).start(context, this);
-                break;
-
-                /* 자른 사진을 pictureImageView에 적용 */
-            case CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE:
-                CropImage.ActivityResult result = CropImage.getActivityResult(intent);
-                Uri resultUri = result.getUri();
-
-                ContentResolver resolver = context.getContentResolver();
-
-                try{
-                    InputStream instream = resolver.openInputStream(resultUri);
-                    resultPhotoBitmap = BitmapFactory.decodeStream(instream);
-
-                    resultPhotoBitmap = getRoundedCornerBitmap(resultPhotoBitmap,20);
-                    pictureImageView.setImageBitmap(resultPhotoBitmap);
-
-                    instream.close();
-
-                    isPhotoCaptured = true;
-                }catch (Exception e){
-                    e.printStackTrace();
+                if(resultCode == getActivity().RESULT_OK) {
+                    Uri fileUri = intent.getData();
+                    CropImage.activity(fileUri).setGuidelines(CropImageView.Guidelines.ON).start(context, this);
                 }
 
-             break;
+                break;
+
+            /* 자른 사진을 pictureImageView에 적용 */
+            case CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE:
+                CropImage.ActivityResult result = CropImage.getActivityResult(intent);
+                if (result != null) {
+                    Uri resultUri = result.getUri();
+
+                    ContentResolver resolver = context.getContentResolver();
+
+                    try {
+                        InputStream instream = resolver.openInputStream(resultUri);
+                        resultPhotoBitmap = BitmapFactory.decodeStream(instream);
+
+                        resultPhotoBitmap = getRoundedCornerBitmap(resultPhotoBitmap, 20);
+                        pictureImageView.setImageBitmap(resultPhotoBitmap);
+
+                        instream.close();
+
+                        isPhotoCaptured = true;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    break;
+                }
 
         }
     }
