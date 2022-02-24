@@ -2,6 +2,8 @@ package org.techtown.diary;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.location.Address;
@@ -49,9 +51,13 @@ import java.util.Map;
 /* OnTabSelectedListener -> 하나의 프래그먼트에서 다른 프래그먼트로 전환하는 용도 */
 public class MainActivity extends AppCompatActivity
         implements OnTabSelectedListener, OnRequestListener,MyApplication.OnResponseListener {
-    Fragment1 fragment1;
-    Fragment2 fragment2;
-    Fragment3 fragment3;
+
+    private static final String SELECTED_TAB_INDEX = "selected_tab_index";
+
+    /* Fragment */
+    Fragment1 fragment1;    // 일기 목록
+    Fragment2 fragment2;    // 일기 작성
+    Fragment3 fragment3;    // 기분 통계
 
     BottomNavigationView bottomNavigation;
 
@@ -64,6 +70,9 @@ public class MainActivity extends AppCompatActivity
     String currentDateString;
     Date currentDate;
     SimpleDateFormat todayDateFormat;
+
+    private int selectedTabIndex = 0;   // 현재 선택되어 있는 탭 번호 (onSaveInstanceState() 호출 시 Bundle 객체로 저장)
+    private long backPressTime = 0;
 
 
     /* 데이터베이스 인스턴스 */
@@ -84,23 +93,37 @@ public class MainActivity extends AppCompatActivity
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
                     @Override   // 하단 탭 버튼을 눌렀을 때 호출되는 메서드
                     public boolean onNavigationItemSelected(@NonNull MenuItem item){
+                        FragmentManager manager = getSupportFragmentManager();
+                        FragmentTransaction transaction = manager.beginTransaction();
+
+
                         switch (item.getItemId()){
                             case R.id.tab1:
-                                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
-
+                                selectedTabIndex = 0;
+                                transaction.replace(R.id.container, fragment1).commit();
                                 return true;
+
                             case R.id.tab2:
-                                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment2).commit();
-
+                                selectedTabIndex = 1;
+                                transaction.replace(R.id.container, fragment2).commit();
                                 return true;
+
                             case R.id.tab3:
-                                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment3).commit();
+                                selectedTabIndex = 2;
+                                transaction.replace(R.id.container, fragment3).commit();
 
                                 return true;
                         }
                         return false;
                     }
                 });
+
+        if(savedInstanceState == null )
+            onTabSelected(0);       // 일기목록 프래그먼트 호출
+        else{
+            int index = savedInstanceState.getInt(SELECTED_TAB_INDEX);
+            onTabSelected(index);       // 저장된 탭 번호에    맞는 프래그먼트 화면 지정
+        }
 
         setPicturePath();
 
@@ -413,6 +436,22 @@ public class MainActivity extends AppCompatActivity
         } else {
             Log.d("MainActivity>", "Note database is not open.");
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+        if(bottomNavigation.getSelectedItemId() == R.id.tab1){
+            if(System.currentTimeMillis() > backPressTime + 2000){
+                backPressTime = System.currentTimeMillis();
+                Toast.makeText(this, "뒤로가기 버튼을 한번 더 누르시면 종료됩니다.",Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if(System.currentTimeMillis() <= backPressTime + 2000)
+                super.onBackPressed();
+
+        }else
+            bottomNavigation.setSelectedItemId(R.id.tab1);
     }
 
 }
