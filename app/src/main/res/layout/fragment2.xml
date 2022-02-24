@@ -19,7 +19,7 @@
             android:layout_height="28dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/weather_1" />
+            android:src="@null" />
 
         <TextView
             android:id="@+id/dateTextView"
