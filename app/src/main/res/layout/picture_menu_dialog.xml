@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_color"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="사진 메뉴 선택"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/cancelButton"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/circle_view"
+            android:paddingLeft="7dp"
+            android:paddingTop="5dp"
+            android:paddingRight="5dp"
+            android:paddingBottom="7dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/x_icon" />
+
+    </RelativeLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RadioButton
+            android:id="@+id/takePictureRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/bg_color"
+            android:fontFamily="@font/main_font"
+            android:text="사진 찍기"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/selectPictureRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/bg_color"
+            android:fontFamily="@font/main_font"
+            android:text="앨범에서 선택하기"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+
+    <RadioGroup
+        android:id="@+id/radioGroupEx"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <RadioButton
+            android:id="@+id/takePictureRadioEx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/bg_color"
+            android:fontFamily="@font/main_font"
+            android:text="사진 찍기"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/selectPictureRadioEx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/bg_color"
+            android:fontFamily="@font/main_font"
+            android:text="앨범에서 선택하기"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/deleteRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/bg_color"
+            android:fontFamily="@font/main_font"
+            android:text="사진 삭제하기"
+            android:textSize="16sp" />>
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/backButton"
+            android:layout_width="80dp"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/dialog_button"
+            android:text="취소"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/cardview_shadow_end_color"
+            app:backgroundTintMode="add" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/selectedButton"
+            android:layout_width="80dp"
+            android:layout_height="37dp"
+            android:layout_gravity="center"
+            android:background="@drawable/dialog_button"
+            android:text="선택"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/cardview_shadow_end_color"
+            app:backgroundTintMode="add" />
+
+    </LinearLayout>
+
+</LinearLayout>
