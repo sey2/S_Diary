@@ -17,7 +17,7 @@
             android:layout_centerInParent="true"
             android:layout_gravity="center"
             android:text="사진 메뉴 선택"
-            android:textColor="@color/white"
+            android:textColor="#808080"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -87,7 +87,7 @@
             android:layout_marginRight="30dp"
             android:background="@drawable/dialog_button"
             android:text="취소"
-            android:textColor="@color/white"
+            android:textColor="#808080"
             android:textSize="15dp"
             android:textStyle="bold"
             app:backgroundTint="@color/cardview_shadow_end_color"
@@ -100,7 +100,7 @@
             android:layout_gravity="center"
             android:background="@drawable/dialog_button"
             android:text="선택"
-            android:textColor="@color/white"
+            android:textColor="#808080"
             android:textSize="15dp"
             android:textStyle="bold"
             app:backgroundTint="@color/cardview_shadow_end_color"
