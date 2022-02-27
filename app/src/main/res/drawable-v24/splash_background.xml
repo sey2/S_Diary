@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:drawable="@drawable/splash_base" />
     <item android:gravity="center_vertical">
-        <bitmap android:src="@drawable/applogo"
+        <bitmap android:src="@drawable/appicon"
             android:gravity="center_vertical" />
     </item>
 
