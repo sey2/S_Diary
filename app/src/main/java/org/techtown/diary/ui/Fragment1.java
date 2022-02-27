@@ -172,6 +172,10 @@ public class Fragment1 extends Fragment {
                     try{
                         Date inDate = AppConstants.dateFormat4.parse(dateStr);
                         createDateStr = AppConstants.dateFormat3.format(inDate);
+                        int monthIndex;
+                        if((monthIndex = createDateStr.indexOf("월"))>=0){
+                            createDateStr = createDateStr.substring(0,monthIndex+1) + " " +createDateStr.substring(monthIndex+1,createDateStr.length());
+                        }
                     }catch (Exception e){
                         e.printStackTrace();
                     }
