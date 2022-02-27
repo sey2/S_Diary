@@ -33,6 +33,7 @@
 - [x] 사진 앨범 선택 후 자르기 기능 ! !
 - [x] 커스텀 다이얼로그
 - [ ] 일기 클릭하면 한눈에 보이는 뷰 추가  - 🔨
+- [ ] AsyncTask
 - [ ] 사진 촬영시 이미지 돌아가는거 수정
 - [ ] 환경설정 화면 구현 하기 (예정, 폰트 설정변경, 1일 1일기 알림?, 데이터 백업 복원?)
 
@@ -114,6 +115,7 @@
 |API| http://www.kma.go.kr/wid/queryDFS.jsp|
 |Layout| https://github.com/chthai64/SwipeRevealLayout|
 |Image, Camera|https://github.com/ArthurHub/Android-Image-Cropper|
+|비동기처리|AsyncTask|
 
 <br>
 
