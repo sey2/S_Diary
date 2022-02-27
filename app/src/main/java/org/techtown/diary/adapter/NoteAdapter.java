@@ -160,7 +160,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
                     int position = item._id;
 
                     if(listener != null){
-                        listener.onDeleteClick(ViewHolder.this, view, position,getAdapterPosition(), items);
+                        listener.onDeleteClick(ViewHolder.this, view, position,	getAdapterPosition(), items);
                     }
 
                 }
@@ -170,7 +170,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             editLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String displayText = ""  + " clicked";
+                    int position = item._id;
+
+                    if(listener != null)
+                        listener.onEditClick(ViewHolder.this, view, position,getAdapterPosition(),items);
                 }
             });
         }

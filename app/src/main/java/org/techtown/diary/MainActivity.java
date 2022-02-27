@@ -26,6 +26,7 @@ import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.runtime.Permission;
 
+import org.techtown.diary.adapter.Note;
 import org.techtown.diary.custom.StopWriteDialog;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.ui.Fragment1;
@@ -121,10 +122,10 @@ public class MainActivity extends AppCompatActivity
                 });
 
         if(savedInstanceState == null )
-            onTabSelected(0);       // 일기목록 프래그먼트 호출
+            onTabSelected(0,null);       // 일기목록 프래그먼트 호출
         else{
             int index = savedInstanceState.getInt(SELECTED_TAB_INDEX);
-            onTabSelected(index);       // 저장된 탭 번호에    맞는 프래그먼트 화면 지정
+            onTabSelected(index,null);       // 저장된 탭 번호에    맞는 프래그먼트 화면 지정
         }
 
         setPicturePath();
@@ -164,16 +165,21 @@ public class MainActivity extends AppCompatActivity
 
     /* 이 메서드가 호출되면 하단 탭의 setSelected 메서드를 이용해 다른 탭 버튼이 선택 되도록 함 */
     @Override
-    public void onTabSelected(int position){
+    public void onTabSelected(int position, Note item){
         if (position == 0)
             bottomNavigation.setSelectedItemId(R.id.tab1);
         else if (position == 1) {
+            fragment2.setmMode(AppConstants.MODE_INSERT);       // 새로운 일기 작성
             bottomNavigation.setSelectedItemId(R.id.tab2);
-
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment2).commit();
         }
         else if (position == 2)
             bottomNavigation.setSelectedItemId(R.id.tab3);
+        else if (position == 3) {       // 일기 수정시
+            fragment2.setItem(item);   
+            fragment2.setmMode(AppConstants.MODE_MODIFY);       // 일기 수정
+            bottomNavigation.setSelectedItemId(R.id.tab2);
+
+        }
     }
 
     @Override

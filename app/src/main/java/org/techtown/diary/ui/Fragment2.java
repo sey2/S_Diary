@@ -100,13 +100,14 @@ public class Fragment2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         ViewGroup rootView  = (ViewGroup) inflater.inflate(R.layout.fragment2, container, false);
 
+        packName = container.getContext().getPackageName();
+
         initUI(rootView);
 
         // 입력 화면이 보일 때 마다 현재 위치를 확인함 (onCreateView)
         if(requestListener != null)
             requestListener.onRequest("getCurrentLocation");
 
-        packName = container.getContext().getPackageName();
 
         return rootView;
     }
@@ -134,6 +135,58 @@ public class Fragment2 extends Fragment {
             listener = null;
             requestListener = null;
         }
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        item = null;
+        contentsInput.setText("");
+
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        applyItem();
+    }
+
+    /* 일기 수정 -> 전에 작성한 내용 불러오기 */
+    public void applyItem() {
+        AppConstants.println("applyItem called.");
+
+        if (item!=null) {
+            AppConstants.println("Item Contents: " + item.getContents() + "\nItem Address: " + item.getAddress() + "\n PicturePath: " + item.getPicture() );
+            String str = "@drawable/weather_" + Integer.toString(Integer.parseInt(item.getWeather()) + 1);
+            int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
+            weatherIcon.setImageResource(path);
+            weatherIndex = Integer.parseInt(item.getWeather());
+
+            setAddress(item.getAddress());
+            setDateString(item.getCreateDateStr());
+            setContents(item.getContents());
+
+            String picturePath = item.getPicture();
+            if (picturePath == null || picturePath.equals("")) {
+                pictureImageView.setImageResource(R.drawable.noimagefound);
+            } else {
+                setPicture(item.getPicture(), pictureImageView.getWidth());
+                pictureImageView.setImageBitmap(resultPhotoBitmap);
+            }
+
+        } else {
+            weatherIcon.setImageResource(R.drawable.weather_1);
+            weatherIndex = 0;
+            setAddress("");
+
+            Date currentDate = new Date();
+            String currentDateString = AppConstants.dateFormat3.format(currentDate);
+            setDateString(currentDateString);
+
+            contentsInput.setText("");
+            pictureImageView.setImageResource(R.drawable.noimagefound);
+        }
+
     }
 
 
@@ -176,7 +229,7 @@ public class Fragment2 extends Fragment {
                     modifyNote();
 
                 if(listener != null)
-                    listener.onTabSelected(0);
+                    listener.onTabSelected(0,null);
             }
         });
 
@@ -193,7 +246,7 @@ public class Fragment2 extends Fragment {
             @Override
             public void onClick(View view) {
                 if(listener!= null)
-                    listener.onTabSelected(0);
+                    listener.onTabSelected(0,null);
             }
         });
 
@@ -211,6 +264,7 @@ public class Fragment2 extends Fragment {
 
         moodImageView5 = rootView.findViewById(R.id.mood5);
         moodImageView5.setOnClickListener(moodClickListener);
+
     }
 
     public void setWeather(String data){
@@ -227,6 +281,10 @@ public class Fragment2 extends Fragment {
                 }
             }
         }
+    }
+
+    public void setContents(String data) {
+        contentsInput.setText(data);
     }
 
     public void setAddress(String data){
@@ -288,6 +346,7 @@ public class Fragment2 extends Fragment {
             }
         });
     }
+
     public void showDialog(int id){
 
         switch (id){
@@ -508,10 +567,6 @@ public class Fragment2 extends Fragment {
         NoteDatabase database = NoteDatabase.getInstance(context);
         database.execSQL(sql);
 
-        // 일기 작성 화면 내용 지움
-        contentsInput.setText("");
-        pictureImageView.setImageResource(R.drawable.imagetab);
-
     }
 
     private void modifyNote(){
@@ -536,6 +591,7 @@ public class Fragment2 extends Fragment {
 
 
             Log.d("Fragment2","sql" + sql);
+
             NoteDatabase database = NoteDatabase.getInstance(context);
             database.execSQL(sql);
         }
@@ -613,6 +669,10 @@ public class Fragment2 extends Fragment {
             moodIndex = 3;
         else if(curMood == moodImageView5)
             moodIndex = 4;
+    }
+
+    public void setmMode(int mode){
+        this.mMode = mode;
     }
 
 }
