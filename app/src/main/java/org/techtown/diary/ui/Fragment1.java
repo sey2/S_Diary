@@ -1,5 +1,6 @@
 package org.techtown.diary.ui;
 
+import org.techtown.diary.custom.ContentDeleteDialog;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.NoteAdapter;
 
@@ -80,18 +81,18 @@ public class Fragment1 extends Fragment {
 
 
     // XML 레이아웃 안에 들어 있는 위젯이나 레이아웃을 찾아 변수에 할당하기 위한 메서드
-    private void initUI(ViewGroup rootView){
+    private void initUI(ViewGroup rootView) {
 
         /* 사진 위주 */
         ImageButton imageButton1 = rootView.findViewById(R.id.imageButton);
-        imageButton1.setOnClickListener((v)->{
+        imageButton1.setOnClickListener((v) -> {
             adapter.switchLayout(1);
             adapter.notifyDataSetChanged();
         });
 
         /* 내용 위주 */
         ImageButton imageButton2 = rootView.findViewById(R.id.imageButton2);
-        imageButton2.setOnClickListener((v)->{
+        imageButton2.setOnClickListener((v) -> {
             adapter.switchLayout(0);
             adapter.notifyDataSetChanged();
         });
@@ -107,46 +108,32 @@ public class Fragment1 extends Fragment {
         recyclerView.setAdapter(adapter);
 
 
+        // SwipeLayout Click 시
         adapter.setOnItemClickListener(new OnNoteItemClickListener() {
             @Override
-            public void onEditClick(NoteAdapter.ViewHolder holder, View view, int position,int adapterPosition,ArrayList<Note> items) {
+            public void onEditClick(NoteAdapter.ViewHolder holder, View view, int position, int adapterPosition, ArrayList<Note> items) {
 
             }
 
             @Override
             public void onDeleteClick(NoteAdapter.ViewHolder holder, View view, int position, int adapterPosition, ArrayList<Note> items) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("알림 메시지");
-                builder.setMessage("정말 삭제하시겠습니까?");
-
-
-                builder.setNegativeButton("삭제", new DialogInterface.OnClickListener() {
+                ContentDeleteDialog contentDeleteDialog = new ContentDeleteDialog(context);
+                contentDeleteDialog.show();
+                contentDeleteDialog.deleteButtonListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
+                    public void onClick(View view) {
 
                         // 리싸이클러 뷰 아이템 목록에서 안보이게 하기
                         items.remove(adapterPosition);
-
                         adapter.notifyItemRemoved(adapterPosition);
 
                         // 일기 삭제
                         deleteNote(position);
+                        contentDeleteDialog.dismiss();
                     }
                 });
-
-                builder.setPositiveButton("취소", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
-
-                builder.show();
             }
         });
-
-
-
     }
 
     /* 리스트 데이터 로딩 */
