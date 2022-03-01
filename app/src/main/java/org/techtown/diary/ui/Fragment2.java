@@ -8,11 +8,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -49,6 +51,7 @@ import org.techtown.diary.R;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 
@@ -91,6 +94,7 @@ public class Fragment2 extends Fragment {
     static Bitmap resultPhotoBitmap;
 
     String packName;
+    String filePath;
 
     Animation moodAnim;
     MoodClickListener moodClickListener;
@@ -148,7 +152,8 @@ public class Fragment2 extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
-        applyItem();
+        if(mMode == AppConstants.MODE_MODIFY)
+            applyItem();
     }
 
     /* 일기 수정 -> 전에 작성한 내용 불러오기 */
@@ -434,8 +439,9 @@ public class Fragment2 extends Fragment {
 
         switch (requestCode) {
             case AppConstants.REQ_PHOTO_CAPTURE:        // 사진을 찍는 경우
-                if(resultCode == getActivity().RESULT_OK)
+                if(resultCode == getActivity().RESULT_OK) {
                     CropImage.activity(getImageUri()).setGuidelines(CropImageView.Guidelines.ON).start(context, this);
+                }
                 else
                     Log.d("test", "Not RESULT_OK");
                 break;
@@ -464,6 +470,7 @@ public class Fragment2 extends Fragment {
                         pictureImageView.setImageBitmap(resultPhotoBitmap);
 
                         instream.close();
+                        AppConstants.println("picture set");
 
                         isPhotoCaptured = true;
                     } catch (Exception e) {
@@ -477,15 +484,44 @@ public class Fragment2 extends Fragment {
     }
 
     /* 카메라로 찍은 사진을 Uri로 변환  (크롭 Result에 보내주기 위헤 ) */
-    private Uri getImageUri() {
+    private Uri getImageUri()  {
+        filePath = file.getAbsolutePath();
         setPicture(file.getAbsolutePath(), 8);
         resultPhotoBitmap = decodeSampledBitmapFromResource(file,
                 pictureImageView.getWidth(), pictureImageView.getHeight());
+
+        resultPhotoBitmap = rotateImage();
+
 
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         resultPhotoBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
         String path = MediaStore.Images.Media.insertImage(context.getContentResolver(), resultPhotoBitmap, "Title", null);
         return Uri.parse(path);
+    }
+
+    public Bitmap rotateImage() {
+        ExifInterface ei = null;
+        try {
+            ei = new ExifInterface(filePath);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION,ExifInterface.ORIENTATION_UNDEFINED);
+
+        float angle = 0;
+
+        switch (orientation){
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                angle = 90; break;
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                angle = 180; break;
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                angle = 270; break;
+        }
+        
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        return Bitmap.createBitmap(resultPhotoBitmap,0,0,resultPhotoBitmap.getWidth(),resultPhotoBitmap.getHeight(),matrix,true);
     }
 
     public void setPicture(String picturePath, int sampleSize) {

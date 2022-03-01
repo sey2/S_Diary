@@ -1,13 +1,11 @@
 package org.techtown.diary.ui;
 
-import org.techtown.diary.LoadListData;
+import org.techtown.diary.async.LoadListData;
 import org.techtown.diary.custom.ContentDeleteDialog;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.NoteAdapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,13 +17,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.techtown.diary.adapter.Note;
-import org.techtown.diary.data.AppConstants;
 import org.techtown.diary.listener.OnNoteItemClickListener;
 import org.techtown.diary.listener.OnTabSelectedListener;
 import org.techtown.diary.R;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 
 public class Fragment1 extends Fragment {
