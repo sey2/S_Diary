@@ -86,6 +86,11 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        fragment1 = new Fragment1();
+        fragment2 = new Fragment2();
+        fragment3 = new Fragment3();
+
         getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment1).commit();
 
         bottomNavigation = findViewById(R.id.bottom_navigation);
