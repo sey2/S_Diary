@@ -161,12 +161,7 @@ public class Fragment2 extends Fragment {
         AppConstants.println("applyItem called.");
 
         if (item!=null) {
-            AppConstants.println("Item Contents: " + item.getContents() + "\nItem Address: " + item.getAddress() + "\n PicturePath: " + item.getPicture() );
-            String str = "@drawable/weather_" + Integer.toString(Integer.parseInt(item.getWeather()) + 1);
-            int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
-            weatherIcon.setImageResource(path);
-            weatherIndex = Integer.parseInt(item.getWeather());
-
+            setWeather(null);
             setAddress(item.getAddress());
             setDateString(item.getCreateDateStr());
             setContents(item.getContents());
@@ -275,15 +270,23 @@ public class Fragment2 extends Fragment {
     public void setWeather(String data){
         String [] array = {"맑음", "구름 조금", "구름 많음", "흐림", "비", "눈/비", "눈"};
 
-        if(data != null){
+        if(mMode == AppConstants.MODE_MODIFY){
+            String str = "@drawable/weather_" + Integer.toString(Integer.parseInt(item.getWeather()) + 1);
+            int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
+            weatherIcon.setImageResource(path);
+            weatherIndex = Integer.parseInt(item.getWeather());
+        }
+        else if(data != null && mMode == AppConstants.MODE_INSERT){
             for(int i=0; i<array.length; i++){
+
                 if(array[i].equals(data)) {
-                    String str = "@drawable/weather_" + Integer.toString(i+1);
-                    int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
+                    String str = "@drawable/weather_" + Integer.toString(i + 1);
+                    int path = weatherIcon.getResources().getIdentifier(str, "drawable", packName);
                     weatherIcon.setImageResource(path);
                     weatherIndex = i;
                     break;
                 }
+
             }
         }
     }
@@ -710,5 +713,7 @@ public class Fragment2 extends Fragment {
     public void setmMode(int mode){
         this.mMode = mode;
     }
+
+    public int getmMode() { return this.mMode; }
 
 }

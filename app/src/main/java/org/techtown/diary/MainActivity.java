@@ -170,6 +170,7 @@ public class MainActivity extends AppCompatActivity
             bottomNavigation.setSelectedItemId(R.id.tab1);
         else if (position == 1) {
             fragment2.setmMode(AppConstants.MODE_INSERT);       // 새로운 일기 작성
+            fragment2.setWeather(currentWeather);
             bottomNavigation.setSelectedItemId(R.id.tab2);
         }
         else if (position == 2)
