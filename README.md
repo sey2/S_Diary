@@ -115,7 +115,6 @@
 | Name |Tag |
 |--|--|
 | SQLiteDatabase | Database  |
-| DatabaseHelper| Database|
 |API| http://www.kma.go.kr/wid/queryDFS.jsp|
 |Layout| https://github.com/chthai64/SwipeRevealLayout|
 |Image, Camera|https://github.com/ArthurHub/Android-Image-Cropper|
