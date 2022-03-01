@@ -1,6 +1,9 @@
+
+### &nbsp;&nbsp; :memo: S Diary
+
 <img src="https://user-images.githubusercontent.com/54762273/155878293-559f6e0f-f516-4ade-af3c-5f84187ff339.png" align=left >
 
-## :memo: S Diary
+
 ![한줄일기](https://user-images.githubusercontent.com/54762273/154873330-50e5637a-85f6-44fb-9248-246010a77442.png)
 
 
