@@ -341,6 +341,7 @@ public class Fragment2 extends Fragment {
                 }else if(selectedPhotoMenu == R.id.deleteRadio){
                     isPhotoCanceled = true;
                     isPhotoCaptured = false;
+                    isPhotoFileSaved = false;
                     pictureImageView.setImageResource(R.drawable.imagetab);
                     pictureMenuDialog.dismiss();
                 }
