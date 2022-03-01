@@ -6,11 +6,23 @@
 
 <br>
 
-<table align="center">
+<table>
   <tr>
-    <td><img src="https://user-images.githubusercontent.com/54762273/154296621-ecdf539b-8635-4447-bf69-d0d45ece072c.png" width="300px" height="300px" /> </tr>
-</table>
+    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/156147839-d03e0d8c-2689-4754-a345-499e3bfc2520.gif"></td>
+    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/156138875-21a50a04-fa8a-48f8-bbf9-254ebd631a83.gif"></td>
+    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/156139436-7ca6899d-a28b-4440-8eb6-85b17ac08665.gif"></td>
+    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/156139607-193b9619-1d12-493f-a96f-7d886bd142ee.gif"></td>
+    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/156140592-38fa5af1-1efb-4dde-b6fe-c08626f96f86.gif"></td>
 
+  </tr>
+  <tr>
+    <td align="center"><b>스플래시</b></td>
+    <td align="center"><b>한줄 목록 / 삭제</b></td>
+    <td align="center"><b>오늘 한줄</b></td>
+      <td align="center"><b>기분 통계</b></td>
+    <td align="center"><b>수정</b></td>
+  </tr>
+</table>
 <br>
 
 
@@ -25,7 +37,7 @@
 - [x] 사진 연동 (사진 찍기, 앨범에서 선택)
 - [x] 데이터베이스 연동하기
 - [x] SwipeLayout 추가
-- [x] SwipeLayout 기능 추가(삭제, 수정 기능 추가) 
+- [x] SwipeLayout 기능 추가(삭제, 수정 기능 추가)
 - [x] 삭제할때 알림창 나오게 하기
 - [x] 일기 작성화면 이모티콘 액션 효과 주기
 - [x] 사진 위주 ImageView 라운딩 처리
