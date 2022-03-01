@@ -1,5 +1,6 @@
 package org.techtown.diary.ui;
 
+import org.techtown.diary.LoadListData;
 import org.techtown.diary.custom.ContentDeleteDialog;
 import org.techtown.diary.db.NoteDatabase;
 import org.techtown.diary.adapter.NoteAdapter;
@@ -66,8 +67,8 @@ public class Fragment1 extends Fragment {
 
         initUI(rootView);
 
-        loadNoteListData();
-
+        LoadListData loadListData = new LoadListData(context,adapter);
+        loadListData.execute();
         return rootView;
     }
 
@@ -128,69 +129,6 @@ public class Fragment1 extends Fragment {
         });
     }
 
-    /* 리스트 데이터 로딩 */
-    @SuppressLint("Range")
-    public int loadNoteListData(){
-        AppConstants.println("loadNoteListData called.");
-
-        String sql = "select _id, WEATHER, ADDRESS, LOCATION_X, LOCATION_Y, CONTENTS, MOOD, PICTURE, CREATE_DATE, MODIFY_DATE from " + NoteDatabase.TABLE_NOTE + " order by CREATE_DATE desc";
-        int recordCount = -1;
-
-        NoteDatabase database = NoteDatabase.getInstance(context);
-
-        if(database != null){
-            Cursor outCursor = database.rawQuery(sql);
-
-            recordCount = outCursor.getCount();
-            AppConstants.println("record count : " + recordCount + "\n");
-
-            ArrayList<Note> items = new ArrayList<>();
-
-            for(int i=0; i < recordCount; i++){
-                outCursor.moveToNext();
-
-                int _id = outCursor.getInt(0);
-                String weather = outCursor.getString(1);
-                String address = outCursor.getString(2);
-                String locationX = outCursor.getString(3);
-                String locationY = outCursor.getString(4);
-                String contents = outCursor.getString(5);
-                String mood = outCursor.getString(6);
-                String picture = outCursor.getString(7);
-                String dateStr = outCursor.getString(8);
-                String createDateStr = null;
-
-                if(dateStr != null && dateStr.length() > 10){
-                    try{
-                        Date inDate = AppConstants.dateFormat4.parse(dateStr);
-                        createDateStr = AppConstants.dateFormat3.format(inDate);
-                        int monthIndex;
-                        if((monthIndex = createDateStr.indexOf("월"))>=0){
-                            createDateStr = createDateStr.substring(0,monthIndex+1) + " " +createDateStr.substring(monthIndex+1,createDateStr.length());
-                        }
-                    }catch (Exception e){
-                        e.printStackTrace();
-                    }
-                }else{
-                    createDateStr = "";
-                }
-
-                AppConstants.println("#" + i + " -> " + _id + ", " + weather + ", " +
-                        address + ", " + locationX + ", " + locationY + ", " + contents + ", " +
-                        mood +", " + picture + ", " + createDateStr);
-
-                items.add(new Note(_id, weather, address, locationX, locationY, contents, mood, picture, createDateStr));
-            }
-
-            outCursor.close();
-
-            adapter.setItems(items);
-            adapter.notifyDataSetChanged();
-        }
-
-
-        return recordCount;
-    }
 
     /* swipe 삭제 버튼 누르면 DB에서 해당 일기를 찾아 삭제 */
     public void deleteNote(int position){

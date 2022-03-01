@@ -94,32 +94,32 @@ public class MainActivity extends AppCompatActivity
 
         bottomNavigation = findViewById(R.id.bottom_navigation);
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
-                    @Override   // 하단 탭 버튼을 눌렀을 때 호출되는 메서드
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item){
-                        FragmentManager manager = getSupportFragmentManager();
-                        FragmentTransaction transaction = manager.beginTransaction();
+            @Override   // 하단 탭 버튼을 눌렀을 때 호출되는 메서드
+            public boolean onNavigationItemSelected(@NonNull MenuItem item){
+                FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
 
 
-                        switch (item.getItemId()){
-                            case R.id.tab1:
-                                selectedTabIndex = 0;
-                                transaction.replace(R.id.container, fragment1).commit();
-                                return true;
+                switch (item.getItemId()){
+                    case R.id.tab1:
+                        selectedTabIndex = 0;
+                        transaction.replace(R.id.container, fragment1).commit();
+                        return true;
 
-                            case R.id.tab2:
-                                selectedTabIndex = 1;
-                                transaction.replace(R.id.container, fragment2).commit();
-                                return true;
+                    case R.id.tab2:
+                        selectedTabIndex = 1;
+                        transaction.replace(R.id.container, fragment2).commit();
+                        return true;
 
-                            case R.id.tab3:
-                                selectedTabIndex = 2;
-                                transaction.replace(R.id.container, fragment3).commit();
+                    case R.id.tab3:
+                        selectedTabIndex = 2;
+                        transaction.replace(R.id.container, fragment3).commit();
 
-                                return true;
-                        }
-                        return false;
-                    }
-                });
+                        return true;
+                }
+                return false;
+            }
+        });
 
         if(savedInstanceState == null )
             onTabSelected(0,null);       // 일기목록 프래그먼트 호출
@@ -175,7 +175,7 @@ public class MainActivity extends AppCompatActivity
         else if (position == 2)
             bottomNavigation.setSelectedItemId(R.id.tab3);
         else if (position == 3) {       // 일기 수정시
-            fragment2.setItem(item);   
+            fragment2.setItem(item);
             fragment2.setmMode(AppConstants.MODE_MODIFY);       // 일기 수정
             bottomNavigation.setSelectedItemId(R.id.tab2);
 
