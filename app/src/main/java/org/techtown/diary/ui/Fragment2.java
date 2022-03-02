@@ -470,7 +470,7 @@ public class Fragment2 extends Fragment {
                         InputStream instream = resolver.openInputStream(resultUri);
                         resultPhotoBitmap = BitmapFactory.decodeStream(instream);
 
-                        resultPhotoBitmap = getRoundedCornerBitmap(resultPhotoBitmap, 20);
+                        //resultPhotoBitmap = getRoundedCornerBitmap(resultPhotoBitmap, 20);
                         pictureImageView.setImageBitmap(resultPhotoBitmap);
 
                         instream.close();

@@ -276,12 +276,8 @@ public class MainActivity extends AppCompatActivity
 
             Address address = addresses.get(0);
 
-            if(address.getAdminArea() != null){
-                currentAddress = address.getAdminArea();
-            }
-
             if (address.getLocality() != null) {
-                currentAddress +=  " " + address.getLocality();
+                currentAddress = address.getLocality();
             }
 
             if (address.getSubLocality() != null) {

@@ -156,7 +156,7 @@
             <LinearLayout
                 android:id="@+id/layout2"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="500dp"
                 android:orientation="vertical"
                 android:visibility="visible">
 
@@ -203,23 +203,21 @@
                 <ImageView
                     android:id="@+id/pictureImageView"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="420dp"
                     android:layout_marginTop="5dp"
                     android:layout_gravity="center_vertical"
-                    android:background="@drawable/bg_rounding"
-                    android:scaleType="centerCrop"
+                    android:scaleType="centerInside"
                     android:src="@drawable/noimagefound" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:id="@+id/moodImageView2"
                         android:layout_width="32dp"
                         android:layout_height="32dp"
                         android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
                         android:padding="5dp"
                         app:srcCompat="@drawable/smile5_48" />
 
@@ -227,16 +225,13 @@
                         android:id="@+id/contentsTextView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="47dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginStart="35dp"
                         android:fontFamily="@font/main_font"
                         android:text="내용"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:textSize="20sp" />
                 </RelativeLayout>
 
             </LinearLayout>
