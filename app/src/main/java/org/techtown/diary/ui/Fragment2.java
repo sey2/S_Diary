@@ -214,7 +214,7 @@ public class Fragment2 extends Fragment {
                 } else {
                     showDialog(AppConstants.CONTENT_PHOTO);
                 }
-             }
+            }
         });
 
 
@@ -522,7 +522,7 @@ public class Fragment2 extends Fragment {
             case ExifInterface.ORIENTATION_ROTATE_270:
                 angle = 270; break;
         }
-        
+
         Matrix matrix = new Matrix();
         matrix.postRotate(angle);
         return Bitmap.createBitmap(resultPhotoBitmap,0,0,resultPhotoBitmap.getWidth(),resultPhotoBitmap.getHeight(),matrix,true);
