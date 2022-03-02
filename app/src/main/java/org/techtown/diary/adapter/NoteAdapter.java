@@ -52,7 +52,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             binderHelper.bind(viewHolder.swipelayout,Integer.toString(item.get_id()));
             viewHolder.bind(item, items);
             viewHolder.setItem(item);
-            viewHolder.setLayoutType(layoutType);
+            //viewHolder.setLayoutType(layoutType);
     }
 
     @Override
@@ -127,19 +127,19 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             editLayout = itemView.findViewById(R.id.txtEdit);
             deleteLayout = itemView.findViewById(R.id.txtDelete);
 
-            layout1 = itemView.findViewById(R.id.layout1);
+          //  layout1 = itemView.findViewById(R.id.layout1);
             layout2 = itemView.findViewById(R.id.layout2);
 
-            moodImageView = itemView.findViewById(R.id.moodImageView);
+           // moodImageView = itemView.findViewById(R.id.moodImageView);
             moodImageView2 = itemView.findViewById(R.id.moodImageView2);
 
-            pictureExistsImageView = itemView.findViewById(R.id.pictureExistsImageView);
+          //  pictureExistsImageView = itemView.findViewById(R.id.pictureExistsImageView);
             pictureImageView = itemView.findViewById(R.id.pictureImageView);
 
-            weatherImageView = itemView.findViewById(R.id.weatherImageView);
+            //weatherImageView = itemView.findViewById(R.id.weatherImageView);
             weatherImageView2 = itemView.findViewById(R.id.weatherImageView2);
 
-            contentsTextView = itemView.findViewById(R.id.contentsTextView);
+          //  contentsTextView = itemView.findViewById(R.id.contentsTextView);
             contentsTextView2 = itemView.findViewById(R.id.contentsTextView2);
 
             locationTextView = itemView.findViewById(R.id.locationTextView);
@@ -148,7 +148,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             dateTextView = itemView.findViewById(R.id.dateTextView);
             dateTextView2 = itemView.findViewById(R.id.dateTextView2);
 
-            setLayoutType(layoutType);
+           // setLayoutType(layoutType);
         }
 
         // Swipe Layout (삭제, 수정) 리스너 설정
@@ -190,12 +190,12 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             String picturePath = item.getPicture();
 
             if (picturePath != null && !picturePath.equals("")) {
-                pictureExistsImageView.setVisibility(View.VISIBLE);
+//                pictureExistsImageView.setVisibility(View.VISIBLE);
                 pictureImageView.setVisibility(View.VISIBLE);
                 pictureImageView.setImageURI(Uri.parse("file://" + picturePath));
 
             } else {
-                pictureExistsImageView.setVisibility(View.GONE);
+              //  pictureExistsImageView.setVisibility(View.GONE);
                 pictureImageView.setImageResource(R.drawable.noimagefound);
 
             }
@@ -205,13 +205,13 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
             int weatherIndex = Integer.parseInt(weather);
             setWeatherImage(weatherIndex);
 
-            contentsTextView.setText(item.getContents());
+          //  contentsTextView.setText(item.getContents());
             contentsTextView2.setText(item.getContents());
 
-            locationTextView.setText(item.getAddress());
+          //  locationTextView.setText(item.getAddress());
             locationTextView2.setText(item.getAddress());
 
-            dateTextView.setText(item.getCreateDateStr() +" 날씨 " + getWeatherString(item)); // 내용 위주    00월 00일 날씨 맑음
+          //  dateTextView.setText(item.getCreateDateStr() +" 날씨 " + getWeatherString(item)); // 내용 위주    00월 00일 날씨 맑음
             dateTextView2.setText(item.getCreateDateStr() +" 날씨 " + getWeatherString(item));    // 사진 위주
         }
 
@@ -222,41 +222,42 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
        }
 
         public void setMoodImage(int moodIndex) {
-            String packName = moodImageView.getContext().getPackageName();
+            String packName = moodImageView2.getContext().getPackageName();
 
             for(int i=0; i<=4; i++){
                 if(i == moodIndex){
                     String str = "@drawable/smile" + Integer.toString(moodIndex+1) + "_48";
-                    int path = moodImageView.getResources().getIdentifier(str,"drawable",packName);
-                    moodImageView.setImageResource(path);
+                    int path = moodImageView2.getResources().getIdentifier(str,"drawable",packName);
+                    //moodImageView.setImageResource(path);
                     moodImageView2.setImageResource(path);
                     return;
                 }
             }
 
-            moodImageView.setImageResource(R.drawable.smile3_48);
+           // moodImageView.setImageResource(R.drawable.smile3_48);
             moodImageView2.setImageResource(R.drawable.smile3_48);
 
        }
 
         public void setWeatherImage(int weatherIndex) {
-            String packName = weatherImageView.getContext().getPackageName();
+            String packName = weatherImageView2.getContext().getPackageName();
 
             for(int i=0; i<=6; i++){
                 if(i == weatherIndex){
                     String str ="@drawable/weather_" + Integer.toString(weatherIndex+1);
-                    int path = weatherImageView.getResources().getIdentifier(str,"drawable",packName);
-                    weatherImageView.setImageResource(path);
+                    int path = weatherImageView2.getResources().getIdentifier(str,"drawable",packName);
+                  //  weatherImageView.setImageResource(path);
                     weatherImageView2.setImageResource(path);
                 return;
                 }
             }
 
-            weatherImageView.setImageResource(R.drawable.weather_1);
+            //weatherImageView.setImageResource(R.drawable.weather_1);
             weatherImageView2.setImageResource(R.drawable.weather_1);
 
         }
 
+        /*
         public void setLayoutType(int layoutType) {
             if (layoutType == 0) {
                 layout1.setVisibility(View.VISIBLE);
@@ -266,6 +267,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>
                 layout2.setVisibility(View.VISIBLE);
             }
         }
+         */
 
 
     }

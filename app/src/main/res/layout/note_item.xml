@@ -50,13 +50,12 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="4dp"
             android:layout_marginTop="8dp"
-            android:layout_marginRight="4dp"
             android:layout_marginBottom="4dp"
             app:cardCornerRadius="15dp"
-            app:cardElevation="2dp">
+            app:cardElevation="0dp">
 
+            <!-- 내용 위주
             <LinearLayout
                 android:id="@+id/layout1"
                 android:layout_width="match_parent"
@@ -152,88 +151,96 @@
                     </RelativeLayout>
                 </LinearLayout>
             </LinearLayout>
+            -->
 
             <LinearLayout
                 android:id="@+id/layout2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="400dp"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/weatherImageView2"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_marginLeft="10dp"
+                        app:srcCompat="@drawable/weather_1" />
+
+                    <TextView
+                        android:id="@+id/dateTextView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="16dp"
+                        android:fontFamily="@font/main_font"
+                        android:text="02월10일"
+                        android:textColor="#B2EBEA"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/locationTextView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="70dp"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/main_font"
+                        android:text="강남"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
 
                 <ImageView
                     android:id="@+id/pictureImageView"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="300dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_margin="10dp"
                     android:background="@drawable/bg_rounding"
                     android:clipToOutline="true"
                     android:padding="5dp"
-                    android:src="@drawable/picture1" />
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/noimagefound" />
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/moodImageView2"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:padding="5dp"
+                        app:srcCompat="@drawable/smile5_48" />
 
                     <TextView
                         android:id="@+id/contentsTextView2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="47dp"
+                        android:layout_marginTop="3dp"
                         android:fontFamily="@font/main_font"
                         android:text="내용"
                         android:textColor="@color/black"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
+                </RelativeLayout>
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp">
-
-                        <ImageView
-                            android:id="@+id/moodImageView2"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:layout_alignParentLeft="true"
-                            android:padding="5dp"
-                            app:srcCompat="@drawable/smile5_48" />
-
-                        <ImageView
-                            android:id="@+id/weatherImageView2"
-                            android:layout_width="32dp"
-                            android:layout_height="32dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_toRightOf="@+id/moodImageView2"
-                            app:srcCompat="@drawable/weather_1" />
-
-                        <TextView
-                            android:id="@+id/locationTextView2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:fontFamily="@font/main_font"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/dateTextView2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:fontFamily="@font/main_font"
-                            android:text="02월10일"
-                            android:textColor="#B2EBEA"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </RelativeLayout>
-                </LinearLayout>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -72,22 +73,24 @@ public class Fragment1 extends Fragment {
     // XML 레이아웃 안에 들어 있는 위젯이나 레이아웃을 찾아 변수에 할당하기 위한 메서드
     private void initUI(ViewGroup rootView) {
 
-        /* 사진 위주 */
+
+        /* 사진 위주
         ImageButton imageButton1 = rootView.findViewById(R.id.imageButton);
         imageButton1.setOnClickListener((v) -> {
             adapter.switchLayout(1);
             adapter.notifyDataSetChanged();
-        });
+        }); */
 
-        /* 내용 위주 */
+        /* 내용 위주
         ImageButton imageButton2 = rootView.findViewById(R.id.imageButton2);
         imageButton2.setOnClickListener((v) -> {
             adapter.switchLayout(0);
             adapter.notifyDataSetChanged();
-        });
+        }); */
 
 
         recyclerView = rootView.findViewById(R.id.recyclerView);
+        recyclerView.addItemDecoration(new DividerItemDecoration(context,1));
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);

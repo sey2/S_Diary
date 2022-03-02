@@ -193,7 +193,7 @@ public class Fragment2 extends Fragment {
     // XML 레이아웃 안에 들어 있는 위젯이나 레이아웃을 찾아 변수에 할당하기 위한 메서드
     private void initUI(ViewGroup rootView){
         weatherIcon = rootView.findViewById(R.id.weatherIcon);
-        weatherImage1 = rootView.findViewById(R.id.weatherImageView);
+//        weatherImage1 = rootView.findViewById(R.id.weatherImageView);
         weatherImage2 = rootView.findViewById(R.id.weatherImageView2);
         dateTextView = rootView.findViewById(R.id.dateTextView);
         locationTextView = rootView.findViewById(R.id.locationTextView);
