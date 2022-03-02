@@ -1,9 +1,7 @@
 package org.techtown.diary.ui;
 
-import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -714,7 +712,5 @@ public class Fragment2 extends Fragment {
     public void setmMode(int mode){
         this.mMode = mode;
     }
-
-    public int getmMode() { return this.mMode; }
 
 }

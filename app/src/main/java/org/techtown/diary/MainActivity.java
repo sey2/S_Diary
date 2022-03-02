@@ -91,17 +91,17 @@ public class MainActivity extends AppCompatActivity
         fragment2 = new Fragment2();
         fragment3 = new Fragment3();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,fragment1).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
 
         bottomNavigation = findViewById(R.id.bottom_navigation);
-        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener(){
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override   // 하단 탭 버튼을 눌렀을 때 호출되는 메서드
-            public boolean onNavigationItemSelected(@NonNull MenuItem item){
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 FragmentManager manager = getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
 
 
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.tab1:
                         selectedTabIndex = 0;
                         transaction.replace(R.id.container, fragment1).commit();
@@ -122,11 +122,11 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        if(savedInstanceState == null )
-            onTabSelected(0,null);       // 일기목록 프래그먼트 호출
-        else{
+        if (savedInstanceState == null)
+            onTabSelected(0, null);       // 일기목록 프래그먼트 호출
+        else {
             int index = savedInstanceState.getInt(SELECTED_TAB_INDEX);
-            onTabSelected(index,null);       // 저장된 탭 번호에    맞는 프래그먼트 화면 지정
+            onTabSelected(index, null);       // 저장된 탭 번호에    맞는 프래그먼트 화면 지정
         }
 
         setPicturePath();
@@ -166,15 +166,14 @@ public class MainActivity extends AppCompatActivity
 
     /* 이 메서드가 호출되면 하단 탭의 setSelected 메서드를 이용해 다른 탭 버튼이 선택 되도록 함 */
     @Override
-    public void onTabSelected(int position, Note item){
+    public void onTabSelected(int position, Note item) {
         if (position == 0)
             bottomNavigation.setSelectedItemId(R.id.tab1);
         else if (position == 1) {
             fragment2.setmMode(AppConstants.MODE_INSERT);       // 새로운 일기 작성
             fragment2.setWeather(currentWeather);
             bottomNavigation.setSelectedItemId(R.id.tab2);
-        }
-        else if (position == 2)
+        } else if (position == 2)
             bottomNavigation.setSelectedItemId(R.id.tab3);
         else if (position == 3) {       // 일기 수정시
             fragment2.setItem(item);
@@ -185,15 +184,15 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onRequest(String command){
-        if(command != null){
-            if(command.equals("getCurrentLocation")){
+    public void onRequest(String command) {
+        if (command != null) {
+            if (command.equals("getCurrentLocation")) {
                 getCurrentLocation();
             }
         }
     }
 
-    public void getCurrentLocation(){
+    public void getCurrentLocation() {
         // set current time
         currentDate = new Date();
 
@@ -204,19 +203,21 @@ public class MainActivity extends AppCompatActivity
         currentDateString = todayDateFormat.format(currentDate);
         AppConstants.println("currentDateString : " + currentDateString);
 
+        /*  00월 00일
         if (fragment2 != null) {
             fragment2.setDateString(currentDateString);
-        }
+        } */
 
         LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        try{
+
+        try {
             currentLocation = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
-            if(currentLocation != null){
+            if (currentLocation != null) {
                 double latitude = currentLocation.getLatitude();
                 double longitude = currentLocation.getLongitude();
-                String message = "Last Location -> Latitude : " + latitude +"\nLongitude:" + longitude;
+                String message = "Last Location -> Latitude : " + latitude + "\nLongitude:" + longitude;
                 println(message);
 
                 getCurrentWeather();
@@ -229,13 +230,13 @@ public class MainActivity extends AppCompatActivity
 
             manager.requestLocationUpdates(LocationManager.GPS_PROVIDER, minTime, minDistance, gpsListener);
             println("Current location requested.");
-        }catch (SecurityException e){
+        } catch (SecurityException e) {
             e.printStackTrace();
         }
     }
 
-    class GPSListener implements LocationListener{
-        public void onLocationChanged(Location location){
+    class GPSListener implements LocationListener {
+        public void onLocationChanged(Location location) {
             currentLocation = location;
 
             locationCount++;
@@ -250,13 +251,17 @@ public class MainActivity extends AppCompatActivity
             getCurrentAddress();
         }
 
-        public void onProviderDisabled(String provider){}
+        public void onProviderDisabled(String provider) {
+        }
 
-        public void onProviderEnabled(String provider){}
+        public void onProviderEnabled(String provider) {
+        }
 
-        public void onStatusChanged(String provider, int status, Bundle extras) {}
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+        }
 
     }
+
     public void getCurrentAddress() {
         // 현재 위치를 주소로 반환
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
@@ -282,14 +287,14 @@ public class MainActivity extends AppCompatActivity
 
             if (address.getSubLocality() != null) {
                 if (currentAddress != null) {
-                    currentAddress +=  " " + address.getSubLocality();
+                    currentAddress += " " + address.getSubLocality();
                 } else {
                     currentAddress = address.getSubLocality();
                 }
             }
 
-            if(address.getThoroughfare() != null){
-                currentAddress +=  " " + address.getThoroughfare();
+            if (address.getThoroughfare() != null) {
+                currentAddress += " " + address.getThoroughfare();
             }
 
             String adminArea = address.getAdminArea();
@@ -318,7 +323,7 @@ public class MainActivity extends AppCompatActivity
         url += "?gridx=" + Math.round(gridX);
         url += "&gridy=" + Math.round(gridY);
 
-        Map<String,String> params = new HashMap<String,String>();
+        Map<String, String> params = new HashMap<String, String>();
 
         MyApplication.send(AppConstants.REQ_WEATHER_BY_GRID, Request.Method.GET, url, params, this);
     }
@@ -362,8 +367,8 @@ public class MainActivity extends AppCompatActivity
                         println("  기온 : " + item.temp + " C");
                         println("  강수확률 : " + item.pop + "%");
 
-                        println("debug 1 : " + (int)Math.round(item.ws * 10));
-                        float ws = Float.valueOf(String.valueOf((int)Math.round(item.ws * 10))) / 10.0f;
+                        println("debug 1 : " + (int) Math.round(item.ws * 10));
+                        float ws = Float.valueOf(String.valueOf((int) Math.round(item.ws * 10))) / 10.0f;
                         println("  풍속 : " + ws + " m/s");
                     }
 
@@ -372,6 +377,11 @@ public class MainActivity extends AppCompatActivity
                     currentWeather = item.wfKor;
                     if (fragment2 != null) {
                         fragment2.setWeather(item.wfKor);
+
+                        // 00월 00일 어느 맑은 날
+                        String DateWeather = ChangeWeatherString(currentWeather);
+                        fragment2.setDateString(currentDateString + " 어느 " + DateWeather);
+
                     }
 
                     // stop request location service after 2 times
@@ -379,7 +389,7 @@ public class MainActivity extends AppCompatActivity
                         stopLocationService();
                     }
 
-                } catch(Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
@@ -396,6 +406,7 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+
     public void stopLocationService() {
         LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -404,7 +415,7 @@ public class MainActivity extends AppCompatActivity
 
             println("Current location requested.");
 
-        } catch(SecurityException e) {
+        } catch (SecurityException e) {
             e.printStackTrace();
         }
     }
@@ -444,20 +455,20 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    public void showStopWriteDialog(){
+    public void showStopWriteDialog() {
         stopWriteDialog = new StopWriteDialog(this);
         stopWriteDialog.show();
 
-        stopWriteDialog.setCancelButtonOnClickListener(new View.OnClickListener(){
+        stopWriteDialog.setCancelButtonOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 stopWriteDialog.dismiss();
             }
         });
 
-        stopWriteDialog.setBackButtonOnClickListener(new View.OnClickListener(){
+        stopWriteDialog.setBackButtonOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 stopWriteDialog.dismiss();
                 bottomNavigation.setSelectedItemId(R.id.tab1);
             }
@@ -474,24 +485,41 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    public void onBackPressed(){
-        if(bottomNavigation.getSelectedItemId() == R.id.tab1){
-            if(System.currentTimeMillis() > backPressTime + 2000){
+    public void onBackPressed() {
+        if (bottomNavigation.getSelectedItemId() == R.id.tab1) {
+            if (System.currentTimeMillis() > backPressTime + 2000) {
                 backPressTime = System.currentTimeMillis();
-                Toast.makeText(this, "버튼을 한번 더 누르면 종료됩니다.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "버튼을 한번 더 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            if(System.currentTimeMillis() <= backPressTime + 2000)
+            if (System.currentTimeMillis() <= backPressTime + 2000)
                 super.onBackPressed();
 
-        }else if (bottomNavigation.getSelectedItemId() == R.id.tab2){
+        } else if (bottomNavigation.getSelectedItemId() == R.id.tab2) {
             showStopWriteDialog();
-        }
-        else
+        } else
             bottomNavigation.setSelectedItemId(R.id.tab1);
     }
 
 
+    public String ChangeWeatherString(String weather) {
 
+        if (weather.equals("맑음"))
+            return "맑은 날";
+        else if (weather.equals("구름 조금"))
+            return "구름 조금 있는 날";
+        else if (weather.equals("구름 많음"))
+            return "구름 많은 날";
+        else if (weather.equals("흐림"))
+            return "흐린 날";
+        else if (weather.equals("비"))
+            return "비 내리는 날";
+        else if (weather.equals("눈/비"))
+            return "눈과 비 오는 날";
+        else if (weather.equals("눈"))
+            return "눈 내리는 날";
+        else
+            return "";
+    }
 }
