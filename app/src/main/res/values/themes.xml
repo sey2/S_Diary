@@ -7,6 +7,8 @@
         <item name="colorPrimaryDark">@color/sky</item>
         <!-- 상태바 색깔 -->
         <item name="colorPrimaryVariant">@color/white</item>
+        <!-- 상태바 아이콘 색 검은색 -->
+        <item name="android:windowLightStatusBar">true</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
