@@ -239,6 +239,7 @@ public class Fragment2 extends Fragment {
             }
         });
 
+        /*      닫기 버튼 비활성화
         Button closeButton = rootView.findViewById(R.id.closeButton);
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -247,6 +248,7 @@ public class Fragment2 extends Fragment {
                     listener.onTabSelected(0,null);
             }
         });
+         */
 
         moodImageView1 = rootView.findViewById(R.id.mood1);
         moodImageView1.setOnClickListener(moodClickListener);
