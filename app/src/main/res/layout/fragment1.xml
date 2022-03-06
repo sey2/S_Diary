@@ -24,7 +24,8 @@
             android:fontFamily="@font/main_font"
             android:text="나의 일기"
             android:textColor="@color/black"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <!--
         <ImageButton

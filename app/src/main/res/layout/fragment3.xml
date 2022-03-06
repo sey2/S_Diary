@@ -33,8 +33,8 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/main_font"
                     android:text="기분별 비율"
-                    android:textColor="#B2EBEA"
-                    android:textColorHint="#B2EBEA"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/main_font"
                     android:text="요일별 기분"
-                    android:textColor="#B2EBEA"
+                    android:textColor="@color/black"
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
