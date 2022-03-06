@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">싱글다이어리</string>
+    <string name="app_name">한줄</string>
 
     <string name="tab_title1">목록</string>
     <string name="tab_title2">작성</string>

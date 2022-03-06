@@ -3,6 +3,48 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.20625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable-v24/splash_background.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable-v24/splash_base.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/as.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/base_bg.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/bg_rounding.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/border_round.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/bottom.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/btn_repple_effect.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/bubble.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/card_view_bg.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/circle_button.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/circle_button_clicked.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/circle_view.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/dialog_button.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/hyperlink_underline.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/item_color.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/nav_color.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/select_button.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/text_cursor.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/drawable/under_line.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/font/main_font.xml" value="0.2203125" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/asd.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/content_delete_dialog.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/custom_dialog.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/edit_diary.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/fragment1.xml" value="0.33" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/fragment2.xml" value="0.33" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/fragment3.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/fragment4.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/note_item.xml" value="0.33" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/picture_menu_dialog.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/stop_write_dialog.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/layout/test.xml" value="0.23314606741573032" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/menu/menu_bottom.xml" value="0.34791666666666665" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/mipmap-anydpi-v26/ic_main.xml" value="0.20625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/mipmap-anydpi-v26/ic_main2.xml" value="0.3640625" />
+        <entry key="..\:/Users/Seyoung/AndroidStudioProjects/DiaryToyProject/app/src/main/res/mipmap-anydpi-v26/ic_main_round.xml" value="0.3640625" />
         <entry key="app/src/main/res/drawable-v24/item_color.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/item_color.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/select_button.xml" value="0.2085" />

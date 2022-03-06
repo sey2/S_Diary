@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Single Diary</string>
+    <string name="app_name">한줄</string>
 
     <string name="tab_title1">List</string>
     <string name="tab_title2">Write</string>
