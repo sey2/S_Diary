@@ -37,6 +37,7 @@ import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import org.techtown.diary.BuildConfig;
+import org.techtown.diary.MainActivity;
 import org.techtown.diary.custom.ContentDeleteDialog;
 import org.techtown.diary.custom.PictureMenuDialog;
 import org.techtown.diary.db.NoteDatabase;
@@ -150,6 +151,8 @@ public class Fragment2 extends Fragment {
     @Override
     public void onStart(){
         super.onStart();
+
+        // if문을 안적어 주게되면 사진을 찍거나 선택해도 적용 안되는 버그 있음
         if(mMode == AppConstants.MODE_MODIFY)
             applyItem();
     }
@@ -161,7 +164,7 @@ public class Fragment2 extends Fragment {
         if (item!=null) {
             setWeather(null);
             setAddress(item.getAddress());
-            setDateString(item.getCreateDateStr());
+            setDateString(item.getCreateDateStr() + " " + MainActivity.ChangeWeatherString(item.getWeather()));
             setContents(item.getContents());
 
             String picturePath = item.getPicture();
@@ -172,19 +175,14 @@ public class Fragment2 extends Fragment {
                 pictureImageView.setImageBitmap(resultPhotoBitmap);
             }
 
-        } else {
-            weatherIcon.setImageResource(R.drawable.weather_1);
-            weatherIndex = 0;
-            setAddress("");
-
+        }
+        /*
+        else {
             Date currentDate = new Date();
             String currentDateString = AppConstants.dateFormat3.format(currentDate);
-            setDateString(currentDateString);
-
             contentsInput.setText("");
-            pictureImageView.setImageResource(R.drawable.noimagefound);
         }
-
+         */
     }
 
 
@@ -299,7 +297,7 @@ public class Fragment2 extends Fragment {
         locationTextView.setText(data);
     }
 
-    public void setDateString(@NonNull  String dataString){
+    public void setDateString(@NonNull String dataString){
         dateTextView.setText(dataString);
     }
 
@@ -714,5 +712,4 @@ public class Fragment2 extends Fragment {
     public void setmMode(int mode){
         this.mMode = mode;
     }
-
 }

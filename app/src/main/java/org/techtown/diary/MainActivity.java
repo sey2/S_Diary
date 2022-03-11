@@ -78,6 +78,8 @@ public class MainActivity extends AppCompatActivity
     private int selectedTabIndex = 0;   // 현재 선택되어 있는 탭 번호 (onSaveInstanceState() 호출 시 Bundle 객체로 저장)
     private long backPressTime = 0;
 
+    public static Note todayItem;
+
 
     /* 데이터베이스 인스턴스 */
     public static NoteDatabase mDatabase = null;
@@ -375,6 +377,7 @@ public class MainActivity extends AppCompatActivity
                     // set current weather
                     WeatherItem item = weather.body.datas.get(0);
                     currentWeather = item.wfKor;
+
                     if (fragment2 != null) {
                         fragment2.setWeather(item.wfKor);
 
@@ -503,7 +506,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public String ChangeWeatherString(String weather) {
+    public static String ChangeWeatherString(String weather) {
 
         if (weather.equals("맑음"))
             return "맑은 날";
@@ -522,4 +525,5 @@ public class MainActivity extends AppCompatActivity
         else
             return "";
     }
+
 }
