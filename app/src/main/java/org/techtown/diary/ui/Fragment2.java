@@ -148,6 +148,8 @@ public class Fragment2 extends Fragment {
 
         /* 수정 화면 -> 일기 목록 화면 -> 일기 작성 화면 전환시 */
         this.mMode = AppConstants.MODE_INSERT;
+        isPhotoFileSaved = false;
+        isPhotoCaptured = false;
     }
 
     @Override
