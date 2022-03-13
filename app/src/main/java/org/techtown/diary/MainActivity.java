@@ -75,11 +75,7 @@ public class MainActivity extends AppCompatActivity
     Date currentDate;
     SimpleDateFormat todayDateFormat;
 
-    private int selectedTabIndex = 0;   // 현재 선택되어 있는 탭 번호 (onSaveInstanceState() 호출 시 Bundle 객체로 저장)
     private long backPressTime = 0;
-
-    public static Note todayItem;
-
 
     /* 데이터베이스 인스턴스 */
     public static NoteDatabase mDatabase = null;
@@ -102,20 +98,16 @@ public class MainActivity extends AppCompatActivity
                 FragmentManager manager = getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
 
-
                 switch (item.getItemId()) {
                     case R.id.tab1:
-                        selectedTabIndex = 0;
                         transaction.replace(R.id.container, fragment1).commit();
                         return true;
 
                     case R.id.tab2:
-                        selectedTabIndex = 1;
                         transaction.replace(R.id.container, fragment2).commit();
                         return true;
 
                     case R.id.tab3:
-                        selectedTabIndex = 2;
                         transaction.replace(R.id.container, fragment3).commit();
 
                         return true;
@@ -167,13 +159,12 @@ public class MainActivity extends AppCompatActivity
     }
 
     /* 이 메서드가 호출되면 하단 탭의 setSelected 메서드를 이용해 다른 탭 버튼이 선택 되도록 함 */
+    /* 현재는 position3일 경우만 사용 되는 중*/
     @Override
     public void onTabSelected(int position, Note item) {
         if (position == 0)
             bottomNavigation.setSelectedItemId(R.id.tab1);
         else if (position == 1) {
-            fragment2.setmMode(AppConstants.MODE_INSERT);       // 새로운 일기 작성
-            fragment2.setWeather(currentWeather);
             bottomNavigation.setSelectedItemId(R.id.tab2);
         } else if (position == 2)
             bottomNavigation.setSelectedItemId(R.id.tab3);
