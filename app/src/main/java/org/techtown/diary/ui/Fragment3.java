@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +23,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.formatter.ValueFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.github.mikephil.charting.utils.MPPointF;
 
@@ -40,6 +42,8 @@ public class Fragment3 extends Fragment {
     BarChart chart2;
 
     Context context;
+
+    ArrayList<Integer> colors = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -128,27 +132,27 @@ public class Fragment3 extends Fragment {
 
     // XML 레이아웃 안에 들어 있는 위젯이나 레이아웃을 찾아 변수에 할당하기 위한 메서드
     private void initUI(ViewGroup rootView){
+        addColor();     // 그래프 색 추가
+
         chart = rootView.findViewById(R.id.chart1);
         chart.setUsePercentValues(true);
         chart.getDescription().setEnabled(false);
+        chart.setDrawHoleEnabled(false);
+        chart.setHighlightPerTapEnabled(true);  // 특정 부분 선택시 확대 효과 여부
 
-        chart.setCenterText(getResources().getString(R.string.graph1_title));
+        // chart.setTransparentCircleColor(Color.WHITE);       // 중간원과 바깥원 사이의 얇은 투명원의 색상 결정
+        // chart.setTransparentCircleAlpha(110);   // 중간 원과 바깥 원 사이의 얇은 투명원의 알파 값 결정
 
-        chart.setTransparentCircleColor(Color.WHITE);
-        chart.setTransparentCircleAlpha(110);
+       // chart.setHoleRadius(58f);   // 중간원 반지름
+       // chart.setTransparentCircleRadius(61f);
+        // chart.setDrawCenterText(true);
 
-        chart.setHoleRadius(58f);
-        chart.setTransparentCircleRadius(61f);
 
-        chart.setDrawCenterText(true);
-
-        chart.setHighlightPerTapEnabled(true);
-
-        Legend legend1 = chart.getLegend();
-        legend1.setEnabled(false);
+        Legend legend1 = chart.getLegend();     // 그래프 구성 요소들을 추가로 명시하는지 여부
+        legend1.setEnabled(false);              // 추가 구성 요소 false
 
         chart.setEntryLabelColor(Color.WHITE);
-        chart.setEntryLabelTextSize(12f);
+       // chart.setEntryLabelTextSize(12f);     // entry 구성요소 label 크기
 
 
         chart2 = rootView.findViewById(R.id.chart2);
@@ -197,22 +201,29 @@ public class Fragment3 extends Fragment {
 
         PieDataSet dataSet = new PieDataSet(entries, "기분별 비율");
 
-        dataSet.setDrawIcons(true);
+        dataSet.setValueFormatter(new ValueFormatter() {
+            @Override
+            public String getFormattedValue(float value){
+                return String.format("%.0f",value) + "%";
+            }
+        });
 
-        dataSet.setSliceSpace(3f);
-        dataSet.setIconsOffset(new MPPointF(0, -40));
-        dataSet.setSelectionShift(5f);
+        dataSet.setDrawIcons(true);     // 아이콘 여부 표시
+        dataSet.setSliceSpace(10f);     // 그래프 간격
+        dataSet.setIconsOffset(new MPPointF(0, -40));       // 아이콘 offset
+       // dataSet.setSelectionShift(5f);    //  특정 부분 선택시 확대 효과 크기
 
-        ArrayList<Integer> colors = new ArrayList<>();
-        for (int c : ColorTemplate.JOYFUL_COLORS) {
-            colors.add(c);
-        }
+
         dataSet.setColors(colors);
 
         PieData data = new PieData(dataSet);
 
-        data.setValueTextSize(22.0f);
-        data.setValueTextColor(Color.WHITE);
+        data.setValueTextSize(22.0f);           // 그래프 내 text 크기
+        data.setValueTextColor(Color.WHITE );    // 그래프 내 text 색상
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            data.setValueTypeface(getResources().getFont(R.font.main_font));    // 그래프 내 text 폰트
+
 
         chart.setData(data);
         chart.invalidate();
@@ -253,10 +264,6 @@ public class Fragment3 extends Fragment {
         BarDataSet dataSet2 = new BarDataSet(entries, "요일별 기분");
         dataSet2.setColor(Color.rgb(240, 120, 124));
 
-        ArrayList<Integer> colors = new ArrayList<>();
-        for (int c : ColorTemplate.JOYFUL_COLORS) {
-            colors.add(c);
-        }
         dataSet2.setColors(colors);
         dataSet2.setIconsOffset(new MPPointF(0, -10));
 
@@ -303,5 +310,13 @@ public class Fragment3 extends Fragment {
         return AppConstants.dateFormat5.format(cal.getTime());
     }
 
+    private void addColor(){
+        colors.add(getResources().getColor(R.color.status_bar));
+        colors.add(getResources().getColor(R.color.lite_pink));
+        colors.add(getResources().getColor(R.color.pastel_green));
+        colors.add(getResources().getColor(R.color.alice_blue));
+        colors.add(getResources().getColor(R.color.bg_color));
+
+    }
 
 }

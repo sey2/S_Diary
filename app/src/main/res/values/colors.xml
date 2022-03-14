@@ -11,4 +11,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="deep_pink">#FF1493</color>
+    <color name="lite_pink">#FFB6C1</color>
+    <color name="alice_blue">#F0F8FF</color>
+    <color name="orange">#FFA500</color>
+    <color name="pastel_green">#BEE984</color>
+    <color name="pastel_yellow">#FDFA87</color>
+    <color name="pastel_orange">#F2CFA5</color>
 </resources>
