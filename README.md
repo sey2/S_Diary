@@ -1,7 +1,7 @@
 
 ### &nbsp;&nbsp; :memo: S Diary
 
-<img src="https://user-images.githubusercontent.com/54762273/155878293-559f6e0f-f516-4ade-af3c-5f84187ff339.png" align=left >
+<img src="https://user-images.githubusercontent.com/54762273/158211853-a2abe691-6911-4775-9c93-ee549587b23b.png" align=left >
 
 
 ![한줄일기](https://user-images.githubusercontent.com/54762273/154873330-50e5637a-85f6-44fb-9248-246010a77442.png)
