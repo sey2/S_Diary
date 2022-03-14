@@ -12,7 +12,7 @@
 <table>
   <tr>
     <td><img width="200" src="https://user-images.githubusercontent.com/54762273/158201208-9709a785-f3c2-40bb-8607-667b6a4a96d5.gif"></td>
-    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/158201234-b14ef657-da29-4301-8c56-4d28f8efe1db.gif"></td>
+    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/158209057-2397ca0e-0a13-4e84-b792-e694437b9674.gif"></td>
     <td><img width="200" src="https://user-images.githubusercontent.com/54762273/158202991-6734dd5f-9b5a-4015-9753-57ca258f621b.gif"></td>
     <td><img width="200" src="https://user-images.githubusercontent.com/54762273/158204639-b5a8b4c1-a85c-407a-aed5-59aa5aff0b3c.gif"></td>
     <td><img width="200" src="https://user-images.githubusercontent.com/54762273/158206651-b11304f0-4cfa-4a5f-aeac-e2d6465bc629.gif"></td>
