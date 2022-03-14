@@ -11,19 +11,18 @@
 
 <table>
   <tr>
-    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/156147839-d03e0d8c-2689-4754-a345-499e3bfc2520.gif"></td>
-    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/156138875-21a50a04-fa8a-48f8-bbf9-254ebd631a83.gif"></td>
-    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/156139436-7ca6899d-a28b-4440-8eb6-85b17ac08665.gif"></td>
-    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/156139607-193b9619-1d12-493f-a96f-7d886bd142ee.gif"></td>
-    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/156140592-38fa5af1-1efb-4dde-b6fe-c08626f96f86.gif"></td>
-
+    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/158201208-9709a785-f3c2-40bb-8607-667b6a4a96d5.gif"></td>
+    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/158201234-b14ef657-da29-4301-8c56-4d28f8efe1db.gif"></td>
+    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/158202991-6734dd5f-9b5a-4015-9753-57ca258f621b.gif"></td>
+    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/158204639-b5a8b4c1-a85c-407a-aed5-59aa5aff0b3c.gif"></td>
+    <td><img width="200" src="https://user-images.githubusercontent.com/54762273/158206651-b11304f0-4cfa-4a5f-aeac-e2d6465bc629.gif"></td>
   </tr>
   <tr>
     <td align="center"><b>스플래시</b></td>
     <td align="center"><b>한줄 목록 / 삭제</b></td>
     <td align="center"><b>오늘 한줄</b></td>
-      <td align="center"><b>기분 통계</b></td>
     <td align="center"><b>수정</b></td>
+    <td align="center"><b>기분 통계</b></td>
   </tr>
 </table>
 <br>
