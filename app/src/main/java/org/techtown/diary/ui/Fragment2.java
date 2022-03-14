@@ -107,8 +107,10 @@ public class Fragment2 extends Fragment {
 
         initUI(rootView);
 
-        // 입력 화면이 보일 때 마다 현재 위치를 확인함 (onCreateView)
-        if(requestListener != null)
+        /* 입력 화면이 보일 때 마다 현재 위치를 확인함 (onCreateView) */
+        /* item == null 체크하지 않으면 일기 수정할 떄 dateTextView가 현재 날씨 텍스트로 설정됨 */
+        /* 아마 JSON 받아올 떄 비동기 방식으로 날씨를 불러오는데 onStart() 메서드보다 느리게 작동해서 그런거 같음*/
+        if(requestListener != null && item == null)
             requestListener.onRequest("getCurrentLocation");
 
 
@@ -163,15 +165,15 @@ public class Fragment2 extends Fragment {
 
     /* 일기 수정 -> 전에 작성한 내용 불러오기 */
     public void applyItem() {
-        AppConstants.println("applyItem called.");
+        AppConstants.println("applyItem called.1");
 
         if (item!=null) {
             setWeather(null);
             setAddress(item.getAddress());
-            setDateString(item.getCreateDateStr() + " " + MainActivity.ChangeWeatherString(item.getWeather()));
             setContents(item.getContents());
 
             String picturePath = item.getPicture();
+
             if (picturePath == null || picturePath.equals("")) {
                 pictureImageView.setImageResource(R.drawable.noimagefound);
             } else {
@@ -180,13 +182,6 @@ public class Fragment2 extends Fragment {
             }
 
         }
-        /*
-        else {
-            Date currentDate = new Date();
-            String currentDateString = AppConstants.dateFormat3.format(currentDate);
-            contentsInput.setText("");
-        }
-         */
     }
 
 
@@ -273,10 +268,12 @@ public class Fragment2 extends Fragment {
         String [] array = {"맑음", "구름 조금", "구름 많음", "흐림", "비", "눈/비", "눈"};
 
         if(mMode == AppConstants.MODE_MODIFY){
-            String str = "@drawable/weather_" + Integer.toString(Integer.parseInt(item.getWeather()) + 1);
+            int itemWeatherIdx = Integer.parseInt(item.getWeather());   // 수정 할 일기의 날씨
+            String str = "@drawable/weather_" + Integer.toString(itemWeatherIdx + 1);
             int path = weatherIcon.getResources().getIdentifier(str,"drawable",packName);
             weatherIcon.setImageResource(path);
-            weatherIndex = Integer.parseInt(item.getWeather());
+            weatherIndex = itemWeatherIdx;
+            setDateString(item.getCreateDateStr() + " " + MainActivity.ChangeWeatherString(array[itemWeatherIdx]));
         }
         else if(data != null && mMode == AppConstants.MODE_INSERT){
             for(int i=0; i<array.length; i++){
