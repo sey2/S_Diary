@@ -72,7 +72,7 @@
                 android:background="@drawable/under_line"
                 android:enabled="false"
                 android:fontFamily="@font/main_font"
-                android:text="OO월 OO일"
+                android:text="날씨와 날짜 불러오는 중.."
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
