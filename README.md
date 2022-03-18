@@ -44,7 +44,7 @@
 
 ## 💭  Todo List
 - [x] 수정화면 -> 일기 화면 -> 일기 새로작성시 날씨, 날짜 받아오는 버그 수정 (init ui or MainActivity)
-- [ ] FCM 구현  
+- [x] FCM 구현  
 - [ ] 환경설정 화면 구현 하기 (예정, 폰트 설정변경, 1일 1일기 알림?, 데이터 백업 복원?)
 
 <br>
@@ -130,6 +130,7 @@
 |Layout| https://github.com/chthai64/SwipeRevealLayout|
 |Image, Camera|https://github.com/ArthurHub/Android-Image-Cropper|
 |비동기처리|AsyncTask|
+|PUSH| FCM |
 
 <br>
 
