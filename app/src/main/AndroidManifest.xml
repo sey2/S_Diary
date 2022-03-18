@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.techtown.diary">
+    package="com.today.diary">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -13,7 +13,7 @@
                   android:required="true"/>
 
     <application
-        android:name=".MyApplication"
+        android:name="com.today.diary.MyApplication"
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_main"
@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DiaryToyProject">
 
-        <activity android:name=".ui.SplashActivity"
+        <activity android:name="com.today.diary.ui.SplashActivity"
                   android:theme="@style/SplashTheme"
                   android:exported="true">
             <intent-filter>
@@ -31,7 +31,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity"
+        <activity android:name="com.today.diary.MainActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
 
