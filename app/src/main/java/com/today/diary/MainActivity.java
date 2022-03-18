@@ -18,7 +18,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.android.volley.Request;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.stanfy.gsonxml.GsonXml;
 import com.stanfy.gsonxml.GsonXmlBuilder;
 import com.stanfy.gsonxml.XmlParserCreator;
@@ -126,6 +130,20 @@ public class MainActivity extends AppCompatActivity
         }
 
         setPicturePath();
+
+        // FCM 설정
+        FirebaseMessaging.getInstance().getToken() // 등록 id 확인을 위한 리스너 설정
+                .addOnCompleteListener(new OnCompleteListener<String>() {
+                    @Override
+                    public void onComplete(@NonNull Task<String> task) {
+                        if(!task.isSuccessful()){
+                            Log.d("Main", "토큰 가져오는데 실패", task.getException());
+                            return;
+                        }
+                        String newToken = task.getResult();
+                        println("등록id : " + newToken);
+                    }
+                });
 
         AndPermission.with(this)
                 .runtime()
