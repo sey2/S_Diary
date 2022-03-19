@@ -3,8 +3,7 @@
 
 <img src="https://user-images.githubusercontent.com/54762273/158211853-a2abe691-6911-4775-9c93-ee549587b23b.png" align=left >
 
-![한줄_일기](https://user-images.githubusercontent.com/54762273/159121583-65ce1f29-ccc1-42f1-a151-27710cc544f7.png)
-
+![한줄_일기](https://user-images.githubusercontent.com/54762273/159121684-c0d10d96-0fc7-430f-b72b-09d1dabecfca.png)
 
 <br>
 
