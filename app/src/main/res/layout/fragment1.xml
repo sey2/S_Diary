@@ -27,6 +27,15 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
+
+        <ImageView
+            android:id="@+id/noDiaryImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dirayList"
+            android:src="@drawable/no_diary"
+            android:visibility="visible" />
+
         <!--
         <ImageButton
             android:id="@+id/imageButton"

@@ -6,10 +6,12 @@ import com.today.diary.db.NoteDatabase;
 import com.today.diary.adapter.NoteAdapter;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -35,6 +37,8 @@ public class Fragment1 extends Fragment {
 
     NoteDatabase database;
 
+    ImageView noDiaryImageView;
+
     @Override   /* Acticity 에서 프래그먼트를 호출하면 호출되는 메서드 */
     public void onAttach(Context context){
         super.onAttach(context);
@@ -59,6 +63,13 @@ public class Fragment1 extends Fragment {
     }
 
     @Override
+    public void onStart(){
+        super.onStart();
+
+        setNoImageView();
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup  container, Bundle savedInstanceState){
         ViewGroup rootView  = (ViewGroup) inflater.inflate(R.layout.fragment1, container, false);
 
@@ -66,6 +77,7 @@ public class Fragment1 extends Fragment {
 
         LoadListData loadListData = new LoadListData(context,adapter);
         loadListData.execute();
+
         return rootView;
     }
 
@@ -99,6 +111,7 @@ public class Fragment1 extends Fragment {
         adapter = new NoteAdapter();
         recyclerView.setAdapter(adapter);
 
+        noDiaryImageView = rootView.findViewById(R.id.noDiaryImageView);
 
         // SwipeLayout Click 시
         adapter.setOnItemClickListener(new OnNoteItemClickListener() {
@@ -122,6 +135,9 @@ public class Fragment1 extends Fragment {
                         // 일기 삭제
                         deleteNote(position);
                         contentDeleteDialog.dismiss();
+
+                        // 일기 목록이 없으면 일기 목록이 없어요 이미지 보여주기
+                        setNoImageView();
                     }
                 });
             }
@@ -137,6 +153,16 @@ public class Fragment1 extends Fragment {
                 "   _id = " + position;
 
         database.execSQL(sql);
+    }
+
+    public void setNoImageView(){
+        String sql = "select _id, WEATHER, ADDRESS, LOCATION_X, LOCATION_Y, CONTENTS, MOOD, PICTURE, CREATE_DATE, MODIFY_DATE from " + NoteDatabase.TABLE_NOTE + " order by CREATE_DATE desc";
+        Cursor cursor = database.rawQuery(sql);
+
+        if(cursor.getCount() > 0 )
+            noDiaryImageView.setVisibility(View.GONE);
+        else
+            noDiaryImageView.setVisibility(View.VISIBLE);
     }
 
 }
