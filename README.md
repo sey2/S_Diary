@@ -54,16 +54,13 @@
 <table align="center">
   <tr align="center">
     <td><a href="https://github.com/sey2">세영</a></td>
-    <td><a href="https://github.com/xpexpe">준현</a></td>
   </tr>
   <tr align="center">
     <td><img src="https://github.com/sey2.png" width="150"></td>
-    <td><img src="https://github.com/xpexpe.png" width="150"></td>
   </tr>
   <tr align="center">
       <tr align="center">
     <td><b>Android</b>: Java</a></td>
-    <td><b>iOS</b>: Swift</a></td>
   </tr>
 </table>
 
